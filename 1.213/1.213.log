@@ -1,0 +1,3206 @@
+*************************************************************************
+*************************************************************************
+****** FLASH FILE PARSE LOG ****** 1.213.swf
+*************************************************************************
+*************************************************************************
+	RECT(min,max) x= (0.0, 550.0), y= (0.0, 400.0)
+	version=6, type=CWS, framerate=18, framenum=302
+
+************************************************** BackGroundColor
+	RGB= (0, 0, 0)
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 16
+		no.= 000, name: username
+		no.= 001, name: System
+		no.= 002, name: useCodepage
+		no.= 003, name: userinf
+		no.= 004, name: LoadVars
+		no.= 005, name: onLoad
+		no.= 006, name: success
+		no.= 007, name: _root
+		no.= 008, name: this
+		no.= 009, name: length
+		no.= 010, name: substr
+		no.= 011, name: null
+		no.= 012, name: POST
+		no.= 013, name: /bluecat/game/postUsername.jsp
+		no.= 014, name: sendAndLoad
+		no.= 015, name: FSCommand:showmenu
+000373 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionGetURL2
+		non, Target is a browser window, No variables to load
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 3
+		no.= 000, name: loaded
+		no.= 001, name: _root
+		no.= 002, name: getBytesLoaded
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 1
+		no.= 000, name: 
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: main
+************************************************** DefineFont2
+	type: Bold
+	LanguageCode: Simplified Chinese
+	FontID= 19, name: •û³‘åüK ‘Ì
+	CodeTableNum= 37
+************************************************** DefineText
+	CharacterID= 20
+	RECT(min,max) x= (-0.1, 88.7), y= (3.6, 25.4)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 19
+	RGB= (255, 255, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 1
+		Strings: ±±
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+		==================================== GLYPHENTRY
+		GlyphCount= 3
+		Strings:    
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+		==================================== GLYPHENTRY
+		GlyphCount= 1
+		Strings: ¨î
+************************************************** DefineFont2
+	type: Bold
+	LanguageCode: Simplified Chinese
+	FontID= 22, name: üK‘Ì
+	CodeTableNum= 6
+************************************************** DefineText
+	CharacterID= 23
+	RECT(min,max) x= (-0.2, 72.6), y= (1.9, 19.0)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 22
+	RGB= (0, 0, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 3
+		Strings: ©ñ?¤l
+************************************************** DefineText
+	CharacterID= 24
+	RECT(min,max) x= (-0.3, 68.0), y= (1.8, 18.0)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 22
+	RGB= (0, 0, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 3
+		Strings: ?¬µ?
+************************************************** DefineFont2
+	type: Bold
+	LanguageCode: Simplified Chinese
+	FontID= 25, name: •û³  üK ‘Ì
+	CodeTableNum= 2
+************************************************** DefineText
+	CharacterID= 26
+	RECT(min,max) x= (2.1, 116.0), y= (8.9, 45.2)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 25
+	RGB= (143, 112, 1)
+		==================================== GLYPHENTRY
+		GlyphCount= 2
+		Strings: ?©l
+************************************************** DefineButton2
+	ButtonId= 29
+	TrackAsMenu: normal button
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BUTTONCONDACTION
+************************************************** DoActionTag
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 7
+		no.= 000, name: goal
+		no.= 001, name: goalAddOn
+		no.= 002, name: goalAddon
+		no.= 003, name: goalDis
+		no.= 004, name: $
+		no.= 005, name: levelDis
+		no.= 006, name: level
+************************************************** FrameLabel
+	label: start
+************************************************** PlaceObject2
+	PlaceFlagName: box
+************************************************** DefineFont2
+	type: Bold
+	LanguageCode: Simplified Chinese
+	FontID= 43, name: •û³­™X ‘Ì
+	CodeTableNum= 19
+************************************************** DefineText
+	CharacterID= 44
+	RECT(min,max) x= (-0.9, 136.3), y= (3.7, 21.4)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 43
+	RGB= (255, 255, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 6
+		Strings: ¥»?¥Ø?¤À¡G
+************************************************** DefineFont2
+	type: Bold
+	LanguageCode: Latin
+	FontID= 45, name: Arial
+	CodeTableNum= 9
+************************************************** DefineEditText
+	CharacterID= 46
+	RECT(min,max) x= (-6.5, 188.8), y= (-6.0, 38.4)
+	FontID= 45 FontHeight= 29.0
+	RGBA= (0, 204, 0, 255)
+	VariableName: goalDis
+	InitialText: $1000
+************************************************** DefineSound
+	sndID= 47
+	format= 2(MP3), samplecnt= 29376
+	ch: mono, br: 16[bits], sf: 11025[Hz]
+************************************************** DefineEditText
+	CharacterID= 48
+	RECT(min,max) x= (-6.5, 188.8), y= (-6.0, 38.4)
+	FontID= 45 FontHeight= 29.0
+	RGBA= (0, 204, 0, 255)
+	VariableName: goalDis
+	InitialText: $1000
+************************************************** DoActionTag
+************************************************** DefineEditText
+	CharacterID= 49
+	RECT(min,max) x= (-6.5, 188.8), y= (-6.0, 38.4)
+	FontID= 45 FontHeight= 29.0
+	RGBA= (0, 204, 0, 255)
+	VariableName: goalDis
+	InitialText: $1000
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 8
+		no.= 000, name: levelDis
+		no.= 001, name: goalAddOn
+		no.= 002, name: goal
+		no.= 003, name: goalAddon
+		no.= 004, name: goalDis
+		no.= 005, name: $
+		no.= 006, name: level
+		no.= 007, name: total
+************************************************** FrameLabel
+	label: next
+************************************************** DefineEditText
+	CharacterID= 50
+	RECT(min,max) x= (-6.5, 188.8), y= (-6.0, 38.4)
+	FontID= 45 FontHeight= 29.0
+	RGBA= (0, 204, 0, 255)
+	VariableName: goalDis
+	InitialText: $1000
+************************************************** DefineEditText
+	CharacterID= 51
+	RECT(min,max) x= (-6.5, 188.8), y= (-6.0, 38.4)
+	FontID= 45 FontHeight= 29.0
+	RGBA= (0, 204, 0, 255)
+	VariableName: goalDis
+	InitialText: $1000
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: end
+************************************************** DefineEditText
+	CharacterID= 52
+	RECT(min,max) x= (-6.5, 188.8), y= (-6.0, 38.4)
+	FontID= 45 FontHeight= 29.0
+	RGBA= (0, 204, 0, 255)
+	VariableName: goalDis
+	InitialText: $1000
+************************************************** FrameLabel
+	label: yes
+************************************************** DefineText
+	CharacterID= 53
+	RECT(min,max) x= (-0.9, 176.4), y= (4.4, 23.0)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 43
+	RGB= (255, 255, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 8
+		Strings: ®¥³ß§A?§Q??¡I
+************************************************** DefineSound
+	sndID= 54
+	format= 2(MP3), samplecnt= 29088
+	ch: mono, br: 16[bits], sf: 11025[Hz]
+************************************************** DefineEditText
+	CharacterID= 55
+	RECT(min,max) x= (-4.0, 179.9), y= (0.8, 55.6)
+	FontID= 45 FontHeight= 20.0
+	RGBA= (255, 255, 0, 255)
+	VariableName: 
+	InitialText: You made it to 
+the next Level!
+************************************************** DefineText
+	CharacterID= 56
+	RECT(min,max) x= (-0.9, 176.4), y= (4.4, 23.0)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 43
+	RGB= (255, 255, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 8
+		Strings: ®¥³ß§A?§Q??¡I
+************************************************** DefineText
+	CharacterID= 57
+	RECT(min,max) x= (-0.9, 176.4), y= (4.4, 23.0)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 43
+	RGB= (255, 255, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 8
+		Strings: ®¥³ß§A?§Q??¡I
+************************************************** DefineEditText
+	CharacterID= 58
+	RECT(min,max) x= (-4.0, 179.9), y= (0.8, 55.6)
+	FontID= 45 FontHeight= 20.0
+	RGBA= (255, 255, 0, 255)
+	VariableName: 
+	InitialText: You made it to 
+the next Level!
+************************************************** DefineText
+	CharacterID= 59
+	RECT(min,max) x= (-0.9, 176.4), y= (4.4, 23.0)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 43
+	RGB= (255, 255, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 8
+		Strings: ®¥³ß§A?§Q??¡I
+************************************************** DefineText
+	CharacterID= 60
+	RECT(min,max) x= (-0.9, 176.4), y= (4.4, 23.0)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 43
+	RGB= (255, 255, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 8
+		Strings: ®¥³ß§A?§Q??¡I
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DefineButton2
+	ButtonId= 78
+	TrackAsMenu: normal button
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BUTTONCONDACTION
+************************************************** DefineText
+	CharacterID= 79
+	RECT(min,max) x= (0.8, 77.4), y= (3.2, 20.6)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 43
+	RGB= (0, 255, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 3
+		Strings: ¤U¤@?
+************************************************** DefineFont2
+	LanguageCode: Simplified Chinese
+	FontID= 81, name: •û³‘åüK ‘Ì
+************************************************** DefineEditText
+	CharacterID= 82
+	RECT(min,max) x= (-6.0, 457.5), y= (-6.0, 76.0)
+	FontID= 81 FontHeight= 16.0
+	RGBA= (255, 255, 0, 255)
+	VariableName: discription
+************************************************** DefineEditText
+	CharacterID= 83
+	RECT(min,max) x= (8.6, 82.4), y= (-6.0, 15.9)
+	FontID= 45 FontHeight= 16.0
+	RGBA= (0, 153, 0, 255)
+	VariableName: priceDis
+************************************************** DefineSound
+	sndID= 86
+	format= 2(MP3), samplecnt= 6048
+	ch: mono, br: 16[bits], sf: 11025[Hz]
+************************************************** DefineButton2
+	ButtonId= 87
+	TrackAsMenu: normal button
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BUTTONCONDACTION
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BUTTONCONDACTION
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _parent
+		no.= 001, name: bought
+		no.= 002, name: /:stick
+		no.= 003, name: /:score
+		no.= 004, name: price
+************************************************** DoActionTag
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: priceTemp
+		no.= 001, name: price
+		no.= 002, name: /:level
+		no.= 003, name: priceDis
+		no.= 004, name: $
+************************************************** FrameLabel
+	label: off
+************************************************** DefineEditText
+	CharacterID= 89
+	RECT(min,max) x= (-6.0, 65.0), y= (-6.0, 15.9)
+	FontID= 45 FontHeight= 16.0
+	RGBA= (0, 153, 0, 255)
+	VariableName: priceDis
+************************************************** DefineEditText
+	CharacterID= 91
+	RECT(min,max) x= (63.6, 98.3), y= (-1.2, 23.5)
+	FontID= 45 FontHeight= 16.0
+	RGBA= (112, 83, 5, 255)
+	VariableName: 
+	InitialText: x
+************************************************** DefineEditText
+	CharacterID= 92
+	RECT(min,max) x= (63.6, 98.3), y= (-1.2, 23.5)
+	FontID= 45 FontHeight= 16.0
+	RGBA= (112, 83, 5, 255)
+	VariableName: 
+	InitialText: x
+************************************************** DefineEditText
+	CharacterID= 93
+	RECT(min,max) x= (63.6, 98.3), y= (-1.2, 23.5)
+	FontID= 45 FontHeight= 16.0
+	RGBA= (112, 83, 5, 255)
+	VariableName: 
+	InitialText: x
+************************************************** DefineEditText
+	CharacterID= 94
+	RECT(min,max) x= (63.6, 98.3), y= (-1.2, 23.5)
+	FontID= 45 FontHeight= 16.0
+	RGBA= (112, 83, 5, 255)
+	VariableName: 
+	InitialText: x
+************************************************** DefineEditText
+	CharacterID= 95
+	RECT(min,max) x= (63.6, 98.3), y= (-1.2, 23.5)
+	FontID= 45 FontHeight= 16.0
+	RGBA= (112, 83, 5, 255)
+	VariableName: 
+	InitialText: x
+************************************************** DefineEditText
+	CharacterID= 96
+	RECT(min,max) x= (63.6, 98.3), y= (-1.2, 23.5)
+	FontID= 45 FontHeight= 16.0
+	RGBA= (112, 83, 5, 255)
+	VariableName: 
+	InitialText: x
+************************************************** DefineEditText
+	CharacterID= 97
+	RECT(min,max) x= (63.6, 98.3), y= (-1.2, 23.5)
+	FontID= 45 FontHeight= 16.0
+	RGBA= (112, 83, 5, 255)
+	VariableName: 
+	InitialText: x
+************************************************** DefineEditText
+	CharacterID= 98
+	RECT(min,max) x= (63.6, 98.3), y= (-1.2, 23.5)
+	FontID= 45 FontHeight= 16.0
+	RGBA= (112, 83, 5, 255)
+	VariableName: 
+	InitialText: x
+************************************************** DefineEditText
+	CharacterID= 99
+	RECT(min,max) x= (63.6, 98.3), y= (-1.2, 23.5)
+	FontID= 45 FontHeight= 16.0
+	RGBA= (112, 83, 5, 255)
+	VariableName: 
+	InitialText: x
+************************************************** DefineEditText
+	CharacterID= 101
+	RECT(min,max) x= (63.6, 98.3), y= (-1.2, 23.5)
+	FontID= 45 FontHeight= 16.0
+	RGBA= (112, 83, 5, 255)
+	VariableName: 
+	InitialText: x
+************************************************** DefineEditText
+	CharacterID= 102
+	RECT(min,max) x= (63.6, 98.3), y= (-1.2, 23.5)
+	FontID= 45 FontHeight= 16.0
+	RGBA= (112, 83, 5, 255)
+	VariableName: 
+	InitialText: x
+************************************************** DefineEditText
+	CharacterID= 103
+	RECT(min,max) x= (63.6, 98.3), y= (-1.2, 23.5)
+	FontID= 45 FontHeight= 16.0
+	RGBA= (112, 83, 5, 255)
+	VariableName: 
+	InitialText: x
+************************************************** DefineButton2
+	ButtonId= 104
+	TrackAsMenu: normal button
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BUTTONCONDACTION
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BUTTONCONDACTION
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _parent
+		no.= 001, name: bought
+		no.= 002, name: /:minerStrength
+		no.= 003, name: /:score
+		no.= 004, name: price
+************************************************** DoActionTag
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 3
+		no.= 000, name: price
+		no.= 001, name: priceDis
+		no.= 002, name: $
+************************************************** FrameLabel
+	label: off
+************************************************** DefineEditText
+	CharacterID= 106
+	RECT(min,max) x= (-6.0, 66.0), y= (-6.0, 15.9)
+	FontID= 45 FontHeight= 16.0
+	RGBA= (0, 153, 0, 255)
+	VariableName: priceDis
+************************************************** DefineButton2
+	ButtonId= 110
+	TrackAsMenu: normal button
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BUTTONCONDACTION
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BUTTONCONDACTION
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _parent
+		no.= 001, name: bought
+		no.= 002, name: /:cloverBonus
+		no.= 003, name: /:score
+		no.= 004, name: price
+************************************************** DoActionTag
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 6
+		no.= 000, name: priceTemp1
+		no.= 001, name: /:level
+		no.= 002, name: priceTemp2
+		no.= 003, name: price
+		no.= 004, name: priceDis
+		no.= 005, name: $
+************************************************** FrameLabel
+	label: off
+************************************************** DefineEditText
+	CharacterID= 112
+	RECT(min,max) x= (-6.0, 67.0), y= (-6.0, 15.9)
+	FontID= 45 FontHeight= 16.0
+	RGBA= (0, 153, 0, 255)
+	VariableName: priceDis
+************************************************** DefineText
+	CharacterID= 114
+	RECT(min,max) x= (0.2, 58.9), y= (3.3, 44.5)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 19
+	RGB= (51, 51, 51)
+		==================================== GLYPHENTRY
+		GlyphCount= 3
+		Strings: ¥Û?¦¬
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+		==================================== GLYPHENTRY
+		GlyphCount= 2
+		Strings: ÂÃ?
+************************************************** DefineButton2
+	ButtonId= 115
+	TrackAsMenu: normal button
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BUTTONCONDACTION
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BUTTONCONDACTION
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _parent
+		no.= 001, name: bought
+		no.= 002, name: /:rockBonus
+		no.= 003, name: /:score
+		no.= 004, name: price
+************************************************** DoActionTag
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 3
+		no.= 000, name: price
+		no.= 001, name: priceDis
+		no.= 002, name: $
+************************************************** FrameLabel
+	label: off
+************************************************** DefineEditText
+	CharacterID= 117
+	RECT(min,max) x= (-6.0, 65.0), y= (-6.0, 15.9)
+	FontID= 45 FontHeight= 16.0
+	RGBA= (0, 153, 0, 255)
+	VariableName: priceDis
+************************************************** DefineButton2
+	ButtonId= 119
+	TrackAsMenu: normal button
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BUTTONCONDACTION
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BUTTONCONDACTION
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _parent
+		no.= 001, name: bought
+		no.= 002, name: /:diamondBonus
+		no.= 003, name: /:score
+		no.= 004, name: price
+************************************************** DoActionTag
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 6
+		no.= 000, name: priceTemp1
+		no.= 001, name: /:level
+		no.= 002, name: priceTemp2
+		no.= 003, name: price
+		no.= 004, name: priceDis
+		no.= 005, name: $
+************************************************** FrameLabel
+	label: off
+************************************************** DefineText
+	CharacterID= 122
+	RECT(min,max) x= (-0.6, 45.3), y= (2.1, 16.7)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 19
+	RGB= (0, 0, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 2
+		Strings: ??
+************************************************** DefineSound
+	sndID= 123
+	format= 2(MP3), samplecnt= 2016
+	ch: mono, br: 16[bits], sf: 11025[Hz]
+************************************************** DefineText
+	CharacterID= 124
+	RECT(min,max) x= (-0.6, 77.4), y= (2.1, 16.8)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 19
+	RGB= (0, 0, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 4
+		Strings: ??¤U­±
+************************************************** DefineText
+	CharacterID= 125
+	RECT(min,max) x= (-0.6, 125.5), y= (2.1, 16.9)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 19
+	RGB= (0, 0, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 7
+		Strings: ??¤U­±ªºª««~
+************************************************** DefineText
+	CharacterID= 126
+	RECT(min,max) x= (-0.6, 221.8), y= (2.0, 17.1)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 19
+	RGB= (0, 0, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 13
+		Strings: ??¤U­±ªºª««~§Y¥i?¦æ??
+************************************************** DefineText
+	CharacterID= 127
+	RECT(min,max) x= (-0.6, 269.9), y= (2.0, 17.3)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 19
+	RGB= (0, 0, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 16
+		Strings: ??¤U­±ªºª««~§Y¥i?¦æ??¡A?¦n
+************************************************** DefineText
+	CharacterID= 128
+	RECT(min,max) x= (-0.6, 302.1), y= (2.0, 17.3)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 19
+	RGB= (0, 0, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 18
+		Strings: ??¤U­±ªºª««~§Y¥i?¦æ??¡A?¦nª««~
+************************************************** DefineText
+	CharacterID= 129
+	RECT(min,max) x= (-0.6, 350.2), y= (2.0, 17.3)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 19
+	RGB= (0, 0, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 21
+		Strings: ??¤U­±ªºª««~§Y¥i?¦æ??¡A?¦nª««~¦Z??
+************************************************** DefineText
+	CharacterID= 130
+	RECT(min,max) x= (-0.6, 335.0), y= (2.0, 35.1)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 19
+	RGB= (0, 0, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 21
+		Strings: ??¤U­±ªºª««~§Y¥i?¦æ??¡A?¦nª««~¦Z??
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+		==================================== GLYPHENTRY
+		GlyphCount= 3
+		Strings: ¤U¤@?
+************************************************** DefineText
+	CharacterID= 131
+	RECT(min,max) x= (-0.6, 335.0), y= (2.0, 35.3)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 19
+	RGB= (0, 0, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 21
+		Strings: ??¤U­±ªºª««~§Y¥i?¦æ??¡A?¦nª««~¦Z??
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+		==================================== GLYPHENTRY
+		GlyphCount= 8
+		Strings: ¤U¤@???´å?¡C
+************************************************** DefineSound
+	sndID= 137
+	format= 2(MP3), samplecnt= 4032
+	ch: mono, br: 16[bits], sf: 11025[Hz]
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 7
+		no.= 000, name: price
+		no.= 001, name: /:level
+		no.= 002, name: priceDis
+		no.= 003, name: $
+		no.= 004, name: discription
+		no.= 005, name: 
+		no.= 006, name: bought
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: yes
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: no
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: no
+************************************************** PlaceObject2
+	PlaceFlagName: box
+************************************************** DefineText
+	CharacterID= 139
+	RECT(min,max) x= (5.8, 183.6), y= (4.8, 22.7)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 43
+	RGB= (255, 255, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 8
+		Strings: §A?¦³?¨ì¥Ø?¤À
+************************************************** DoActionTag
+************************************************** DefineButton2
+	ButtonId= 141
+	TrackAsMenu: normal button
+************************************************** DefineButton2
+	ButtonId= 153
+	TrackAsMenu: normal button
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BUTTONCONDACTION
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 16
+		no.= 000, name: flag
+		no.= 001, name: Page
+		no.= 002, name: LoadVars
+		no.= 003, name: onLoad
+		no.= 004, name: success
+		no.= 005, name: _root
+		no.= 006, name: gotoAndPlay
+		no.= 007, name: userid
+		no.= 008, name: username
+		no.= 009, name: score
+		no.= 010, name: _level0
+		no.= 011, name: gamename
+		no.= 012, name: ‰©‹à H
+		no.= 013, name: POST
+		no.= 014, name: /bluecat/game/submitGameJoin.jsp
+		no.= 015, name: sendAndLoad
+************************************************** DefineText
+	CharacterID= 154
+	RECT(min,max) x= (-0.6, 87.0), y= (3.2, 19.8)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 19
+	RGB= (0, 0, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 4
+		Strings: ´£¥æ¤À?
+************************************************** DefineButton2
+	ButtonId= 155
+	TrackAsMenu: normal button
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BUTTONCONDACTION
+************************************************** DefineText
+	CharacterID= 156
+	RECT(min,max) x= (-0.2, 63.3), y= (3.3, 19.6)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 19
+	RGB= (0, 0, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 2
+		Strings: ­«ª±
+************************************************** DefineFont2
+	type: Italic
+	type: Bold
+	LanguageCode: Simplified Chinese
+	FontID= 167, name: üK‘Ì
+************************************************** DefineEditText
+	CharacterID= 168
+	RECT(min,max) x= (-6.0, 319.1), y= (-6.0, 18.0)
+	FontID= 167 FontHeight= 20.0
+	RGBA= (255, 0, 0, 255)
+	VariableName: endText
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: upsell2
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L1_1
+************************************************** DefineEditText
+	CharacterID= 173
+	RECT(min,max) x= (-6.0, 116.6), y= (-6.0, 20.4)
+	FontID= 45 FontHeight= 20.0
+	RGBA= (0, 0, 0, 255)
+	VariableName: score
+************************************************** DefineEditText
+	CharacterID= 174
+	RECT(min,max) x= (-6.0, 116.5), y= (-6.0, 20.4)
+	FontID= 45 FontHeight= 20.0
+	RGBA= (0, 153, 0, 255)
+	VariableName: score
+************************************************** DefineText
+	CharacterID= 175
+	RECT(min,max) x= (-0.4, 27.2), y= (4.4, 25.4)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 45
+	RGB= (0, 0, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 1
+		Strings: $
+************************************************** DefineText
+	CharacterID= 176
+	RECT(min,max) x= (-0.4, 27.2), y= (4.4, 25.4)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 45
+	RGB= (0, 153, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 1
+		Strings: $
+************************************************** DefineFont2
+	LanguageCode: Simplified Chinese
+	FontID= 177, name: •û³­™X ‘Ì
+	CodeTableNum= 10
+************************************************** DefineText
+	CharacterID= 178
+	RECT(min,max) x= (-0.6, 45.7), y= (2.9, 13.6)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 177
+	RGB= (143, 112, 1)
+		==================================== GLYPHENTRY
+		GlyphCount= 3
+		Strings: ª÷?¡G
+************************************************** DefineText
+	CharacterID= 179
+	RECT(min,max) x= (0.8, 69.4), y= (2.8, 13.6)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 177
+	RGB= (143, 112, 1)
+		==================================== GLYPHENTRY
+		GlyphCount= 5
+		Strings: ¥Ø???¡G
+************************************************** DefineEditText
+	CharacterID= 180
+	RECT(min,max) x= (-6.0, 68.3), y= (-6.0, 11.7)
+	FontID= 45 FontHeight= 12.0
+	RGBA= (0, 0, 0, 255)
+	VariableName: goalDis
+	InitialText: $1000
+************************************************** DefineEditText
+	CharacterID= 181
+	RECT(min,max) x= (-6.0, 68.8), y= (-6.0, 11.7)
+	FontID= 45 FontHeight= 12.0
+	RGBA= (255, 153, 0, 255)
+	VariableName: goalDis
+	InitialText: $1000
+************************************************** DefineFont2
+	LanguageCode: Simplified Chinese
+	FontID= 182, name: •û³ ’Ê ‘Ì
+	CodeTableNum= 6
+************************************************** DefineText
+	CharacterID= 183
+	RECT(min,max) x= (0.2, 55.8), y= (3.4, 14.0)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 182
+	RGB= (143, 112, 1)
+		==================================== GLYPHENTRY
+		GlyphCount= 1
+		Strings: ²Ä
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+		==================================== GLYPHENTRY
+		GlyphCount= 9
+		Strings:          
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+		==================================== GLYPHENTRY
+		GlyphCount= 1
+		Strings: ?
+************************************************** DefineEditText
+	CharacterID= 184
+	RECT(min,max) x= (-6.0, 70.7), y= (-6.0, 25.0)
+	FontID= 45 FontHeight= 17.0
+	RGBA= (255, 102, 0, 255)
+	VariableName: levelDis
+	InitialText: 60
+************************************************** DefineEditText
+	CharacterID= 185
+	RECT(min,max) x= (-6.0, 29.7), y= (-6.0, 25.0)
+	FontID= 45 FontHeight= 17.0
+	RGBA= (255, 102, 0, 255)
+	VariableName: time
+	InitialText: 60
+************************************************** DefineText
+	CharacterID= 186
+	RECT(min,max) x= (-0.7, 45.0), y= (4.0, 14.2)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 182
+	RGB= (143, 112, 1)
+		==================================== GLYPHENTRY
+		GlyphCount= 3
+		Strings: ??¡G
+************************************************** DoActionTag
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: time
+		no.= 001, name: /:busy
+		no.= 002, name: end
+		no.= 003, name: _root
+		no.= 004, name: gotoAndPlay
+************************************************** FrameLabel
+	label: beep
+************************************************** DoActionTag
+************************************************** DefineText
+	CharacterID= 191
+	RECT(min,max) x= (-0.5, 33.7), y= (2.8, 27.2)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 177
+	RGB= (143, 112, 1)
+		==================================== GLYPHENTRY
+		GlyphCount= 2
+		Strings: °h¥X
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+		==================================== GLYPHENTRY
+		GlyphCount= 2
+		Strings: ¥»?
+************************************************** DefineButton2
+	ButtonId= 192
+	TrackAsMenu: normal button
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BUTTONCONDACTION
+************************************************** PlaceObject2
+	PlaceFlagName: box
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: ob
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: box
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: ob
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** DefineFont2
+	type: Bold
+	LanguageCode: Latin
+	FontID= 198, name: Arial Black
+	CodeTableNum= 1
+************************************************** DefineText
+	CharacterID= 199
+	RECT(min,max) x= (63.3, 95.7), y= (20.3, 42.2)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 198
+	RGB= (255, 102, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 1
+		Strings: ?
+************************************************** PlaceObject2
+	PlaceFlagName: box
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: ob
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 9
+		no.= 000, name: object
+		no.= 001, name: /:cloverBonus
+		no.= 002, name: w2
+		no.= 003, name: price
+		no.= 004, name: power
+		no.= 005, name: /:stick
+		no.= 006, name: dynamite
+		no.= 007, name: w
+		no.= 008, name: weight
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: box
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: ob
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: box
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: ob
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 4
+		no.= 000, name: object
+		no.= 001, name: /:rockBonus
+		no.= 002, name: price
+		no.= 003, name: weight
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: box
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: ob
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 4
+		no.= 000, name: object
+		no.= 001, name: /:rockBonus
+		no.= 002, name: price
+		no.= 003, name: weight
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** DefineSound
+	sndID= 219
+	format= 2(MP3), samplecnt= 9504
+	ch: mono, br: 16[bits], sf: 11025[Hz]
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DefineSound
+	sndID= 236
+	format= 2(MP3), samplecnt= 3456
+	ch: mono, br: 16[bits], sf: 11025[Hz]
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: turn
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: throw
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: down
+************************************************** PlaceObject2
+	PlaceFlagName: m (m)
+************************************************** FrameLabel
+	label: up
+************************************************** PlaceObject2
+	PlaceFlagName: m (m)
+************************************************** FrameLabel
+	label: strength
+************************************************** PlaceObject2
+	PlaceFlagName: m (m)
+************************************************** PlaceObject2
+	PlaceFlagName: miner
+************************************************** DefineButton2
+	ButtonId= 248
+	TrackAsMenu: normal button
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BUTTONCONDACTION
+************************************************** PlaceObject2
+	PlaceFlagName: box
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 7
+		no.= 000, name: x
+		no.= 001, name: /:things
+		no.= 002, name: _root.T
+		no.= 003, name: .ob.box
+		no.= 004, name: this
+		no.= 005, name: hitTest
+		no.= 006, name: gotoAndStop
+************************************************** DoActionTag
+************************************************** DefineSound
+	sndID= 254
+	format= 2(MP3), samplecnt= 11808
+	ch: mono, br: 16[bits], sf: 11025[Hz]
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 11
+		no.= 000, name: _parent
+		no.= 001, name: _x
+		no.= 002, name: claw
+		no.= 003, name: _y
+		no.= 004, name: box
+		no.= 005, name: this
+		no.= 006, name: hitTest
+		no.= 007, name: price
+		no.= 008, name: stickBonus
+		no.= 009, name: gotoAndStop
+		no.= 010, name: nextFrame
+************************************************** DefineSound
+	sndID= 257
+	format= 2(MP3), samplecnt= 8928
+	ch: mono, br: 16[bits], sf: 11025[Hz]
+************************************************** DoActionTag
+************************************************** DefineSound
+	sndID= 261
+	format= 2(MP3), samplecnt= 8640
+	ch: mono, br: 16[bits], sf: 11025[Hz]
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 8
+		no.= 000, name: curx
+		no.= 001, name: 
+		no.= 002, name: cury
+		no.= 003, name: speedx
+		no.= 004, name: speedy
+		no.= 005, name: ap
+		no.= 006, name: life
+		no.= 007, name: ap2
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: box
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: ob
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 4
+		no.= 000, name: object
+		no.= 001, name: /:diamondBonus
+		no.= 002, name: price
+		no.= 003, name: weight
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 2
+		no.= 000, name: _parent
+		no.= 001, name: object
+************************************************** PlaceObject2
+	PlaceFlagName: box
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 20
+		no.= 000, name: x
+		no.= 001, name: /:things
+		no.= 002, name: _root.T
+		no.= 003, name: .ob.box
+		no.= 004, name: this
+		no.= 005, name: hitTest
+		no.= 006, name: _parent
+		no.= 007, name: busy
+		no.= 008, name: price
+		no.= 009, name: .ob.price
+		no.= 010, name: object
+		no.= 011, name: .ob.object
+		no.= 012, name: weight
+		no.= 013, name: .ob.weight
+		no.= 014, name: claw
+		no.= 015, name: gotoAndStop
+		no.= 016, name: up
+		no.= 017, name: _root
+		no.= 018, name: miner
+		no.= 019, name: gotoAndPlay
+************************************************** PlaceObject2
+	PlaceFlagName: fire
+************************************************** PlaceObject2
+	PlaceFlagName: fire
+************************************************** PlaceObject2
+	PlaceFlagName: fire
+************************************************** PlaceObject2
+	PlaceFlagName: fire
+************************************************** PlaceObject2
+	PlaceFlagName: O4
+************************************************** PlaceObject2
+	PlaceFlagName: fire
+************************************************** PlaceObject2
+	PlaceFlagName: fire
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 2
+		no.= 000, name: _parent
+		no.= 001, name: object
+************************************************** PlaceObject2
+	PlaceFlagName: box
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 20
+		no.= 000, name: x
+		no.= 001, name: /:things
+		no.= 002, name: _root.T
+		no.= 003, name: .ob.box
+		no.= 004, name: this
+		no.= 005, name: hitTest
+		no.= 006, name: _parent
+		no.= 007, name: busy
+		no.= 008, name: price
+		no.= 009, name: .ob.price
+		no.= 010, name: object
+		no.= 011, name: .ob.object
+		no.= 012, name: weight
+		no.= 013, name: .ob.weight
+		no.= 014, name: claw
+		no.= 015, name: gotoAndStop
+		no.= 016, name: up
+		no.= 017, name: _root
+		no.= 018, name: miner
+		no.= 019, name: gotoAndPlay
+************************************************** PlaceObject2
+	PlaceFlagName: fire
+************************************************** PlaceObject2
+	PlaceFlagName: fire
+************************************************** PlaceObject2
+	PlaceFlagName: fire
+************************************************** PlaceObject2
+	PlaceFlagName: fire
+************************************************** PlaceObject2
+	PlaceFlagName: O4
+************************************************** PlaceObject2
+	PlaceFlagName: fire
+************************************************** PlaceObject2
+	PlaceFlagName: fire
+************************************************** DefineButton2
+	ButtonId= 283
+	TrackAsMenu: normal button
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BUTTONCONDACTION
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 4
+		no.= 000, name: up
+		no.= 001, name: _root
+		no.= 002, name: miner
+		no.= 003, name: gotoAndStop
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BUTTONCONDACTION
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 4
+		no.= 000, name: up
+		no.= 001, name: _root
+		no.= 002, name: miner
+		no.= 003, name: gotoAndStop
+************************************************** DefineButton2
+	ButtonId= 284
+	TrackAsMenu: normal button
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BUTTONCONDACTION
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 8
+		no.= 000, name: /:stick
+		no.= 001, name: _root
+		no.= 002, name: dynMov
+		no.= 003, name: prevFrame
+		no.= 004, name: throw
+		no.= 005, name: miner
+		no.= 006, name: m
+		no.= 007, name: gotoAndPlay
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: d (d)
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: box
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 20
+		no.= 000, name: x
+		no.= 001, name: /:things
+		no.= 002, name: _root.T
+		no.= 003, name: .ob.box
+		no.= 004, name: this
+		no.= 005, name: hitTest
+		no.= 006, name: _parent
+		no.= 007, name: busy
+		no.= 008, name: price
+		no.= 009, name: .ob.price
+		no.= 010, name: object
+		no.= 011, name: .ob.object
+		no.= 012, name: weight
+		no.= 013, name: .ob.weight
+		no.= 014, name: claw
+		no.= 015, name: gotoAndStop
+		no.= 016, name: up
+		no.= 017, name: _root
+		no.= 018, name: miner
+		no.= 019, name: gotoAndPlay
+************************************************** PlaceObject2
+	PlaceFlagName: claw
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: claw
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: box
+************************************************** PlaceObject2
+	PlaceFlagName: claw
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: up42
+************************************************** PlaceObject2
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 4
+		no.= 000, name: _parent
+		no.= 001, name: weight
+		no.= 002, name: stop
+		no.= 003, name: stickBonus
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 8
+		no.= 000, name: _parent
+		no.= 001, name: stickBonus
+		no.= 002, name: /:strength
+		no.= 003, name: _currentframe
+		no.= 004, name: gotoAndPlay
+		no.= 005, name: /:minerStrength
+		no.= 006, name: weight
+		no.= 007, name: gotoAndStop
+************************************************** FrameLabel
+	label: up41
+************************************************** FrameLabel
+	label: up40
+************************************************** FrameLabel
+	label: up39
+************************************************** FrameLabel
+	label: up38
+************************************************** FrameLabel
+	label: up37
+************************************************** FrameLabel
+	label: up36
+************************************************** FrameLabel
+	label: up35
+************************************************** FrameLabel
+	label: up34
+************************************************** FrameLabel
+	label: up33
+************************************************** FrameLabel
+	label: up32
+************************************************** FrameLabel
+	label: up31
+************************************************** FrameLabel
+	label: up30
+************************************************** FrameLabel
+	label: up29
+************************************************** FrameLabel
+	label: up28
+************************************************** FrameLabel
+	label: up27
+************************************************** FrameLabel
+	label: up26
+************************************************** FrameLabel
+	label: up25
+************************************************** FrameLabel
+	label: up24
+************************************************** FrameLabel
+	label: up23
+************************************************** FrameLabel
+	label: up22
+************************************************** FrameLabel
+	label: up21
+************************************************** FrameLabel
+	label: up20
+************************************************** FrameLabel
+	label: up19
+************************************************** FrameLabel
+	label: up18
+************************************************** FrameLabel
+	label: up17
+************************************************** FrameLabel
+	label: up16
+************************************************** FrameLabel
+	label: up15
+************************************************** FrameLabel
+	label: up14
+************************************************** FrameLabel
+	label: up13
+************************************************** FrameLabel
+	label: up12
+************************************************** FrameLabel
+	label: up11
+************************************************** FrameLabel
+	label: up10
+************************************************** FrameLabel
+	label: up9
+************************************************** FrameLabel
+	label: up8
+************************************************** FrameLabel
+	label: up7
+************************************************** FrameLabel
+	label: up6
+************************************************** FrameLabel
+	label: up5
+************************************************** FrameLabel
+	label: up4
+************************************************** FrameLabel
+	label: up3
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: up2
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: bonus
+		no.= 002, name: bscore
+		no.= 003, name: price
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: swing
+************************************************** PlaceObject2
+	PlaceFlagName: cl
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: C (C)
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: dynMov
+************************************************** DefineFont2
+	LanguageCode: Latin
+	FontID= 291, name: Times New Roman
+	CodeTableNum= 5
+************************************************** DefineText
+	CharacterID= 292
+	RECT(min,max) x= (-2.1, 34.3), y= (2.8, 11.3)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 291
+	RGB= (23, 37, 94)
+		==================================== GLYPHENTRY
+		GlyphCount= 5
+		Strings: bonus
+************************************************** DefineEditText
+	CharacterID= 293
+	RECT(min,max) x= (-6.0, 113.8), y= (-6.0, 26.0)
+	FontID= 45 FontHeight= 25.0
+	RGBA= (0, 153, 0, 255)
+	VariableName: bscoreDis
+	InitialText: 1000
+************************************************** DefineSound
+	sndID= 294
+	format= 2(MP3), samplecnt= 7488
+	ch: mono, br: 16[bits], sf: 11025[Hz]
+************************************************** DefineEditText
+	CharacterID= 295
+	RECT(min,max) x= (-6.0, 104.5), y= (-6.0, 26.0)
+	FontID= 45 FontHeight= 25.0
+	RGBA= (0, 153, 0, 255)
+	VariableName: bscoreDis
+	InitialText: 1000
+************************************************** DefineEditText
+	CharacterID= 296
+	RECT(min,max) x= (-6.0, 104.5), y= (-6.0, 26.0)
+	FontID= 45 FontHeight= 25.0
+	RGBA= (0, 153, 0, 255)
+	VariableName: bscoreDis
+	InitialText: 1000
+************************************************** DefineEditText
+	CharacterID= 297
+	RECT(min,max) x= (-6.0, 105.3), y= (-6.0, 26.0)
+	FontID= 45 FontHeight= 25.0
+	RGBA= (0, 153, 0, 255)
+	VariableName: bscoreDis
+	InitialText: 1000
+************************************************** DefineEditText
+	CharacterID= 298
+	RECT(min,max) x= (-6.0, 103.3), y= (-6.0, 26.0)
+	FontID= 45 FontHeight= 25.0
+	RGBA= (0, 153, 0, 255)
+	VariableName: bscoreDis
+	InitialText: 1000
+************************************************** DefineEditText
+	CharacterID= 299
+	RECT(min,max) x= (-6.0, 104.5), y= (-6.0, 26.0)
+	FontID= 45 FontHeight= 25.0
+	RGBA= (0, 153, 0, 255)
+	VariableName: bscoreDis
+	InitialText: 1000
+************************************************** DefineEditText
+	CharacterID= 300
+	RECT(min,max) x= (-6.0, 104.6), y= (-6.0, 26.0)
+	FontID= 45 FontHeight= 25.0
+	RGBA= (0, 153, 0, 255)
+	VariableName: bscoreDis
+	InitialText: 1000
+************************************************** DefineEditText
+	CharacterID= 301
+	RECT(min,max) x= (-6.0, 103.8), y= (-6.0, 26.0)
+	FontID= 45 FontHeight= 25.0
+	RGBA= (0, 153, 0, 255)
+	VariableName: bscoreDis
+	InitialText: 1000
+************************************************** DefineText
+	CharacterID= 304
+	RECT(min,max) x= (-0.2, 158.9), y= (6.9, 25.4)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 45
+	RGB= (0, 153, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 9
+		Strings: STRENGTH 
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 6
+		no.= 000, name: bscore
+		no.= 001, name: _root
+		no.= 002, name: C
+		no.= 003, name: gotoAndPlay
+		no.= 004, name: power
+		no.= 005, name: dynamite
+************************************************** DoActionTag
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: /:score
+		no.= 001, name: bscore
+		no.= 002, name: _root
+		no.= 003, name: C
+		no.= 004, name: gotoAndPlay
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: power
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 5
+		no.= 000, name: _root
+		no.= 001, name: C
+		no.= 002, name: gotoAndPlay
+		no.= 003, name: miner
+		no.= 004, name: gotoAndStop
+************************************************** FrameLabel
+	label: dynamite
+************************************************** DoActionTag
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 4
+		no.= 000, name: /:stick
+		no.= 001, name: _root
+		no.= 002, name: dynMov
+		no.= 003, name: nextFrame
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: bonus
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L1_2
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L1_3
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L2_1
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: ob
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: ob
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: ob
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 4
+		no.= 000, name: object
+		no.= 001, name: /:rockBonus
+		no.= 002, name: price
+		no.= 003, name: weight
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T19
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: ob
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T20
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L2_2
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T19
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T20
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L2_3
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T19
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T20
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L3_1
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L3_2
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L3_3
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L4_1
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: box
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: ob
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: box
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: ob
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L4_2
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L4_3
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L5_1
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T22
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T19
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T20
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T21
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L5_2
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T22
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T19
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T20
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T21
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L5_3
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T22
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T19
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T20
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T21
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L6_1
+************************************************** PlaceObject2
+	PlaceFlagName: T20
+************************************************** PlaceObject2
+	PlaceFlagName: T19
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T21
+************************************************** PlaceObject2
+	PlaceFlagName: box
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: ob
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+000000 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ActionConstantPool
+		count= 4
+		no.= 000, name: object
+		no.= 001, name: /:diamondBonus
+		no.= 002, name: price
+		no.= 003, name: weight
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T22
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L6_2
+************************************************** PlaceObject2
+	PlaceFlagName: T20
+************************************************** PlaceObject2
+	PlaceFlagName: T19
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T21
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T22
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L6_3
+************************************************** PlaceObject2
+	PlaceFlagName: T20
+************************************************** PlaceObject2
+	PlaceFlagName: T19
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T21
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T22
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L7_1
+************************************************** PlaceObject2
+	PlaceFlagName: box
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: ob
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: box
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: ob
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T20
+************************************************** PlaceObject2
+	PlaceFlagName: T19
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** DefineFont2
+	LanguageCode: Latin
+	FontID= 326, name: Arial Black
+	CodeTableNum= 2
+************************************************** DefineText
+	CharacterID= 327
+	RECT(min,max) x= (-1.4, 13.0), y= (7.2, 15.8)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 326
+	RGB= (255, 0, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 1
+		Strings: T
+************************************************** DefineText
+	CharacterID= 328
+	RECT(min,max) x= (-0.2, 14.9), y= (7.2, 15.8)
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEXTRECORD
+	FontID= 326
+	RGB= (255, 0, 0)
+		==================================== GLYPHENTRY
+		GlyphCount= 1
+		Strings: N
+************************************************** PlaceObject2
+	PlaceFlagName: box
+************************************************** DoActionTag
+************************************************** PlaceObject2
+	PlaceFlagName: ob
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CLIPACTIONS
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L7_2
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T20
+************************************************** PlaceObject2
+	PlaceFlagName: T19
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L7_3
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T20
+************************************************** PlaceObject2
+	PlaceFlagName: T19
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L8_1
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L8_2
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L8_3
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T19
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T21
+************************************************** PlaceObject2
+	PlaceFlagName: T24
+************************************************** PlaceObject2
+	PlaceFlagName: T25
+************************************************** PlaceObject2
+	PlaceFlagName: T26
+************************************************** PlaceObject2
+	PlaceFlagName: T27
+************************************************** PlaceObject2
+	PlaceFlagName: T20
+************************************************** PlaceObject2
+	PlaceFlagName: T23
+************************************************** PlaceObject2
+	PlaceFlagName: T22
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L9_1
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T19
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T24
+************************************************** PlaceObject2
+	PlaceFlagName: T20
+************************************************** PlaceObject2
+	PlaceFlagName: T22
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T26
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T23
+************************************************** PlaceObject2
+	PlaceFlagName: T25
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T21
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L9_2
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T19
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T24
+************************************************** PlaceObject2
+	PlaceFlagName: T20
+************************************************** PlaceObject2
+	PlaceFlagName: T22
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T26
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T23
+************************************************** PlaceObject2
+	PlaceFlagName: T25
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T21
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L9_3
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L10_1
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T22
+************************************************** PlaceObject2
+	PlaceFlagName: T26
+************************************************** PlaceObject2
+	PlaceFlagName: T24
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T19
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T21
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T25
+************************************************** PlaceObject2
+	PlaceFlagName: T23
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T20
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L10_2
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T19
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T24
+************************************************** PlaceObject2
+	PlaceFlagName: T20
+************************************************** PlaceObject2
+	PlaceFlagName: T22
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T26
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T23
+************************************************** PlaceObject2
+	PlaceFlagName: T25
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T21
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** DoActionTag
+************************************************** FrameLabel
+	label: L10_3
+************************************************** PlaceObject2
+	PlaceFlagName: T13
+************************************************** PlaceObject2
+	PlaceFlagName: T19
+************************************************** PlaceObject2
+	PlaceFlagName: T8
+************************************************** PlaceObject2
+	PlaceFlagName: T15
+************************************************** PlaceObject2
+	PlaceFlagName: T24
+************************************************** PlaceObject2
+	PlaceFlagName: T20
+************************************************** PlaceObject2
+	PlaceFlagName: T22
+************************************************** PlaceObject2
+	PlaceFlagName: T11
+************************************************** PlaceObject2
+	PlaceFlagName: T10
+************************************************** PlaceObject2
+	PlaceFlagName: T26
+************************************************** PlaceObject2
+	PlaceFlagName: T12
+************************************************** PlaceObject2
+	PlaceFlagName: T23
+************************************************** PlaceObject2
+	PlaceFlagName: T25
+************************************************** PlaceObject2
+	PlaceFlagName: T17
+************************************************** PlaceObject2
+	PlaceFlagName: T16
+************************************************** PlaceObject2
+	PlaceFlagName: T21
+************************************************** PlaceObject2
+	PlaceFlagName: T18
+************************************************** PlaceObject2
+	PlaceFlagName: T9
+************************************************** PlaceObject2
+	PlaceFlagName: T14
+************************************************** PlaceObject2
+	PlaceFlagName: T2
+************************************************** PlaceObject2
+	PlaceFlagName: T3
+************************************************** PlaceObject2
+	PlaceFlagName: T4
+************************************************** PlaceObject2
+	PlaceFlagName: T5
+************************************************** PlaceObject2
+	PlaceFlagName: T6
+************************************************** PlaceObject2
+	PlaceFlagName: T7
+************************************************** PlaceObject2
+	PlaceFlagName: T1
+************************************************** PlaceObject2
+	PlaceFlagName: O1
+************************************************** PlaceObject2
+	PlaceFlagName: O4
+************************************************** PlaceObject2
+	PlaceFlagName: O5
+************************************************** PlaceObject2
+	PlaceFlagName: O7
+************************************************** PlaceObject2
+	PlaceFlagName: O8
+************************************************** PlaceObject2
+	PlaceFlagName: O4
+************************************************** PlaceObject2
+	PlaceFlagName: O4
+************************************************** PlaceObject2
+	PlaceFlagName: O1
+************************************************** PlaceObject2
+	PlaceFlagName: O1
+************************************************** PlaceObject2
+	PlaceFlagName: O8
+************************************************** PlaceObject2
+	PlaceFlagName: O6
+************************************************** PlaceObject2
+	PlaceFlagName: O2
+************************************************** PlaceObject2
+	PlaceFlagName: O11
+************************************************** EndFrame
+
