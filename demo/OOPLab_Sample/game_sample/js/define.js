@@ -16,6 +16,10 @@
 		'imagePath': {
 			value: mainPath + 'image/',
 			writable: false
+		},
+		'backgroundPath': {
+			value: mainPath + 'image/background/',
+			writable: false
 		}
 
 	});
