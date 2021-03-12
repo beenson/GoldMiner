@@ -19,14 +19,10 @@
 
         this.secondHand.position = {
             x: 0,
-            y: -100
+            y: 0 
         };
 
-        this.wholeClock = new Framework.Scene();
-        this.wholeClock.position = {
-            x: Framework.Game.getCanvasWidth() / 2,
-            y: Framework.Game.getCanvasHeight() / 2
-        };
+        this.rootScene.attach(this.secondHand)
 
 
         this.secondHandRotationRate = 0.3;
