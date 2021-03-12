@@ -1,4 +1,4 @@
-var MyGame = Framework.Class(Framework.Level , {
+var MyGame2 = Framework.Class(Framework.Level , {
 	load: function(){
 	    var characterPosition;
 
@@ -7,11 +7,10 @@ var MyGame = Framework.Class(Framework.Level , {
         //----------------------------------------------
         this.practice = new Practice();
         this.practice.load();
-        //this.rootScene.attach(this.practice.pic);
+        this.rootScene.attach(this.practice.pic);
 
         this.gameMap = new GameMap();
         this.gameMap.load();
-        this.gameMap.scale = 3;
         this.rootScene.attach(this.gameMap);
         //----------------------------------------------
         this.clock = new Framework.Sprite(define.imagePath + 'clock.png');
@@ -51,13 +50,13 @@ var MyGame = Framework.Class(Framework.Level , {
 
 
         this.secondHandRotationRate = 0.3;
-        /*this.wholeClock.attach(this.clock);
+        this.wholeClock.attach(this.clock);
         this.clockCenter.attach(this.secondHand);
         this.clockCenter.attach(this.firen.sprite);
         this.clockCenterNeg.attach(this.freeze.sprite);
         this.wholeClock.attach(this.clockCenterNeg); 
         this.wholeClock.attach(this.clockCenter);                    
-        this.rootScene.attach(this.wholeClock);*/
+        this.rootScene.attach(this.wholeClock);
 
         //繪製Sprite的boundry (Debug用)
         this.firen.sprite.isDrawBoundry = true;
@@ -104,7 +103,7 @@ var MyGame = Framework.Class(Framework.Level , {
     update: function() {
         this.practice.update();
         var game = this;
-        /*this.rotation++;
+        this.rotation++;
         this.rootScene.update(); 
 		
         //以下為當被攻擊時會停下來, 並且當被攻擊的動畫播放完時便繼續跑的Scenario
@@ -135,7 +134,7 @@ var MyGame = Framework.Class(Framework.Level , {
         //以上為當被攻擊時會停下來, 並且當被撞到的動畫播放完時便繼續跑的Scenario
 
 
-        this.isPlayHit = this.firen.collide(this.freeze)      */                         
+        this.isPlayHit = this.firen.collide(this.freeze)                               
     },
 
     draw:function(parentCtx){
