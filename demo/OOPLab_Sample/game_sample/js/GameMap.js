@@ -3,7 +3,6 @@ var GameMap = function(){
     this.MW = 1;
     this.MH = 1;
     this.position = {x: Framework.Game.getCanvasWidth() / 2 , y: Framework.Game.getCanvasHeight() / 2};
-    //this.position = {x: 0 , y: 0};
     
     this.load = function(){
         this.mapPic = new Framework.Sprite(define.imagePath + 'testMap.jpeg');
