@@ -20,6 +20,10 @@
 		'backgroundPath': {
 			value: mainPath + 'image/background/',
 			writable: false
+		},
+		'soundPath': {
+			value: mainPath + 'sound/',
+			writable: false
 		}
 
 	});
