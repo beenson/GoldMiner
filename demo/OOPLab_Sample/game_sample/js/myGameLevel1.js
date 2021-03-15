@@ -14,8 +14,13 @@
         this.rootScene.attach(this.gameMap);
         //----------------------------------------------
 
-
-
+        this.oldman = new Framework.Sprite(define.imagePath + '/Oldman/normal.jpg');
+        this.oldman.position = {
+            x: Framework.Game.getCanvasWidth() / 2,
+            y: 65
+        }
+        this.oldman.scale = 1.15;
+        this.rootScene.attach(this.oldman);
 
         this.circle = new Framework.Scene();
         this.circle.position = {
