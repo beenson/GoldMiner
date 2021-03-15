@@ -6,7 +6,7 @@ var GameMap = function(){
     this.position2 = {x: 0 , y: 0};
     
     this.load = function(){
-        this.mapPic = new Framework.Sprite(define.imagePath + 'testMap.jpeg');
+        this.mapPic = new Framework.Sprite(define.backgroundPath + 'test.jpg');
         this.mapPic.scale = 1.15;
         this.blackPic = new Framework.Sprite(define.imagePath + 'black.png');
         this.blackPic.scale = 10;

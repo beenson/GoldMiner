@@ -1,10 +1,10 @@
 var Button=Framework.exClass({
-    __construct:function(parent, locationX, locationY, width, height, text, font, color){
+    __construct:function(parent, locationX, locationY, width, height, other){
         this.load(parent);
 
-        this.text = text;
-        this.font = font;
-        this.color = color;
+        this.text = other.text || '';
+        this.font = other.font || '65pt bold';
+        this.color = other.color || 'white';
         this.hovered = false;
 
         this.position = {
@@ -16,11 +16,15 @@ var Button=Framework.exClass({
             height: height
         };
 
-        this.hovered = function(){return;}
+        this.hovered = other.hover || function(){};
+        this.clicked = other.click || function(){};
     },
 
     mousemove: function(e) {
-        this.hovered = (e.x >= this.position.x && e.x <= this.position.x + this.size.width && e.y >= this.position.y && e.y <= this.position.y + this.size.height);
+        this.isHovered = (e.x >= this.position.x && e.x <= this.position.x + this.size.width && e.y >= this.position.y && e.y <= this.position.y + this.size.height);
+        if(this.isHovered) {
+            this.hovered();
+        }
     },
 
 	load: function(parent){
@@ -28,14 +32,12 @@ var Button=Framework.exClass({
 	},
 
 	update: function() {
-        if(this.hovered){
-            
-        }
+        
     },
     
     draw: function(parentCtx) {
-        parentCtx.font = this.font || '65pt bold';
-        parentCtx.fillStyle = this.color || 'white';
+        parentCtx.font = this.font;
+        parentCtx.fillStyle = this.color;
         parentCtx.textBaseline = 'top';
         parentCtx.textAlign = 'center';
         parentCtx.fillText(
@@ -45,10 +47,8 @@ var Button=Framework.exClass({
     },
 
 	click: function(e,func) {
-        if (this.hovered) {
-            if (func) {
-                func();
-            }
+        if (this.isHovered) {
+            this.clicked();
         }
     }
 

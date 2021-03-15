@@ -8,25 +8,32 @@
         this.practice = new Practice();
         this.practice.load();
         //this.rootScene.attach(this.practice.pic);
-
+        
         this.gameMap = new GameMap();
         this.gameMap.load();
         this.rootScene.attach(this.gameMap);
         //----------------------------------------------
 
+
+
+
         this.circle = new Framework.Scene();
         this.circle.position = {
             x: Framework.Game.getCanvasWidth() / 2,
-            y: Framework.Game.getCanvasHeight() / 4
+            y: 70
         };
         this.rootScene.attach(this.circle);
 
-        this.catcher = new Framework.Sprite(define.imagePath + 'Catcher.png');
+        this.catcher = new Framework.Sprite(define.imagePath + 'Catcher2.png');
         this.catcher.position = {
             x: 0,
             y: 50
         };
+        this.catcher.scale = 1.1;
         this.circle.attach(this.catcher);
+
+        this.circleSpeed = 0.7;
+
 
 
         //載入要被播放的音樂清單
@@ -52,17 +59,24 @@
 			y: 100
 		}
 		this.rotation = 0;
+
+        setTimeout(function(){
+            console.log('TimesUp');
+        }, 3000);
 	},
 
     initialize: function() {
-
+        
     },
 
     update: function() {
         this.practice.update();
         //var game = this;
 
-        this.circle.rotation += 0.5;
+        if(Math.abs(this.circle.rotation) >= 50) {
+            this.circleSpeed *= -1;
+        }
+        this.circle.rotation += this.circleSpeed;
     },
 
     draw:function(parentCtx){
@@ -80,12 +94,11 @@
     keydown:function(e, list){
         Framework.DebugInfo.Log.warning(e.key);
         if(e.key === 'Numpad +' || e.key === '=') {
-            console.log(this.audio.readyState);
-            this.secondHandRotationRate += 0.05;
+            this.circleSpeed += 0.05;
         }
 
         if(e.key === 'Numpad -' || e.key === '-') {
-            this.secondHandRotationRate -= 0.05;
+            this.circleSpeed -= 0.05;
         }
 
         if(e.key === 'Pause/Break') {
@@ -118,8 +131,9 @@
     },
     
     click: function (e) {  
-
         console.log(e.x, e.y);
+        console.log(this.circle.rotation);
+
         if (!this.rectPosition) {
             return;
         }  
