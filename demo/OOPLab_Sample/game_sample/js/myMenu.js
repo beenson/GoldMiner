@@ -20,12 +20,13 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
 	load: function(){
         this.menu = new Framework.Sprite(define.backgroundPath + 'Menu.jpg');
 
-        this.onStart = false;
         this.start = {
             x:430,
             y:345
         };
-        this.button = new Button(this, 430, 345, 230, 85, 'Start', 'bold 85px sans-serif', 'green');
+        this.button = new Button(this, 430, 345, 230, 85, { text: 'Start', font: 'bold 85px sans-serif', color: 'brown', click: function() {
+            Framework.Game.goToNextLevel();
+        }});
         
         //為了讓之後的位置較好操控, new出一個位於中心點且可以黏貼任何東西的容器
         //注意, Position都是用中心點
@@ -66,36 +67,10 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
     draw:function(parentCtx){
         this.rootScene.draw();
         this.button.draw(parentCtx);
-        //可支援畫各種單純的圖形和字
-        //parentCtx.fillStyle = 'red';
-        //parentCtx.fillRect(430, 350, 240, 80);
-        /*
-        if(this.onStart){
-            parentCtx.font = '70pt bold';
-            parentCtx.fillStyle = 'white';
-            parentCtx.textBaseline = 'top';
-            parentCtx.textAlign = 'center';
-            parentCtx.fillText('StAAAart', this.startX + 100, this.startY);
-        } else {
-
-        }*/
     },
 
     mousemove: function(e) {      
-        this.button.mousemove(e); 
-        /*if(this.onStart){
-
-        } 
-        this.currentTouch = { x: e.x, y: e.y };
-        if (this.currentTouch.x > this.previousTouch.x && this.currentTouch.y < this.rightArrow.lowerLeft.y && this.currentTouch.y > this.rightArrow.upperLeft.y) {
-            //當arrow被Touch到時, 會跟隨著觸控的位置移動
-            this.rightArrow.position.x = this.rightArrow.position.x + this.currentTouch.x - this.previousTouch.x 
-            if(this.currentTouch.x > Framework.Game.getCanvasWidth() - this.rightArrow.width) {
-                //當要換關時, 可以呼叫goToNextLevel, goToPreviousLevel, goToLevel(levelName)
-                Framework.Game.goToNextLevel();
-            }
-        }
-        this.previousTouch = this.currentTouch;*/
+        this.button.mousemove(e);
     },
 
     click: function(e) {
