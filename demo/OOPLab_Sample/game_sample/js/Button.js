@@ -1,8 +1,11 @@
 var Button=Framework.exClass({
-    __construct:function(parent, locationX, locationY, width, height, text){
+    __construct:function(parent, locationX, locationY, width, height, text, font, color){
         this.load(parent);
 
         this.text = text;
+        this.font = font;
+        this.color = color;
+        this.hovered = false;
 
         this.position = {
             x: locationX,
@@ -12,19 +15,27 @@ var Button=Framework.exClass({
             width: width,
             height: height
         };
+
+        this.hovered = function(){return;}
     },
 
-	load:function(parent){
+    mousemove: function(e) {
+        this.hovered = (e.x >= this.position.x && e.x <= this.position.x + this.size.width && e.y >= this.position.y && e.y <= this.position.y + this.size.height);
+    },
+
+	load: function(parent){
         //this.parent = parent;
 	},
 
 	update: function() {
-
+        if(this.hovered){
+            
+        }
     },
     
     draw: function(parentCtx) {
-        parentCtx.font = '65pt bold';
-        parentCtx.fillStyle = 'white';
+        parentCtx.font = this.font || '65pt bold';
+        parentCtx.fillStyle = this.color || 'white';
         parentCtx.textBaseline = 'top';
         parentCtx.textAlign = 'center';
         parentCtx.fillText(
@@ -34,7 +45,7 @@ var Button=Framework.exClass({
     },
 
 	click: function(e,func) {
-        if (e.x >= this.position.x && e.x <= this.position.x + this.size.width && e.y >= this.position.y && e.y <= this.position.y + this.size.height) {
+        if (this.hovered) {
             if (func) {
                 func();
             }

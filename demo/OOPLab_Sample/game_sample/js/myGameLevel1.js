@@ -14,20 +14,20 @@
         this.rootScene.attach(this.gameMap);
         //----------------------------------------------
 
-        this.secondHand = new Framework.Sprite(define.imagePath + 'secondHand.jpg'); 
-
-
-        this.secondHand.position = {
-            x: 0,
-            y: 0 
+        this.circle = new Framework.Scene();
+        this.circle.position = {
+            x: Framework.Game.getCanvasWidth() / 2,
+            y: Framework.Game.getCanvasHeight() / 4
         };
+        this.rootScene.attach(this.circle);
 
-        this.rootScene.attach(this.secondHand)
+        this.catcher = new Framework.Sprite(define.imagePath + 'Catcher.png');
+        this.catcher.position = {
+            x: 0,
+            y: 50
+        };
+        this.circle.attach(this.catcher);
 
-
-        this.secondHandRotationRate = 0.3;
-        //繪製Sprite的boundry (Debug用)
-        //his.firen.sprite.isDrawBoundry = true;
 
         //載入要被播放的音樂清單
         //資料夾內只提供mp3檔案, 其餘的音樂檔案, 請自行轉檔測試
@@ -55,13 +55,14 @@
 	},
 
     initialize: function() {
-        
-                           
+
     },
 
     update: function() {
         this.practice.update();
-        var game = this;
+        //var game = this;
+
+        this.circle.rotation += 0.5;
     },
 
     draw:function(parentCtx){
@@ -74,8 +75,6 @@
         parentCtx.textBaseline = 'top';
         parentCtx.textAlign = 'center';
         parentCtx.fillText('Click Me', this.rectPosition.x + 130, this.rectPosition.y, 260);
-         
-        
     },
 
     keydown:function(e, list){

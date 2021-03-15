@@ -81,7 +81,7 @@ var MyGame2 = Framework.Class(Framework.Level , {
         });
 
         //播放時, 需要給name, 其餘參數可參考W3C
-        this.audio.play({name: 'song2', loop: true});
+        //this.audio.play({name: 'song2', loop: true});
 
         this.rectPosition = { 
             x: Framework.Game.getCanvasWidth() / 2 - 130,
@@ -139,6 +139,7 @@ var MyGame2 = Framework.Class(Framework.Level , {
 
     draw:function(parentCtx){
         this.rootScene.draw();
+        console.log('draw');
         //可支援畫各種單純的圖形和字
         parentCtx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
         parentCtx.fillRect(this.rectPosition.x , this.rectPosition.y, 260, 90);  

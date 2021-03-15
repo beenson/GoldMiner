@@ -18,14 +18,14 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
     },
 
 	load: function(){
-        this.menu = new Framework.Sprite(define.backgroundPath + 'Menu.jpeg');
+        this.menu = new Framework.Sprite(define.backgroundPath + 'Menu.jpg');
 
         this.onStart = false;
         this.start = {
             x:430,
             y:345
         };
-        this.button = new Button(this, this.start.x, this.start.y, 250, 130, "Start");
+        this.button = new Button(this, 430, 345, 230, 85, 'Start', 'bold 85px sans-serif', 'green');
         
         //為了讓之後的位置較好操控, new出一個位於中心點且可以黏貼任何東西的容器
         //注意, Position都是用中心點
@@ -55,6 +55,7 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
 
     update:function(){     
         this.rootScene.update();
+        this.button.update();
         //this.rootScene.update(); 
 
         //目前的Framework, 當任何一個GameObject不做attach時, 則必須要自行update
@@ -67,19 +68,21 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
         this.button.draw(parentCtx);
         //可支援畫各種單純的圖形和字
         //parentCtx.fillStyle = 'red';
-        //parentCtx.fillRect(430, 350, 240, 80);  
+        //parentCtx.fillRect(430, 350, 240, 80);
+        /*
         if(this.onStart){
             parentCtx.font = '70pt bold';
             parentCtx.fillStyle = 'white';
             parentCtx.textBaseline = 'top';
             parentCtx.textAlign = 'center';
-            parentCtx.fillText('Start', this.startX + 100, this.startY);
+            parentCtx.fillText('StAAAart', this.startX + 100, this.startY);
         } else {
 
-        }
+        }*/
     },
 
-    mousemove: function(e) {       
+    mousemove: function(e) {      
+        this.button.mousemove(e); 
         /*if(this.onStart){
 
         } 
@@ -96,11 +99,11 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
     },
 
     click: function(e) {
-        var clickfunction = function() {
-            Framework.Game.goToNextLevel();
-        }
+        console.log(e);
 
-        this.button.click(e, clickfunction);
+        this.button.click(e, function() {
+            Framework.Game.goToNextLevel();
+        });
     },
 
     touchstart: function (e) {
