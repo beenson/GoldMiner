@@ -14,13 +14,20 @@
         this.rootScene.attach(this.gameMap);
         //----------------------------------------------
 
+        this.oldman = new Framework.Sprite(define.imagePath + '/Oldman/normal.jpg');
+        this.oldman.position = {
+            x: Framework.Game.getCanvasWidth() / 2,
+            y: Framework.Game.getCanvasHeight() / 8-10
+        }
+        this.oldman.scale = 1.5;
+        this.rootScene.attach(this.oldman);
+
         this.circle = new Framework.Scene();
         this.circle.position = {
             x: Framework.Game.getCanvasWidth() / 2,
-            y: Framework.Game.getCanvasHeight() / 4
+            y: Framework.Game.getCanvasHeight() / 8
         };
         this.rootScene.attach(this.circle);
-
         this.catcher = new Framework.Sprite(define.imagePath + 'Catcher.png');
         this.catcher.position = {
             x: 0,
