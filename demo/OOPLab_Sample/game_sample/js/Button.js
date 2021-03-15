@@ -1,10 +1,10 @@
 var Button=Framework.exClass({
-    __construct:function(parent, locationX, locationY, width, height, other){
+    __construct:function(parent, locationX, locationY, width, height, options){
         this.load(parent);
 
-        this.text = other.text || '';
-        this.font = other.font || '65pt bold';
-        this.color = other.color || 'white';
+        this.text = options.text || '';
+        this.font = options.font || '65pt bold';
+        this.color = options.color || 'white';
         this.hovered = false;
 
         this.position = {
@@ -16,8 +16,8 @@ var Button=Framework.exClass({
             height: height
         };
 
-        this.hovered = other.hover || function(){};
-        this.clicked = other.click || function(){};
+        this.hovered = options.hover || function(){};
+        this.clicked = options.click || function(){};
     },
 
     mousemove: function(e) {
