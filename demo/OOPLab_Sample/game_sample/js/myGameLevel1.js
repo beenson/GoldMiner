@@ -5,10 +5,6 @@
         this.isStop = false;
         this.isPlayed = false;
         //----------------------------------------------
-        this.practice = new Practice();
-        this.practice.load();
-        //this.rootScene.attach(this.practice.pic);
-        
         this.gameMap = new GameMap();
         this.gameMap.load();
         this.rootScene.attach(this.gameMap);
@@ -39,7 +35,9 @@
 
         this.circleSpeed = 0.7;
 
-
+        this.pauseBtn = new Button(this, Framework.Game.getCanvasWidth()-250, 35, 50, 50,
+        {text: '||', font: 'bold 32px Arial', color: 'white', background: 'green', textOffset: 8});
+        this.rootScene.attach(this.pauseBtn)
 
         //載入要被播放的音樂清單
         //資料夾內只提供mp3檔案, 其餘的音樂檔案, 請自行轉檔測試
@@ -75,17 +73,16 @@
     },
 
     update: function() {
-        this.practice.update();
-        //var game = this;
-
         if(Math.abs(this.circle.rotation) >= 50) {
             this.circleSpeed *= -1;
         }
         this.circle.rotation += this.circleSpeed;
+        this.pauseBtn.update();
     },
 
     draw:function(parentCtx){
         this.rootScene.draw();
+        //this.pauseBtn.draw();
         //可支援畫各種單純的圖形和字
         parentCtx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
         parentCtx.fillRect(this.rectPosition.x , this.rectPosition.y, 260, 90);  
@@ -125,8 +122,6 @@
             
         }
 
-        //-------------------------------------
-        this.practice.keydown(e, list);
     },
 
     touchstart: function (e) {
@@ -165,5 +160,6 @@
             Framework.Game.goToPreviousLevel();            
             return;
         }*/
+        this.pauseBtn.click();
     },
 });

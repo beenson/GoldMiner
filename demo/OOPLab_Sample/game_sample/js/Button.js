@@ -5,12 +5,14 @@ var Button=Framework.exClass({
         this.text = options.text || '';
         this.font = options.font || '65pt bold';
         this.color = options.color || 'white';
+        this.textOffset = options.textOffset || 0;
         this.hovered = false;
-
+        this.background = options.background || 'noColor';
         this.position = {
             x: locationX,
             y: locationY
         };
+        console.log(this.textOffset);
         this.size = {
             width: width,
             height: height
@@ -36,6 +38,10 @@ var Button=Framework.exClass({
     },
     
     draw: function(parentCtx) {
+        if(this.background != 'noColor'){
+            parentCtx.fillStyle = this.background;
+            parentCtx.fillRect(this.position.x , this.position.y, this.size.width, this.size.height);
+        }
         parentCtx.font = this.font;
         parentCtx.fillStyle = this.color;
         parentCtx.textBaseline = 'top';
@@ -43,7 +49,7 @@ var Button=Framework.exClass({
         parentCtx.fillText(
             this.text,
             this.position.x + this.size.width / 2, 
-            this.position.y);
+            this.position.y + this.textOffset);
     },
 
 	click: function(e,func) {
