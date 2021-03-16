@@ -36,8 +36,9 @@
         this.circleSpeed = 0.7;
 
         this.pauseBtn = new Button(this, Framework.Game.getCanvasWidth()-250, 35, 50, 50,
-        {text: '||', font: 'bold 32px Arial', color: 'white', background: 'green', textOffset: 8});
-        this.rootScene.attach(this.pauseBtn)
+        {text: '||', font: 'bold 32px Arial', color: 'white', background: 'green', textOffset: 8, click: function(){
+            Framework.Game.goToPreviousLevel();
+        }});
 
         //載入要被播放的音樂清單
         //資料夾內只提供mp3檔案, 其餘的音樂檔案, 請自行轉檔測試
@@ -82,7 +83,7 @@
 
     draw:function(parentCtx){
         this.rootScene.draw();
-        //this.pauseBtn.draw();
+        this.pauseBtn.draw(parentCtx);
         //可支援畫各種單純的圖形和字
         parentCtx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
         parentCtx.fillRect(this.rectPosition.x , this.rectPosition.y, 260, 90);  
@@ -160,6 +161,6 @@
             Framework.Game.goToPreviousLevel();            
             return;
         }*/
-        this.pauseBtn.click();
+        this.pauseBtn.clicked();
     },
 });

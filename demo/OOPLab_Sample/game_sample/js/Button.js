@@ -12,7 +12,7 @@ var Button=Framework.exClass({
             x: locationX,
             y: locationY
         };
-        console.log(this.textOffset);
+
         this.size = {
             width: width,
             height: height
@@ -38,10 +38,12 @@ var Button=Framework.exClass({
     },
     
     draw: function(parentCtx) {
+        //填滿背景顏色
         if(this.background != 'noColor'){
             parentCtx.fillStyle = this.background;
             parentCtx.fillRect(this.position.x , this.position.y, this.size.width, this.size.height);
         }
+        //設定文字樣式及繪製顏色
         parentCtx.font = this.font;
         parentCtx.fillStyle = this.color;
         parentCtx.textBaseline = 'top';
