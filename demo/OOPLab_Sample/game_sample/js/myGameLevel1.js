@@ -51,8 +51,6 @@
                 mp3: define.soundPath + 'PullingString.mp3'
             }
         });
-        //播放時, 需要給name, 其餘參數可參考W3C
-        this.audio.play({name: 'start'});
 
         this.rectPosition = { 
             x: Framework.Game.getCanvasWidth() / 2 - 130,

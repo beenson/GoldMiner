@@ -16,8 +16,8 @@ var Button=Framework.exClass({
             height: height
         };
 
-        this.hovered = options.hover || function(){};
-        this.clicked = options.click || function(){};
+        this.hovered = options.hover || function(){}; //在hover時執行
+        this.clicked = options.click || function(){}; //在button上click時執行
     },
 
     mousemove: function(e) {
