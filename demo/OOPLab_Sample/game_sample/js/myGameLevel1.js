@@ -86,12 +86,14 @@
             this.circleSpeed *= -1;
         }
         this.circle.rotation += this.circleSpeed;
-        this.exitBtn.update();
+        this.backBtn1.update();
+        this.backBtn2.update();
     },
 
     draw:function(parentCtx){
         this.rootScene.draw();
-        this.exitBtn.draw(parentCtx);
+        this.backBtn1.draw(parentCtx);
+        this.backBtn2.draw(parentCtx);
         //可支援畫各種單純的圖形和字
         parentCtx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
         parentCtx.fillRect(this.rectPosition.x , this.rectPosition.y, 260, 90);  
