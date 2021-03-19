@@ -40,12 +40,19 @@
 
         this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 35, 70, 50,
         {text: '退出', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
+<<<<<<< HEAD
             clearInterval(this.timer);
+=======
+            console.log('ggg');
+>>>>>>> 30ee830405baa8c15e6ca292fdfe2b5479aa30c0
             Framework.Game.goToPreviousLevel();
         }});
         this.backBtn2 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 35+50, 70, 50,
         {text: '關卡', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
+<<<<<<< HEAD
             clearInterval(this.timer);
+=======
+>>>>>>> 30ee830405baa8c15e6ca292fdfe2b5479aa30c0
             Framework.Game.goToPreviousLevel();
         }});
 
@@ -87,12 +94,14 @@
             this.circleSpeed *= -1;
         }
         this.circle.rotation += this.circleSpeed;
-        this.backBtn.update();
+        this.backBtn1.update();
+        this.backBtn2.update();
     },
 
     draw:function(parentCtx){
         this.rootScene.draw();
-        this.backBtn.draw(parentCtx);
+        this.backBtn1.draw(parentCtx);
+        this.backBtn2.draw(parentCtx);
         //可支援畫各種單純的圖形和字
         parentCtx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
         parentCtx.fillRect(this.rectPosition.x , this.rectPosition.y, 260, 90);  
@@ -142,7 +151,8 @@
     },
     
     mousemove: function(e) {      
-        this.backBtn.mousemove(e);
+        this.backBtn1.mousemove(e);
+        this.backBtn2.mousemove(e);
     },
 
     click: function (e) {  
@@ -153,7 +163,11 @@
         } 
 
         this.backBtn1.click(e);
+<<<<<<< HEAD
         this.backBtn2.click(e);
+=======
+        this.backBtn2.clicked(e);
+>>>>>>> 30ee830405baa8c15e6ca292fdfe2b5479aa30c0
         
         if(e.x >= this.rectPosition.x && e.x <= this.rectPosition.x + 260 && e.y >= this.rectPosition.y && e.y <= this.rectPosition.y + 90) {
             if(!this.isStop) {
