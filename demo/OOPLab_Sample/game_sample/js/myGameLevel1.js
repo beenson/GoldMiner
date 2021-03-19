@@ -59,6 +59,8 @@
                 mp3: define.soundPath + 'PullingString.mp3'
             }
         });
+        //播放時, 需要給name, 其餘參數可參考W3C
+        this.audio.play({name: 'start'});
 
         this.rectPosition = { 
             x: Framework.Game.getCanvasWidth() / 2 - 130,
@@ -85,14 +87,12 @@
             this.circleSpeed *= -1;
         }
         this.circle.rotation += this.circleSpeed;
-        this.backBtn1.update();
-        this.backBtn2.update();
+        this.backBtn.update();
     },
 
     draw:function(parentCtx){
         this.rootScene.draw();
-        this.backBtn1.draw(parentCtx);
-        this.backBtn2.draw(parentCtx);
+        this.backBtn.draw(parentCtx);
         //可支援畫各種單純的圖形和字
         parentCtx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
         parentCtx.fillRect(this.rectPosition.x , this.rectPosition.y, 260, 90);  
@@ -134,6 +134,7 @@
 
     },
 
+    
     touchstart: function (e) {
         //為了要讓Mouse和Touch都有一樣的事件
         //又要減少Duplicated code, 故在Touch事件被觸發時, 去Trigger Mouse事件
@@ -141,8 +142,7 @@
     },
     
     mousemove: function(e) {      
-        this.backBtn1.mousemove(e);
-        this.backBtn2.mousemove(e);
+        this.backBtn.mousemove(e);
     },
 
     click: function (e) {  
