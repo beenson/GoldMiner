@@ -54,8 +54,9 @@ var Button=Framework.exClass({
             this.position.y + this.textOffset);
     },
 
-	click: function(e,func) {
+	click: function(e) {
         if (this.isHovered) {
+            console.log(this.text + ' clicked');
             this.clicked();
         }
     }

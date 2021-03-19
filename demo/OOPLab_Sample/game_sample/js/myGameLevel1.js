@@ -18,6 +18,8 @@
         this.oldman.scale = 1.15;
         this.rootScene.attach(this.oldman);
 
+
+        //爪子爪子
         this.circle = new Framework.Scene();
         this.circle.position = {
             x: Framework.Game.getCanvasWidth() / 2,
@@ -34,12 +36,14 @@
         this.circle.attach(this.catcher);
 
         this.circleSpeed = 0.7;
+        //爪子爪子end
 
-        this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth()/2)-250, 35, 70, 50,
+        this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 35, 70, 50,
         {text: '退出', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
+            console.log('ggg');
             Framework.Game.goToPreviousLevel();
         }});
-        this.backBtn2 = new Button(this, (Framework.Game.getCanvasWidth()/2)-250, 35+50, 70, 50,
+        this.backBtn2 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 35+50, 70, 50,
         {text: '關卡', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
             Framework.Game.goToPreviousLevel();
         }});
@@ -64,11 +68,11 @@
 			x: 100,
 			y: 100
 		}
-		this.rotation = 0;
-
-        setTimeout(function(){
-            console.log('TimesUp');
-        }, 3000);
+        this.rotation = 0;
+        
+        setInterval(function(){
+            console.log('ya');
+        }, 1000);
 	},
 
     initialize: function() {
@@ -135,13 +139,20 @@
         this.click({ x: e.touches[0].clientX, y: e.touches[0].clientY });
     },
     
+    mousemove: function(e) {      
+        this.backBtn1.mousemove(e);
+        this.backBtn2.mousemove(e);
+    },
+
     click: function (e) {  
         console.log(e.x, e.y);
         console.log(this.circle.rotation);
-
         if (!this.rectPosition) {
             return;
-        }  
+        } 
+
+        this.backBtn1.click(e);
+        this.backBtn2.clicked(e);
         
         if(e.x >= this.rectPosition.x && e.x <= this.rectPosition.x + 260 && e.y >= this.rectPosition.y && e.y <= this.rectPosition.y + 90) {
             if(!this.isStop) {
@@ -165,7 +176,5 @@
             Framework.Game.goToPreviousLevel();            
             return;
         }*/
-        this.backBtn1.clicked();
-        //this.backBtn2.clicked();
     },
 });
