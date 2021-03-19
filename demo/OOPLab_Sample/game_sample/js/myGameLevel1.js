@@ -35,8 +35,12 @@
 
         this.circleSpeed = 0.7;
 
-        this.pauseBtn = new Button(this, Framework.Game.getCanvasWidth()-250, 35, 50, 50,
-        {text: '||', font: 'bold 32px Arial', color: 'white', background: 'green', textOffset: 8, click: function(){
+        this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth()/2)-250, 35, 70, 50,
+        {text: '退出', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
+            Framework.Game.goToPreviousLevel();
+        }});
+        this.backBtn2 = new Button(this, (Framework.Game.getCanvasWidth()/2)-250, 35+50, 70, 50,
+        {text: '關卡', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
             Framework.Game.goToPreviousLevel();
         }});
 
@@ -76,12 +80,14 @@
             this.circleSpeed *= -1;
         }
         this.circle.rotation += this.circleSpeed;
-        this.pauseBtn.update();
+        this.backBtn1.update();
+        this.backBtn2.update();
     },
 
     draw:function(parentCtx){
         this.rootScene.draw();
-        this.pauseBtn.draw(parentCtx);
+        this.backBtn1.draw(parentCtx);
+        this.backBtn2.draw(parentCtx);
         //可支援畫各種單純的圖形和字
         parentCtx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
         parentCtx.fillRect(this.rectPosition.x , this.rectPosition.y, 260, 90);  
@@ -159,6 +165,7 @@
             Framework.Game.goToPreviousLevel();            
             return;
         }*/
-        this.pauseBtn.clicked();
+        this.backBtn1.clicked();
+        //this.backBtn2.clicked();
     },
 });
