@@ -18,6 +18,9 @@
         this.oldman.scale = 1.15;
         this.rootScene.attach(this.oldman);
 
+        this.timer = setInterval(function(){
+            console.log('ya');
+        }, 1000);
 
         //爪子爪子
         this.circle = new Framework.Scene();
@@ -37,17 +40,6 @@
 
         this.circleSpeed = 0.7;
         //爪子爪子end
-
-        this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 35, 70, 50,
-        {text: '退出', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
-            clearInterval(this.timer);
-            Framework.Game.goToPreviousLevel();
-        }});
-        this.backBtn2 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 35+50, 70, 50,
-        {text: '關卡', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
-            clearInterval(this.timer);
-            Framework.Game.goToPreviousLevel();
-        }});
 
         //載入要被播放的音樂清單
         //資料夾內只提供mp3檔案, 其餘的音樂檔案, 請自行轉檔測試
@@ -72,10 +64,17 @@
 			y: 100
 		}
         this.rotation = 0;
-        
-        this.timer = setInterval(function(){
-            console.log('ya');
-        }, 1000);
+        var self =this;
+        this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 35, 70, 50,
+        {text: '退出', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
+            clearInterval(self.timer);
+            Framework.Game.goToPreviousLevel();
+        }});
+        this.backBtn2 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 35+50, 70, 50,
+        {text: '關卡', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
+            clearInterval(self.timer);
+            Framework.Game.goToPreviousLevel();
+        }});
 	},
 
     initialize: function() {
@@ -164,6 +163,7 @@
                 this.isStop = true;
                 //Audio可以一次暫停所有的音樂
                 //this.audio.pauseAll();
+                clearInterval(this.timer);
                 Framework.Game.goToNextLevel();
             }
             else {
