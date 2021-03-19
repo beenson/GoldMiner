@@ -1,34 +1,61 @@
 ﻿var MyGame = Framework.Class(Framework.Level , {
 	load: function(){
-	    var characterPosition;
+	    this.loadingPic = new Framework.Sprite(define.imagePath+'/background/Gold.jpg');
+        this.loadingPic.position = {
+            x: Framework.Game.getCanvasWidth() / 2,
+            y: Framework.Game.getCanvasHeight() / 2
+        };
+        this.loadingPic.scale = 1.5;
+        this.rootScene.attach(this.loadingPic);
+        this.haveLoaded = 0;
 
         this.isStop = false;
         this.isPlayed = false;
         //----------------------------------------------
         this.gameMap = new GameMap();
         this.gameMap.load();
-        this.rootScene.attach(this.gameMap);
+        //----------------------------------------------
+        var photoLink = [               
+            define.imagePath + '/Oldman/1.png',
+            define.imagePath + '/Oldman/2.png',
+            define.imagePath + '/Oldman/3.png',
+            define.imagePath + '/Oldman/4.png',
+            define.imagePath + '/Oldman/5.png',
+            define.imagePath + '/Oldman/6.png',
+            define.imagePath + '/Oldman/7.png',
+            define.imagePath + '/Oldman/8.png',
+            define.imagePath + '/Oldman/9.png',
+            define.imagePath + '/Oldman/10.png',
+            define.imagePath + '/Oldman/11.png',
+            define.imagePath + '/Oldman/12.png',
+            define.imagePath + '/Oldman/13.png',
+            define.imagePath + '/Oldman/14.png'
+        ];
+        this.Oldman = new Framework.AnimationSprite({url: photoLink, loop: true,  speed: 2.5});
+        this.Oldman.scale = 1.2;
+        this.Oldman.position = {
+            x: Framework.Game.getCanvasWidth() / 2 + 10,
+            y: 50
+        };
         //----------------------------------------------
 
-        this.oldman = new Framework.Sprite(define.imagePath + '/Oldman/normal.jpg');
+        /*this.oldman = new Framework.Sprite(define.imagePath + '/Oldman/normal.jpg');
         this.oldman.position = {
             x: Framework.Game.getCanvasWidth() / 2,
             y: 65
         }
         this.oldman.scale = 1.15;
-        this.rootScene.attach(this.oldman);
+        this.rootScene.attach(this.oldman);*/
 
         this.timer = setInterval(function(){
             console.log('ya');
         }, 1000);
-
         //爪子爪子
         this.circle = new Framework.Scene();
         this.circle.position = {
             x: Framework.Game.getCanvasWidth() / 2,
             y: 80
         };
-        this.rootScene.attach(this.circle);
 
         this.length = 50;
         this.catcher = new Framework.Sprite(define.imagePath + 'Catcher2.png');
@@ -37,13 +64,13 @@
             y: this.length
         };
         this.catcher.scale = 1.1;
-        this.circle.attach(this.catcher);
 
         this.circleSpeed = 0.7;
         //爪子爪子end
 
         //載入要被播放的音樂清單
         //資料夾內只提供mp3檔案, 其餘的音樂檔案, 請自行轉檔測試
+        
         this.audio = new Framework.Audio({
             start: {
                 mp3: define.soundPath + 'GameStart.mp3'
@@ -66,18 +93,28 @@
 		}
         this.rotation = 0;
 
-        var self =this;
-        this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 35, 70, 50,
+        var self = this;
+        this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20, 70, 50,
         {text: '退出', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
             clearInterval(self.timer);
             Framework.Game.goToPreviousLevel();
         }});
 
-        this.backBtn2 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 35+50, 70, 50,
+        this.backBtn2 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20+50, 70, 50,
         {text: '關卡', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
             clearInterval(self.timer);
             Framework.Game.goToPreviousLevel();
         }});
+        //-----------loading完後再繪製物件--------------
+        setTimeout(function(){
+            self.rootScene.attach(self.gameMap);
+            self.rootScene.detach(self.loadingPic);
+            self.rootScene.attach(self.Oldman);
+            self.rootScene.attach(self.circle);
+            self.circle.attach(self.catcher);
+            self.Oldman.start();
+            self.haveLoaded = 1;
+        }, 2000);
 	},
 
     initialize: function() {
@@ -95,28 +132,31 @@
 
     draw:function(parentCtx){
         this.rootScene.draw();
-        this.backBtn1.draw(parentCtx);
-        this.backBtn2.draw(parentCtx);
 
-        this.catcherPos = {
-            x: this.circle.position.x + (this.length - this.catcher.height / 2) * Math.cos((this.circle.rotation + 90) / 180 * Math.PI),
-            y: this.circle.position.y + (this.length - this.catcher.height / 2) * Math.sin((this.circle.rotation + 90) / 180 * Math.PI)
+
+        if(this.haveLoaded === 1){
+            this.backBtn1.draw(parentCtx);
+            this.backBtn2.draw(parentCtx);
+
+            this.catcherPos = {
+                x: this.circle.position.x + (this.length - this.catcher.height / 2) * Math.cos((this.circle.rotation + 90) / 180 * Math.PI),
+                y: this.circle.position.y + (this.length - this.catcher.height / 2) * Math.sin((this.circle.rotation + 90) / 180 * Math.PI)
+            }
+            parentCtx.fillStyle = 'black'; 
+            parentCtx.lineWidth = 5;
+            parentCtx.moveTo(this.circle.position.x, this.circle.position.y);
+            parentCtx.lineTo(this.catcherPos.x, this.catcherPos.y);
+            parentCtx.stroke();
+            this.circle.draw();
         }
-        parentCtx.fillStyle = 'black'; 
-        parentCtx.lineWidth = 5;
-        parentCtx.moveTo(this.circle.position.x, this.circle.position.y);
-        parentCtx.lineTo(this.catcherPos.x, this.catcherPos.y);
-        parentCtx.stroke();
-        this.circle.draw();
-
         //可支援畫各種單純的圖形和字
-        parentCtx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
+        /*parentCtx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
         parentCtx.fillRect(this.rectPosition.x , this.rectPosition.y, 260, 90);  
         parentCtx.font = '65pt bold';
         parentCtx.fillStyle = 'white';
         parentCtx.textBaseline = 'top';
         parentCtx.textAlign = 'center';
-        parentCtx.fillText('Click Me', this.rectPosition.x + 130, this.rectPosition.y, 260);
+        parentCtx.fillText('Click Me', this.rectPosition.x + 130, this.rectPosition.y, 260);*/
     },
 
     keydown:function(e, list){
