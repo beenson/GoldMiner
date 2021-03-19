@@ -40,11 +40,12 @@
 
         this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 35, 70, 50,
         {text: '退出', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
-            console.log('ggg');
+            clearInterval(this.timer);
             Framework.Game.goToPreviousLevel();
         }});
         this.backBtn2 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 35+50, 70, 50,
         {text: '關卡', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
+            clearInterval(this.timer);
             Framework.Game.goToPreviousLevel();
         }});
 
@@ -70,7 +71,7 @@
 		}
         this.rotation = 0;
         
-        setInterval(function(){
+        this.timer = setInterval(function(){
             console.log('ya');
         }, 1000);
 	},
@@ -152,7 +153,7 @@
         } 
 
         this.backBtn1.click(e);
-        this.backBtn2.clicked(e);
+        this.backBtn2.click(e);
         
         if(e.x >= this.rectPosition.x && e.x <= this.rectPosition.x + 260 && e.y >= this.rectPosition.y && e.y <= this.rectPosition.y + 90) {
             if(!this.isStop) {
