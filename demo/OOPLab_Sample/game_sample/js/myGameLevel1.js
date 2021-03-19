@@ -40,12 +40,10 @@
 
         this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 35, 70, 50,
         {text: '退出', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
-            clearInterval(this.timer);
             Framework.Game.goToPreviousLevel();
         }});
         this.backBtn2 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 35+50, 70, 50,
         {text: '關卡', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
-            clearInterval(this.timer);
             Framework.Game.goToPreviousLevel();
         }});
 
@@ -164,6 +162,7 @@
                 this.isStop = true;
                 //Audio可以一次暫停所有的音樂
                 //this.audio.pauseAll();
+                clearInterval(this.timer);
                 Framework.Game.goToNextLevel();
             }
             else {
