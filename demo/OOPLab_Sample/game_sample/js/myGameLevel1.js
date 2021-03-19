@@ -38,10 +38,6 @@
         this.circleSpeed = 0.7;
         //爪子爪子end
 
-<<<<<<< HEAD
-        this.exitBtn = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 300, 35, 140, 50,
-        {text: '退出關卡', font: 'bold 32px 華康中圓體', color: 'white', background: 'brown', textOffset: 8});
-=======
         this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 35, 70, 50,
         {text: '退出', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
             console.log('ggg');
@@ -52,7 +48,6 @@
             Framework.Game.goToPreviousLevel();
         }});
 
->>>>>>> 5888be6190bb26986c2fbdda0b01377c4422567c
         //載入要被播放的音樂清單
         //資料夾內只提供mp3檔案, 其餘的音樂檔案, 請自行轉檔測試
         this.audio = new Framework.Audio({
@@ -182,11 +177,5 @@
             Framework.Game.goToPreviousLevel();            
             return;
         }*/
-<<<<<<< HEAD
-        this.exitBtn.click(e, function() {
-            Framework.Game.goToPreviousLevel();
-        });
-=======
->>>>>>> 5888be6190bb26986c2fbdda0b01377c4422567c
     },
 });
