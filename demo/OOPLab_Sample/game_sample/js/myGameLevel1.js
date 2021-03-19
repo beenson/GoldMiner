@@ -38,8 +38,21 @@
         this.circleSpeed = 0.7;
         //爪子爪子end
 
-        this.backBtn = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 300, 35, 140, 50,
+<<<<<<< HEAD
+        this.exitBtn = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 300, 35, 140, 50,
         {text: '退出關卡', font: 'bold 32px 華康中圓體', color: 'white', background: 'brown', textOffset: 8});
+=======
+        this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 35, 70, 50,
+        {text: '退出', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
+            console.log('ggg');
+            Framework.Game.goToPreviousLevel();
+        }});
+        this.backBtn2 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 35+50, 70, 50,
+        {text: '關卡', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
+            Framework.Game.goToPreviousLevel();
+        }});
+
+>>>>>>> 5888be6190bb26986c2fbdda0b01377c4422567c
         //載入要被播放的音樂清單
         //資料夾內只提供mp3檔案, 其餘的音樂檔案, 請自行轉檔測試
         this.audio = new Framework.Audio({
@@ -78,12 +91,12 @@
             this.circleSpeed *= -1;
         }
         this.circle.rotation += this.circleSpeed;
-        this.backBtn.update();
+        this.exitBtn.update();
     },
 
     draw:function(parentCtx){
         this.rootScene.draw();
-        this.backBtn.draw(parentCtx);
+        this.exitBtn.draw(parentCtx);
         //可支援畫各種單純的圖形和字
         parentCtx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
         parentCtx.fillRect(this.rectPosition.x , this.rectPosition.y, 260, 90);  
@@ -133,7 +146,8 @@
     },
     
     mousemove: function(e) {      
-        this.backBtn.mousemove(e);
+        this.backBtn1.mousemove(e);
+        this.backBtn2.mousemove(e);
     },
 
     click: function (e) {  
@@ -143,7 +157,8 @@
             return;
         } 
 
-        this.backBtn.click(e);
+        this.backBtn1.click(e);
+        this.backBtn2.clicked(e);
         
         if(e.x >= this.rectPosition.x && e.x <= this.rectPosition.x + 260 && e.y >= this.rectPosition.y && e.y <= this.rectPosition.y + 90) {
             if(!this.isStop) {
@@ -167,5 +182,11 @@
             Framework.Game.goToPreviousLevel();            
             return;
         }*/
+<<<<<<< HEAD
+        this.exitBtn.click(e, function() {
+            Framework.Game.goToPreviousLevel();
+        });
+=======
+>>>>>>> 5888be6190bb26986c2fbdda0b01377c4422567c
     },
 });
