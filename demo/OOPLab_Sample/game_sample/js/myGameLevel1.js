@@ -26,14 +26,15 @@
         this.circle = new Framework.Scene();
         this.circle.position = {
             x: Framework.Game.getCanvasWidth() / 2,
-            y: 70
+            y: 80
         };
         this.rootScene.attach(this.circle);
 
+        this.length = 50;
         this.catcher = new Framework.Sprite(define.imagePath + 'Catcher2.png');
         this.catcher.position = {
             x: 0,
-            y: 50
+            y: this.length
         };
         this.catcher.scale = 1.1;
         this.circle.attach(this.catcher);
@@ -64,7 +65,7 @@
 			y: 100
 		}
         this.rotation = 0;
-        
+
         var self =this;
         this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 35, 70, 50,
         {text: '退出', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
@@ -84,18 +85,30 @@
     },
 
     update: function() {
-        if(Math.abs(this.circle.rotation) >= 50) {
+        this.backBtn1.update();
+        this.backBtn2.update();
+        if(Math.abs(this.circle.rotation) >= 70) {
             this.circleSpeed *= -1;
         }
         this.circle.rotation += this.circleSpeed;
-        this.backBtn1.update();
-        this.backBtn2.update();
     },
 
     draw:function(parentCtx){
         this.rootScene.draw();
         this.backBtn1.draw(parentCtx);
         this.backBtn2.draw(parentCtx);
+
+        this.catcherPos = {
+            x: this.circle.position.x + (this.length - this.catcher.height / 2) * Math.cos((this.circle.rotation + 90) / 180 * Math.PI),
+            y: this.circle.position.y + (this.length - this.catcher.height / 2) * Math.sin((this.circle.rotation + 90) / 180 * Math.PI)
+        }
+        parentCtx.fillStyle = 'black'; 
+        parentCtx.lineWidth = 5;
+        parentCtx.moveTo(this.circle.position.x, this.circle.position.y);
+        parentCtx.lineTo(this.catcherPos.x, this.catcherPos.y);
+        parentCtx.stroke();
+        this.circle.draw();
+
         //可支援畫各種單純的圖形和字
         parentCtx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
         parentCtx.fillRect(this.rectPosition.x , this.rectPosition.y, 260, 90);  
