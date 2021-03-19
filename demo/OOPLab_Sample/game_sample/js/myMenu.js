@@ -76,9 +76,7 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
     click: function(e) {
         console.log(e);
 
-        this.button.click(e, function() {
-            Framework.Game.goToNextLevel();
-        });
+        this.button.click(e);
     },
 
     touchstart: function (e) {

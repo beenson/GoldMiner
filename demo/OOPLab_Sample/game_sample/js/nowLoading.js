@@ -21,7 +21,9 @@ var nowLoading = Framework.Class(Framework.Level , {
         //播放時, 需要給name, 其餘參數可參考W3C
         this.audio.play({name: 'start'});
 
-        setTimeout('Framework.Game.goToNextLevel()', 2000);
+        setTimeout(function(){
+            Framework.Game.goToNextLevel();
+        }, 2000);
     },
 
     initiallize: function(){

@@ -18,6 +18,8 @@
         this.oldman.scale = 1.15;
         this.rootScene.attach(this.oldman);
 
+
+        //爪子爪子
         this.circle = new Framework.Scene();
         this.circle.position = {
             x: Framework.Game.getCanvasWidth() / 2,
@@ -34,8 +36,9 @@
         this.circle.attach(this.catcher);
 
         this.circleSpeed = 0.7;
+        //爪子爪子end
 
-        this.exitBtn = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 300, 35, 140, 50,
+        this.backBtn = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 300, 35, 140, 50,
         {text: '退出關卡', font: 'bold 32px 華康中圓體', color: 'white', background: 'brown', textOffset: 8});
         //載入要被播放的音樂清單
         //資料夾內只提供mp3檔案, 其餘的音樂檔案, 請自行轉檔測試
@@ -59,11 +62,11 @@
 			x: 100,
 			y: 100
 		}
-		this.rotation = 0;
-
-        setTimeout(function(){
-            console.log('TimesUp');
-        }, 3000);
+        this.rotation = 0;
+        
+        setInterval(function(){
+            console.log('ya');
+        }, 1000);
 	},
 
     initialize: function() {
@@ -75,12 +78,12 @@
             this.circleSpeed *= -1;
         }
         this.circle.rotation += this.circleSpeed;
-        this.exitBtn.update();
+        this.backBtn.update();
     },
 
     draw:function(parentCtx){
         this.rootScene.draw();
-        this.exitBtn.draw(parentCtx);
+        this.backBtn.draw(parentCtx);
         //可支援畫各種單純的圖形和字
         parentCtx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
         parentCtx.fillRect(this.rectPosition.x , this.rectPosition.y, 260, 90);  
@@ -129,13 +132,18 @@
         this.click({ x: e.touches[0].clientX, y: e.touches[0].clientY });
     },
     
+    mousemove: function(e) {      
+        this.backBtn.mousemove(e);
+    },
+
     click: function (e) {  
         console.log(e.x, e.y);
         console.log(this.circle.rotation);
-
         if (!this.rectPosition) {
             return;
-        }  
+        } 
+
+        this.backBtn.click(e);
         
         if(e.x >= this.rectPosition.x && e.x <= this.rectPosition.x + 260 && e.y >= this.rectPosition.y && e.y <= this.rectPosition.y + 90) {
             if(!this.isStop) {
@@ -159,8 +167,5 @@
             Framework.Game.goToPreviousLevel();            
             return;
         }*/
-        this.exitBtn.click(e, function() {
-            Framework.Game.goToPreviousLevel();
-        });
     },
 });
