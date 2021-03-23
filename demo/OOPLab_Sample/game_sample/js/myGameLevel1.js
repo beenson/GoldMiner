@@ -10,13 +10,14 @@
         this.haveLoaded = 0;
 
         this.isStop = false;
-        this.isPlayed = false;
+        this.oldman_isPlayed = false;
         this.shooting = false;
         //----------------------------------------------
         this.gameMap = new GameMap();
         this.gameMap.load();
         //----------------------------------------------
-        var photoLink = [               
+        this.OldmanDefault = new Framework.Sprite(define.imagePath + '/Oldman/align.jpg');
+        var photoLink = [
             define.imagePath + '/Oldman/1.png',
             define.imagePath + '/Oldman/2.png',
             define.imagePath + '/Oldman/3.png',
@@ -32,12 +33,14 @@
             define.imagePath + '/Oldman/13.png',
             define.imagePath + '/Oldman/14.png'
         ];
-        this.Oldman = new Framework.AnimationSprite({url: photoLink, loop: true,  speed: 2.5});
+        this.Oldman = new Framework.AnimationSprite({url: photoLink, loop: true,  speed: 5});
         this.Oldman.scale = 1.2;
         this.Oldman.position = {
             x: Framework.Game.getCanvasWidth() / 2 + 10,
             y: 50
         };
+        this.OldmanDefault.scale = this.Oldman.scale;
+        this.OldmanDefault.position = this.Oldman.position;
         //----------------------------------------------
 
         /*this.oldman = new Framework.Sprite(define.imagePath + '/Oldman/normal.jpg');
@@ -110,10 +113,10 @@
         setTimeout(function(){
             self.rootScene.attach(self.gameMap);
             self.rootScene.detach(self.loadingPic);
-            self.rootScene.attach(self.Oldman);
+            self.rootScene.attach(self.OldmanDefault);
             self.rootScene.attach(self.circle);
             self.circle.attach(self.catcher);
-            self.Oldman.start();
+            //self.Oldman.start();
             self.haveLoaded = 1;
         }, 2000);
 	},
@@ -136,10 +139,18 @@
 
         if(this.shooting) {
             this.length += 5;
-
+            if(!this.oldman_isPlayed){
+                this.oldman_isPlayed = true;
+                this.rootScene.detach(this.OldmanDefault);
+                this.rootScene.attach(this.Oldman);
+                this.Oldman.start();
+            }
             if(this.catcher.position.y >= Framework.Game.getCanvasHeight()) {
                 this.shooting = false;
                 this.length = 50;
+                this.rootScene.detach(this.Oldman);
+                this.rootScene.attach(this.OldmanDefault);
+                this.oldman_isPlayed = false;
             }
         }else {
             this.circle.rotation += this.circleSpeed;
