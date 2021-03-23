@@ -1,20 +1,6 @@
 ﻿var MyGame = Framework.Class(Framework.Level , {
 	load: function(){
-	    this.loadingPic = new Framework.Sprite(define.imagePath+'/background/Gold.jpg');
-        this.loadingPic.position = {
-            x: Framework.Game.getCanvasWidth() / 2,
-            y: Framework.Game.getCanvasHeight() / 2
-        };
-        this.loadingPic.scale = 1.5;
-        this.rootScene.attach(this.loadingPic);
-        this.haveLoaded = 0;
 
-        this.isStop = false;
-        this.oldman_isPlayed = false;
-        this.shooting = false;
-        //----------------------------------------------
-        this.gameMap = new GameMap();
-        this.gameMap.load();
         //----------------------------------------------
         this.OldmanDefault = new Framework.Sprite(define.imagePath + '/Oldman/align.jpg');
         var photoLink = [
@@ -42,6 +28,24 @@
         this.OldmanDefault.scale = this.Oldman.scale;
         this.OldmanDefault.position = this.Oldman.position;
         //----------------------------------------------
+	    this.loadingPic = new Framework.Sprite(define.imagePath+'/background/Gold.jpg');
+        this.loadingPic.position = {
+            x: Framework.Game.getCanvasWidth() / 2,
+            y: Framework.Game.getCanvasHeight() / 2
+        };
+        this.loadingPic.scale = 1.5;
+        this.rootScene.attach(this.Oldman);
+        this.Oldman.start();
+        this.rootScene.attach(this.loadingPic);
+        this.haveLoaded = 0;
+
+        this.isStop = false;
+        this.oldman_isPlayed = false;
+        this.shooting = false;
+        //----------------------------------------------
+        this.gameMap = new GameMap();
+        this.gameMap.load();
+        
 
         /*this.oldman = new Framework.Sprite(define.imagePath + '/Oldman/normal.jpg');
         this.oldman.position = {
@@ -112,6 +116,7 @@
         //-----------loading完後再繪製物件--------------
         setTimeout(function(){
             self.rootScene.attach(self.gameMap);
+            self.rootScene.detach(self.Oldman);
             self.rootScene.detach(self.loadingPic);
             self.rootScene.attach(self.OldmanDefault);
             self.rootScene.attach(self.circle);
