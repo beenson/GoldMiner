@@ -11,6 +11,7 @@
 
         this.isStop = false;
         this.isPlayed = false;
+        this.shooting = false;
         //----------------------------------------------
         this.gameMap = new GameMap();
         this.gameMap.load();
@@ -127,7 +128,22 @@
         if(Math.abs(this.circle.rotation) >= 70) {
             this.circleSpeed *= -1;
         }
-        this.circle.rotation += this.circleSpeed;
+
+        this.catcher.position = {
+            x: 0,
+            y: this.length
+        };
+
+        if(this.shooting) {
+            this.length += 5;
+
+            if(this.catcher.position.y >= Framework.Game.getCanvasHeight()) {
+                this.shooting = false;
+                this.length = 50;
+            }
+        }else {
+            this.circle.rotation += this.circleSpeed;
+        }
     },
 
     draw:function(parentCtx){
@@ -161,12 +177,17 @@
 
     keydown:function(e, list){
         Framework.DebugInfo.Log.warning(e.key);
+        console.log(e.key);
         if(e.key === 'Numpad +' || e.key === '=') {
             this.circleSpeed += 0.05;
         }
 
         if(e.key === 'Numpad -' || e.key === '-') {
             this.circleSpeed -= 0.05;
+        }
+
+        if(e.key === 'Space') {
+            this.shooting = true;
         }
 
         if(e.key === 'Pause/Break') {
