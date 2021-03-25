@@ -234,9 +234,8 @@
         this.click({ x: e.touches[0].clientX, y: e.touches[0].clientY });
     },
     
-    mousemove: function(e) {      
-        this.backBtn1.mousemove(e);
-        this.backBtn2.mousemove(e);
+    mousemove: function(e) {
+        
     },
 
     click: function (e) {  

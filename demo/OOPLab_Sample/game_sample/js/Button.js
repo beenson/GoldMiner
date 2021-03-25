@@ -18,12 +18,13 @@ var Button=Framework.exClass({
             height: height
         };
 
+        this.hoverCheck = function(e){this.isHovered = (e.x >= this.position.x && e.x <= this.position.x + this.size.width && e.y >= this.position.y && e.y <= this.position.y + this.size.height);};
         this.hovered = options.hover || function(){}; //在hover時執行
         this.clicked = options.click || function(){}; //在button上click時執行
     },
 
     mousemove: function(e) {
-        this.isHovered = (e.x >= this.position.x && e.x <= this.position.x + this.size.width && e.y >= this.position.y && e.y <= this.position.y + this.size.height);
+        this.hoverCheck(e);
         if(this.isHovered) {
             this.hovered();
         }
@@ -55,6 +56,7 @@ var Button=Framework.exClass({
     },
 
 	click: function(e) {
+        this.hoverCheck(e);
         if (this.isHovered) {
             console.log(this.text + ' clicked');
             this.clicked();
