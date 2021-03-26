@@ -7,6 +7,13 @@
         //----------------------------------------------
         this.OldmanDefault = new Framework.Sprite(define.imagePath + '/Oldman/align.jpg');
         this.Oldman_shoot = new Framework.Sprite(define.imagePath + '/Oldman/4.png');
+        this.OldmanDefault.scale = 1.2;
+        this.OldmanDefault.position = {
+            x: Framework.Game.getCanvasWidth() / 2 + 10,
+            y: 50
+        };
+        this.Oldman_shoot.scale = this.OldmanDefault.scale;
+        this.Oldman_shoot.position = this.OldmanDefault.position;
         var photoLink = [
             define.imagePath + '/Oldman/1.png',
             define.imagePath + '/Oldman/2.png',
@@ -24,15 +31,8 @@
             define.imagePath + '/Oldman/14.png'
         ];
         this.Oldman = new Framework.AnimationSprite({url: photoLink, loop: true,  speed: 5});
-        this.Oldman.scale = 1.2;
-        this.Oldman.position = {
-            x: Framework.Game.getCanvasWidth() / 2 + 10,
-            y: 50
-        };
-        this.Oldman_shoot.scale = this.Oldman.scale;
-        this.Oldman_shoot.position = this.Oldman.position;
-        this.OldmanDefault.scale = this.Oldman.scale;
-        this.OldmanDefault.position = this.Oldman.position;
+        this.Oldman.scale = this.OldmanDefault.scale;
+        this.Oldman.position = this.OldmanDefault.position;
         //----------------------------------------------
 	    this.loadingPic = new Framework.Sprite(define.imagePath+'/background/Gold.jpg');
         this.loadingPic.position = {
@@ -102,7 +102,7 @@
 			y: 100
 		}
         this.rotation = 0;
-
+        //---------------------按鈕或文字物件---------------------
         var self = this;
         this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20, 70, 50,
         {text: '退出', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
@@ -115,6 +115,14 @@
             clearInterval(self.timer);
             Framework.Game.goToPreviousLevel();
         }});
+        this.currentMoney = new Text(this, 150, 20, 30, 40,
+            {text: '金錢:', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
+        this.targetMoney = new Text(this, 150, 70, 30, 40,
+            {text: '目標金錢:', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
+        this.remainTime = new Text(this, Framework.Game.getCanvasWidth()-350, 20, 30, 40,
+            {text: '時間:', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
+        this.stageInfo = new Text(this, Framework.Game.getCanvasWidth()-275, 70, 30, 40,
+            {text: '第1關', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
         //-----------loading完後再繪製物件--------------
         setTimeout(function(){
             self.rootScene.attach(self.gameMap);
@@ -183,6 +191,10 @@
         if(this.haveLoaded === 1){
             this.backBtn1.draw(parentCtx);
             this.backBtn2.draw(parentCtx);
+            this.currentMoney.draw(parentCtx);
+            this.targetMoney.draw(parentCtx);
+            this.remainTime.draw(parentCtx);
+            this.stageInfo.draw(parentCtx);
 
             this.catcherPos = {
                 x: this.circle.position.x + (this.length - this.catcher.height / 2) * Math.cos((this.circle.rotation + 90) / 180 * Math.PI),
