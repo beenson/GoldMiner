@@ -1,8 +1,19 @@
 ﻿var MyGame = Framework.Class(Framework.Level , {
-	load: function() {
-
+	load: function(){
+        this.isStop = false;
+        this.oldman_status = "default";
+        this.shooting = false;
+        this.isPullback = false;
         //----------------------------------------------
         this.OldmanDefault = new Framework.Sprite(define.imagePath + '/Oldman/align.jpg');
+        this.Oldman_shoot = new Framework.Sprite(define.imagePath + '/Oldman/4.png');
+        this.OldmanDefault.scale = 1.2;
+        this.OldmanDefault.position = {
+            x: Framework.Game.getCanvasWidth() / 2 + 10,
+            y: 50
+        };
+        this.Oldman_shoot.scale = this.OldmanDefault.scale;
+        this.Oldman_shoot.position = this.OldmanDefault.position;
         var photoLink = [
             define.imagePath + '/Oldman/1.png',
             define.imagePath + '/Oldman/2.png',
@@ -20,13 +31,8 @@
             define.imagePath + '/Oldman/14.png'
         ];
         this.Oldman = new Framework.AnimationSprite({url: photoLink, loop: true,  speed: 5});
-        this.Oldman.scale = 1.2;
-        this.Oldman.position = {
-            x: Framework.Game.getCanvasWidth() / 2 + 10,
-            y: 50
-        };
-        this.OldmanDefault.scale = this.Oldman.scale;
-        this.OldmanDefault.position = this.Oldman.position;
+        this.Oldman.scale = this.OldmanDefault.scale;
+        this.Oldman.position = this.OldmanDefault.position;
         //----------------------------------------------
 	    this.loadingPic = new Framework.Sprite(define.imagePath+'/background/Gold.jpg');
         this.loadingPic.position = {
@@ -38,10 +44,6 @@
         this.Oldman.start();
         this.rootScene.attach(this.loadingPic);
         this.haveLoaded = 0;
-
-        this.isStop = false;
-        this.oldman_isPlayed = false;
-        this.shooting = false;
         //----------------------------------------------
         this.gameMap = new GameMap();
         this.gameMap.load();
@@ -105,6 +107,7 @@
 		}
         this.rotation = 0;*/
 
+        //---------------------按鈕或文字物件---------------------
         var self = this;
 
         //object area init
@@ -127,6 +130,14 @@
             clearInterval(self.timer);
             Framework.Game.goToPreviousLevel();
         }});
+        this.currentMoney = new Text(this, 150, 20, 30, 40,
+            {text: '金錢:', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
+        this.targetMoney = new Text(this, 150, 70, 30, 40,
+            {text: '目標金錢:', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
+        this.remainTime = new Text(this, Framework.Game.getCanvasWidth()-350, 20, 30, 40,
+            {text: '時間:', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
+        this.stageInfo = new Text(this, Framework.Game.getCanvasWidth()-275, 70, 30, 40,
+            {text: '第1關', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
         //-----------loading完後再繪製物件--------------
         setTimeout(function(){
             self.rootScene.attach(self.gameMap);
@@ -160,20 +171,32 @@
 
         if(this.shooting) {
             this.length += 5;
-            if(!this.oldman_isPlayed){
-                this.oldman_isPlayed = true;
+            if(this.oldman_status === "default"){
+                this.oldman_status = "shooting";
                 this.rootScene.detach(this.OldmanDefault);
-                this.rootScene.attach(this.Oldman);
-                this.Oldman.start();
+                this.rootScene.attach(this.Oldman_shoot);
             }
             if(this.catcher.position.y >= Framework.Game.getCanvasHeight()) {
                 this.shooting = false;
-                this.length = 50;
+                this.isPullback = true;
+            }
+        }
+        else if(this.isPullback){
+            this.length -= 5;
+            if(this.oldman_status === "shooting"){
+                this.oldman_status = "pulling";
+                this.rootScene.attach(this.Oldman);
+                this.Oldman.start();
+                this.rootScene.detach(this.Oldman_shoot);
+            }
+            if(this.length === 50){
+                this.isPullback = false;
                 this.rootScene.detach(this.Oldman);
                 this.rootScene.attach(this.OldmanDefault);
-                this.oldman_isPlayed = false;
+                this.oldman_status = "default";
             }
-        }else {
+        }
+        else {
             this.circle.rotation += this.circleSpeed;
         }
     },
@@ -184,6 +207,10 @@
         if(this.haveLoaded === 1){
             this.backBtn1.draw(parentCtx);
             this.backBtn2.draw(parentCtx);
+            this.currentMoney.draw(parentCtx);
+            this.targetMoney.draw(parentCtx);
+            this.remainTime.draw(parentCtx);
+            this.stageInfo.draw(parentCtx);
 
             //catcher
             this.catcherPos = {
