@@ -125,6 +125,7 @@
             Framework.Game.goToPreviousLevel();
         }});
 
+        //text
         this.backBtn2 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20+50, 70, 50,
         {text: '關卡', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
             clearInterval(self.timer);
@@ -148,13 +149,22 @@
             self.rootScene.attach(self.circle);
             self.circle.attach(self.catcher);
             //self.Oldman.start();
-            console.log(this.object);
             self.haveLoaded = 1;
         }, 2000);
 	},
 
     initialize: function() {
-        
+        this.audio = new Framework.Audio({
+            start: {
+                mp3: define.soundPath + 'GameStart.mp3'
+            },
+            pull: {
+                mp3: define.soundPath + 'PullingString.mp3'
+            },
+            catch: {
+                mp3: define.soundPath + 'Catch.mp3'
+            }
+        });
     },
 
     update: function() {
@@ -163,11 +173,6 @@
         if(Math.abs(this.circle.rotation) >= 70) {
             this.circleSpeed *= -1;
         }
-
-        this.catcher.position = {
-            x: 0,
-            y: this.length
-        };
 
         if(this.shooting) {
             this.length += 5;
@@ -180,25 +185,29 @@
                 this.shooting = false;
                 this.isPullback = true;
             }
-        }
-        else if(this.isPullback){
-            this.length -= 5;
-            if(this.oldman_status === "shooting"){
+        } else if(this.isPullback){
+            this.length -= 10;
+            if(this.oldman_status === "shooting") {
                 this.oldman_status = "pulling";
                 this.rootScene.attach(this.Oldman);
                 this.Oldman.start();
                 this.rootScene.detach(this.Oldman_shoot);
             }
-            if(this.length === 50){
+            if(this.length <= 50) {
+                this.length = 50;
                 this.isPullback = false;
                 this.rootScene.detach(this.Oldman);
                 this.rootScene.attach(this.OldmanDefault);
                 this.oldman_status = "default";
             }
-        }
-        else {
+        } else {
             this.circle.rotation += this.circleSpeed;
         }
+        
+        this.catcher.position = {
+            x: 0,
+            y: this.length
+        };
     },
 
     draw:function(parentCtx){
@@ -222,9 +231,7 @@
             parentCtx.moveTo(this.circle.position.x, this.circle.position.y);
             parentCtx.lineTo(this.catcherPos.x, this.catcherPos.y);
             parentCtx.stroke();
-            this.circle.draw();
-
-            
+            this.circle.draw();            
         }
         //可支援畫各種單純的圖形和字
         /*parentCtx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
@@ -248,8 +255,8 @@
         }
 
         if(e.key === 'Space') {
+            this.audio.play({name: 'catch'});
             if(!this.shooting){
-                this.audio.play({name: 'catch'});
                 this.shooting = true;
             }
         }
@@ -309,7 +316,7 @@
                 this.isStop = false;
                 this.secondHandRotationRate = 0.3;
                 //Audio也可以針對一首歌進行操作(繼續播放)
-                this.audio.resume('song2');
+                //this.audio.resume('song2');
             }
         }
         /*else if(e.x >= this.clock.upperLeft.x && e.x <= this.clock.lowerRight.x && e.y >= this.clock.upperLeft.y && e.y <= this.clock.lowerRight.y) {
