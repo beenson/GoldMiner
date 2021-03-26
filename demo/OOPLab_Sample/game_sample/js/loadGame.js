@@ -43,6 +43,7 @@ var loadGameEnd;
     [
         { src: 'game_sample/js/define.js', lookFor: 'define' },
         { src: 'game_sample/js/button.js', lookFor: 'Button' },
+        { src: 'game_sample/js/object.js', lookFor: 'Object' },
         { src: 'game_sample/js/myMenu.js', lookFor: 'MyMenu' },
         { src: 'game_sample/js/nowLoading.js', lookFor: 'nowLoading' },
         { src: 'game_sample/js/character.js', lookFor: 'Character' },

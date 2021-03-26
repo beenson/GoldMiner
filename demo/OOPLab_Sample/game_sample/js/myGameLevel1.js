@@ -1,5 +1,5 @@
 ﻿var MyGame = Framework.Class(Framework.Level , {
-	load: function(){
+	load: function() {
 
         //----------------------------------------------
         this.OldmanDefault = new Framework.Sprite(define.imagePath + '/Oldman/align.jpg');
@@ -58,6 +58,7 @@
         this.timer = setInterval(function(){
             console.log('ya');
         }, 1000);
+
         //爪子爪子
         this.circle = new Framework.Scene();
         this.circle.position = {
@@ -74,23 +75,26 @@
         this.catcher.scale = 1.1;
 
         this.circleSpeed = 0.7;
-        //爪子爪子end
 
+        //load sound
         //載入要被播放的音樂清單
         //資料夾內只提供mp3檔案, 其餘的音樂檔案, 請自行轉檔測試
-        
         this.audio = new Framework.Audio({
             start: {
                 mp3: define.soundPath + 'GameStart.mp3'
             },
             pull: {
                 mp3: define.soundPath + 'PullingString.mp3'
+            },
+            catch: {
+                mp3: define.soundPath + 'Catch.mp3'
             }
         });
         //播放時, 需要給name, 其餘參數可參考W3C
         this.audio.play({name: 'start'});
-
-        this.rectPosition = { 
+        
+        //WTF is this?
+        /*this.rectPosition = { 
             x: Framework.Game.getCanvasWidth() / 2 - 130,
             y: Framework.Game.getCanvasHeight() / 2 - 90
         };
@@ -99,9 +103,19 @@
 			x: 100,
 			y: 100
 		}
-        this.rotation = 0;
+        this.rotation = 0;*/
 
         var self = this;
+
+        //object area init
+        this.objectArea = new Framework.Scene();
+        this.objectArea.position = {x: 150, y:0};
+
+        //objects
+        this.object = new Object({size:{width: 142,height: 129},  image: define.imagePath + "BigGold.png"}, {x:0, y:0});
+        this.objectArea.attach(this.object.getObj());
+
+        //button
         this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20, 70, 50,
         {text: '退出', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
             clearInterval(self.timer);
@@ -119,9 +133,11 @@
             self.rootScene.detach(self.Oldman);
             self.rootScene.detach(self.loadingPic);
             self.rootScene.attach(self.OldmanDefault);
+            self.rootScene.attach(self.objectArea);
             self.rootScene.attach(self.circle);
             self.circle.attach(self.catcher);
             //self.Oldman.start();
+            console.log(this.object);
             self.haveLoaded = 1;
         }, 2000);
 	},
@@ -165,11 +181,11 @@
     draw:function(parentCtx){
         this.rootScene.draw();
 
-
         if(this.haveLoaded === 1){
             this.backBtn1.draw(parentCtx);
             this.backBtn2.draw(parentCtx);
 
+            //catcher
             this.catcherPos = {
                 x: this.circle.position.x + (this.length - this.catcher.height / 2) * Math.cos((this.circle.rotation + 90) / 180 * Math.PI),
                 y: this.circle.position.y + (this.length - this.catcher.height / 2) * Math.sin((this.circle.rotation + 90) / 180 * Math.PI)
@@ -180,6 +196,8 @@
             parentCtx.lineTo(this.catcherPos.x, this.catcherPos.y);
             parentCtx.stroke();
             this.circle.draw();
+
+            
         }
         //可支援畫各種單純的圖形和字
         /*parentCtx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
@@ -203,7 +221,10 @@
         }
 
         if(e.key === 'Space') {
-            this.shooting = true;
+            if(!this.shooting){
+                this.audio.play({name: 'catch'});
+                this.shooting = true;
+            }
         }
 
         if(e.key === 'Pause/Break') {
