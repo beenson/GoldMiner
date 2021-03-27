@@ -90,6 +90,18 @@
             },
             catch: {
                 mp3: define.soundPath + 'Catch.mp3'
+            },
+            boom: {
+                mp3: define.soundPath + 'Boom.mp3'
+            },
+            stone: {
+                mp3: define.soundPath + 'GetStone.mp3'
+            },
+            bigPrice: {
+                mp3: define.soundPath + 'BigPrice.mp3'
+            },
+            mysteryBag: {
+                mp3: define.soundPath + 'MysteryBag.mp3'
             }
         });
         //播放時, 需要給name, 其餘參數可參考W3C
@@ -115,7 +127,7 @@
         this.objectArea.position = {x: 150, y:0};
 
         //objects
-        this.object = new Object({size:{width: 142,height: 129},  image: define.imagePath + "BigGold.png"}, {x:0, y:0});
+        this.object = new Object({size:{width: 142,height: 129},  image: define.imagePath + "BigGold_.png"}, {x:0, y:0}, self.audio);
         this.objectArea.attach(this.object.getObj());
 
         //button
@@ -154,7 +166,7 @@
 	},
 
     initialize: function() {
-        this.audio = new Framework.Audio({
+        /*this.audio = new Framework.Audio({
             start: {
                 mp3: define.soundPath + 'GameStart.mp3'
             },
@@ -164,7 +176,7 @@
             catch: {
                 mp3: define.soundPath + 'Catch.mp3'
             }
-        });
+        });*/
     },
 
     update: function() {
@@ -255,8 +267,8 @@
         }
 
         if(e.key === 'Space') {
-            this.audio.play({name: 'catch'});
-            if(!this.shooting){
+            if(this.oldman_status === "default"){
+                this.audio.play({name: 'catch'});
                 this.shooting = true;
             }
         }

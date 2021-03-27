@@ -1,5 +1,5 @@
 var Object = Framework.exClass({
-    __construct:function(type, position){
+    __construct:function(type, position, audio){
         this.position = position || {x: 0, y: 0};
         this.size = type.size || {width: 0, length: 0};
         this.value = type.value || 0;
@@ -10,25 +10,11 @@ var Object = Framework.exClass({
         this.grabbed = type.grabbed || function(){};
         this.move = type.move || function(){};
 
+        this.sound = audio;
         this.position = {
             x: this.position.x + this.size.width / 2,
             y: this.position.y + this.size.height / 2 + 140
         };
-
-        this.sound = new Framework.Audio({
-            boom: {
-                mp3: define.soundPath + 'Boom.mp3'
-            },
-            stone: {
-                mp3: define.soundPath + 'GetStone.mp3'
-            },
-            bigPrice: {
-                mp3: define.soundPath + 'BigPrice.mp3'
-            },
-            mysteryBag: {
-                mp3: define.soundPath + 'MysteryBag.mp3'
-            }
-        });
 
         //cant attach on scene
         this.obj = new Framework.Sprite(this.image);
@@ -48,7 +34,6 @@ var Object = Framework.exClass({
 
     //draw is just for testing range of detect
     draw: function(parentCtx){
-        //debug
         parentCtx.fillStyle = "blue";
         parentCtx.fillRect(this.position.x , this.position.y, this.size.width, this.size.height);
     }
