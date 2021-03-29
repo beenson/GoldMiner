@@ -5,12 +5,12 @@
         this.shooting = false;
         this.isPullback = false;
         //----------------------------------------------
-        this.OldmanDefault = new Framework.Sprite(define.imagePath + '/Oldman/align.jpg');
+        this.OldmanDefault = new Framework.Sprite(define.imagePath + '/Oldman/align.png');
         this.Oldman_shoot = new Framework.Sprite(define.imagePath + '/Oldman/4.png');
-        this.OldmanDefault.scale = 1.2;
+        this.OldmanDefault.scale = 1;
         this.OldmanDefault.position = {
             x: Framework.Game.getCanvasWidth() / 2 + 10,
-            y: 50
+            y: 56
         };
         this.Oldman_shoot.scale = this.OldmanDefault.scale;
         this.Oldman_shoot.position = this.OldmanDefault.position;
@@ -56,10 +56,6 @@
         }
         this.oldman.scale = 1.15;
         this.rootScene.attach(this.oldman);*/
-
-        this.timer = setInterval(function(){
-            console.log('ya');
-        }, 1000);
 
         //爪子爪子
         this.circle = new Framework.Scene();
@@ -160,9 +156,13 @@
             self.rootScene.attach(self.objectArea);
             self.rootScene.attach(self.circle);
             self.circle.attach(self.catcher);
+            
+            self.timer = setInterval(function(){
+                console.log('ya');
+            }, 1000);
             //self.Oldman.start();
             self.haveLoaded = 1;
-        }, 2000);
+        }, 100);
 	},
 
     initialize: function() {
@@ -232,14 +232,24 @@
             this.targetMoney.draw(parentCtx);
             this.remainTime.draw(parentCtx);
             this.stageInfo.draw(parentCtx);
+            
+            parentCtx.fillStyle = '#2A3B95';
+            parentCtx.strokeStyle = '#2A3B95'; 
+            parentCtx.lineWidth = 1;
+            parentCtx.beginPath();
+            parentCtx.arc(this.circle.position.x + 10, this.circle.position.y + 30, 110, Math.PI * 98 / 100, Math.PI * 202 / 100);
+            parentCtx.closePath();
+            parentCtx.fill();
+            parentCtx.stroke();
 
             //catcher
             this.catcherPos = {
                 x: this.circle.position.x + (this.length - this.catcher.height / 2) * Math.cos((this.circle.rotation + 90) / 180 * Math.PI),
                 y: this.circle.position.y + (this.length - this.catcher.height / 2) * Math.sin((this.circle.rotation + 90) / 180 * Math.PI)
             }
-            parentCtx.fillStyle = 'black'; 
+            parentCtx.strokeStyle = 'black'; 
             parentCtx.lineWidth = 5;
+            parentCtx.beginPath();
             parentCtx.moveTo(this.circle.position.x, this.circle.position.y);
             parentCtx.lineTo(this.catcherPos.x, this.catcherPos.y);
             parentCtx.stroke();
