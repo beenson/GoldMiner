@@ -30,8 +30,12 @@ var Text = Framework.exClass({
         
     },
     
-    draw: function(parentCtx) {
-        
+    draw: function(parentCtx, debug) {
+        if(debug) {
+            parentCtx.fillStyle = 'black';
+            parentCtx.fillRect(this.position.x , this.position.y, this.size.width, this.size.height);
+        }
+
         //設定文字樣式及繪製顏色
         parentCtx.font = this.font;
         parentCtx.fillStyle = this.color;
@@ -39,7 +43,7 @@ var Text = Framework.exClass({
         parentCtx.textAlign = this.textAlign;
         parentCtx.fillText(
             this.text,
-            this.position.x + this.size.width / 2, 
+            this.position.x, 
             this.position.y + this.textOffset);
     },
 

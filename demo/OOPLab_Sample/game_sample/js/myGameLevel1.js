@@ -1,5 +1,9 @@
 ﻿var MyGame = Framework.Class(Framework.Level , {
 	load: function(){
+        this.target = 650;
+        this.time = 60;
+        this.money = 0;
+
         this.isStop = false;
         this.oldman_status = "default";
         this.shooting = false;
@@ -146,12 +150,16 @@
             clearInterval(self.timer);
             Framework.Game.goToPreviousLevel();
         }});
-        this.currentMoney = new Text(this, 150, 20, 30, 40,
+        this.currentMoney = new Text(this, 160, 20, 100, 40,
             {text: '金錢:', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
-        this.targetMoney = new Text(this, 150, 70, 30, 40,
-            {text: '目標金錢:', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
-        this.remainTime = new Text(this, Framework.Game.getCanvasWidth()-350, 20, 30, 40,
+        this.moneyTxt = new Text(this, 250, 20, 100, 40,
+            {text: '金錢:', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
+        this.targetMoney = new Text(this, 160, 70, 200, 40,
+            {text: '目標金錢:' + this.target, font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
+        this.remainTimeText = new Text(this, Framework.Game.getCanvasWidth()-350, 20, 80, 40,
             {text: '時間:', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
+        this.remainTime = new Text(this, Framework.Game.getCanvasWidth()-250, 20, 35, 40,
+            {text: '60', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
         this.stageInfo = new Text(this, Framework.Game.getCanvasWidth()-275, 70, 30, 40,
             {text: '第1關', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
         //-----------loading完後再繪製物件--------------
@@ -166,11 +174,12 @@
             self.circle.attach(self.catcher);
             
             self.timer = setInterval(function(){
-                console.log('ya');
+                self.time--;
+                console.log(self.time);
             }, 1000);
             //self.Oldman.start();
             self.haveLoaded = 1;
-        }, 100);
+        }, 2000);
 	},
 
     initialize: function() {
@@ -188,8 +197,20 @@
     },
 
     update: function() {
+        //update
         this.backBtn1.update();
         this.backBtn2.update();
+
+        //text update
+        this.moneyTxt.text = this.money;
+        this.remainTime.text = this.time;
+
+        //timeout
+        if(this.time <= 0){
+            Framework.Game.goToNextLevel();
+        }
+
+        //rotate direction
         if(Math.abs(this.circle.rotation) >= 70) {
             this.circleSpeed *= -1;
         }
@@ -234,13 +255,19 @@
         this.rootScene.draw();
 
         if(this.haveLoaded === 1){
+            //buttons
             this.backBtn1.draw(parentCtx);
             this.backBtn2.draw(parentCtx);
+
+            //texts
             this.currentMoney.draw(parentCtx);
+            this.moneyTxt.draw(parentCtx);
             this.targetMoney.draw(parentCtx);
+            this.remainTimeText.draw(parentCtx);
             this.remainTime.draw(parentCtx);
             this.stageInfo.draw(parentCtx);
             
+            //draw blue circle
             parentCtx.fillStyle = '#2A3B95';
             parentCtx.strokeStyle = '#2A3B95'; 
             parentCtx.lineWidth = 1;
@@ -328,14 +355,16 @@
     click: function (e) {  
         console.log(e.x, e.y);
         console.log(this.circle.rotation);
-        if (!this.rectPosition) {
-            return;
-        } 
-
+        
+        //button
         this.backBtn1.click(e);
         this.backBtn2.click(e);
         
-        if(e.x >= this.rectPosition.x && e.x <= this.rectPosition.x + 260 && e.y >= this.rectPosition.y && e.y <= this.rectPosition.y + 90) {
+        //WTF??
+        /*if (!this.rectPosition) {
+            return;
+        } */
+        /*if(e.x >= this.rectPosition.x && e.x <= this.rectPosition.x + 260 && e.y >= this.rectPosition.y && e.y <= this.rectPosition.y + 90) {
             if(!this.isStop) {
                 this.secondHandRotationRate = 0;
                 this.isStop = true;
@@ -350,7 +379,7 @@
                 //Audio也可以針對一首歌進行操作(繼續播放)
                 //this.audio.resume('song2');
             }
-        }
+        }*/
         /*else if(e.x >= this.clock.upperLeft.x && e.x <= this.clock.lowerRight.x && e.y >= this.clock.upperLeft.y && e.y <= this.clock.lowerRight.y) {
             //由於Click Me在太小的螢幕的情況下會蓋到Clock, 導致點擊Click Me時, 會回到前一個Level,
             //故使用else if, 並優先選擇Click Me會觸發的條件
