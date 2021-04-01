@@ -207,6 +207,7 @@
 
         //timeout
         if(this.time <= 0){
+            clearInterval(this.timer);
             Framework.Game.goToNextLevel();
         }
 
