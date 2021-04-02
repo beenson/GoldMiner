@@ -105,7 +105,7 @@
         this.objectScene.position = {x: 150, y:0};
 
         //objects
-        this.object = new Object({size:{width: 142,height: 129},  image: define.itemPath + "BigGold_.png"}, {x:0, y:0}, this.audio, this.objectScene);
+        this.object = new Object(Items.larGold , {x:0, y:0}, this.audio, this.objectScene);
 
         //button
         this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20, 70, 50,

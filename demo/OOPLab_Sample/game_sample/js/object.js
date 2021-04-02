@@ -6,6 +6,7 @@ var Object = Framework.exClass({
         this.weight = type.weight || 0;
         this.isBigPrice = type.isBigPrice || false;
         this.image = type.image || "";
+        this.scale = type.scale || 1;
         this.destory = type.destory || function(){};
         this.grabbed = type.grabbed || function(){};
         this.move = type.move || function(){};
@@ -17,8 +18,8 @@ var Object = Framework.exClass({
             y: this.position.y + this.size.height / 2 + 140
         };
 
-        //cant attach on scene
         this.obj = new Framework.Sprite(this.image);
+        this.obj.scale = this.scale;
         this.obj.position = this.position;
         this.scene.attach(this.obj);
     },
