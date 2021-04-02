@@ -9,40 +9,12 @@
         this.shooting = false;
         this.isPullback = false;
         //----------------------------------------------
-        this.Oldman = new Framework.Scene();
-        this.Oldman.position = {
+        this.oldmanScene = new Framework.Scene();
+        this.oldmanScene.position = {
             x: 0,
             y: 0
         };
-
-        this.OldmanDefault = new Framework.Sprite(define.imagePath + '/Oldman/align.png');
-        this.Oldman_shoot = new Framework.Sprite(define.imagePath + '/Oldman/shooting.png');
-        this.OldmanDefault.scale = 1;
-        this.OldmanDefault.position = {
-            x: Framework.Game.getCanvasWidth() / 2 + 10,
-            y: 56
-        };
-        this.Oldman_shoot.scale = this.OldmanDefault.scale;
-        this.Oldman_shoot.position = this.OldmanDefault.position;
-        var photoLink = [
-            define.imagePath + '/Oldman/1.png',
-            define.imagePath + '/Oldman/2.png',
-            define.imagePath + '/Oldman/3.png',
-            define.imagePath + '/Oldman/4.png',
-            define.imagePath + '/Oldman/5.png',
-            define.imagePath + '/Oldman/6.png',
-            define.imagePath + '/Oldman/7.png',
-            define.imagePath + '/Oldman/8.png',
-            define.imagePath + '/Oldman/9.png',
-            define.imagePath + '/Oldman/10.png',
-            define.imagePath + '/Oldman/11.png',
-            define.imagePath + '/Oldman/12.png',
-            define.imagePath + '/Oldman/13.png',
-            define.imagePath + '/Oldman/14.png'
-        ];
-        this.OldmanPull = new Framework.AnimationSprite({url: photoLink, loop: true,  speed: 5});
-        this.OldmanPull.scale = this.OldmanDefault.scale;
-        this.OldmanPull.position = this.OldmanDefault.position;
+        this.Oldman = new Oldman(this, this.oldmanScene);
         //----------------------------------------------
 	    this.loadingPic = new Framework.Sprite(define.imagePath+'/background/Gold.jpg');
         this.loadingPic.position = {
@@ -50,9 +22,8 @@
             y: Framework.Game.getCanvasHeight() / 2
         };
         this.loadingPic.scale = 1.5;
-        this.rootScene.attach(this.Oldman);
-        this.Oldman.attach(this.OldmanPull);
-        this.OldmanPull.start();
+        this.rootScene.attach(this.oldmanScene);
+        this.Oldman.status_load();
         this.rootScene.attach(this.loadingPic);
         this.haveLoaded = 0;
         //----------------------------------------------
@@ -165,10 +136,9 @@
         //-----------loading完後再繪製物件--------------
         setTimeout(function(){
             self.rootScene.attach(self.gameMap);
-            self.Oldman.detach(self.OldmanPull);
-            self.Oldman.layer = 1;
+            self.oldmanScene.layer = 1;
             self.rootScene.detach(self.loadingPic);
-            self.Oldman.attach(self.OldmanDefault);
+            self.Oldman.status_default();
             self.rootScene.attach(self.objectArea);
             self.rootScene.attach(self.circle);
             self.circle.attach(self.catcher);
@@ -177,7 +147,6 @@
                 self.time--;
                 console.log(self.time);
             }, 1000);
-            //self.Oldman.start();
             self.haveLoaded = 1;
         }, 2000);
 	},
@@ -220,8 +189,7 @@
             this.length += 5;
             if(this.oldman_status === "default"){
                 this.oldman_status = "shooting";
-                this.Oldman.detach(this.OldmanDefault);
-                this.Oldman.attach(this.Oldman_shoot);
+                this.Oldman.status_shoot();
             }
             if(this.catcher.position.y >= Framework.Game.getCanvasHeight()) {
                 this.shooting = false;
@@ -231,15 +199,12 @@
             this.length -= 10;
             if(this.oldman_status === "shooting") {
                 this.oldman_status = "pulling";
-                this.Oldman.attach(this.OldmanPull);
-                this.OldmanPull.start();
-                this.Oldman.detach(this.Oldman_shoot);
+                this.Oldman.status_pull();
             }
             if(this.length <= 50) {
                 this.length = 50;
                 this.isPullback = false;
-                this.Oldman.detach(this.OldmanPull);
-                this.Oldman.attach(this.OldmanDefault);
+                this.Oldman.status_default();
                 this.oldman_status = "default";
             }
         } else {
@@ -278,7 +243,7 @@
             parentCtx.fill();
             parentCtx.stroke();
 
-            this.Oldman.draw();
+            this.oldmanScene.draw();
 
             //catcher
             this.catcherPos = {
