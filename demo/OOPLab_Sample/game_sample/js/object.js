@@ -1,5 +1,5 @@
 var Object = Framework.exClass({
-    __construct:function(type, position, audio){
+    __construct:function(type, position, audio, scene){
         this.position = position || {x: 0, y: 0};
         this.size = type.size || {width: 0, length: 0};
         this.value = type.value || 0;
@@ -9,6 +9,7 @@ var Object = Framework.exClass({
         this.destory = type.destory || function(){};
         this.grabbed = type.grabbed || function(){};
         this.move = type.move || function(){};
+        this.scene = scene;
 
         this.sound = audio;
         this.position = {
@@ -19,6 +20,7 @@ var Object = Framework.exClass({
         //cant attach on scene
         this.obj = new Framework.Sprite(this.image);
         this.obj.position = this.position;
+        this.scene.attach(this.obj);
     },
 
     getObj: function(){

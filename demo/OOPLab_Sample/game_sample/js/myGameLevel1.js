@@ -101,12 +101,11 @@
         var self = this;
 
         //object area init
-        this.objectArea = new Framework.Scene();
-        this.objectArea.position = {x: 150, y:0};
+        this.objectScene = new Framework.Scene();
+        this.objectScene.position = {x: 150, y:0};
 
         //objects
-        this.object = new Object({size:{width: 142,height: 129},  image: define.imagePath + "BigGold_.png"}, {x:0, y:0}, self.audio);
-        this.objectArea.attach(this.object.getObj());
+        this.object = new Object({size:{width: 142,height: 129},  image: define.itemPath + "BigGold_.png"}, {x:0, y:0}, this.audio, this.objectScene);
 
         //button
         this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20, 70, 50,
@@ -139,7 +138,7 @@
             self.oldmanScene.layer = 1;
             self.rootScene.detach(self.loadingPic);
             self.Oldman.status_default();
-            self.rootScene.attach(self.objectArea);
+            self.rootScene.attach(self.objectScene);
             self.rootScene.attach(self.circle);
             self.circle.attach(self.catcher);
             
