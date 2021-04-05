@@ -14,8 +14,8 @@ var Object = Framework.exClass({
 
         this.sound = audio;
         this.position = {
-            x: this.position.x + this.size.width / 2,
-            y: this.position.y + this.size.height / 2 + 140
+            x: this.position.x + 73,
+            y: this.position.y + 202
         };
 
         this.obj = new Framework.Sprite(this.image);
@@ -29,15 +29,24 @@ var Object = Framework.exClass({
     },
 
     detect: function(pos){
-        return (pos.x >= this.position.x && pos.x <= this.position.x + this.size.width && pos.y >= this.position.y && pos.y <= this.position.y + this.size.height);
+        return (pos.x >= this.obj.upperLeft.x && pos.x <= this.obj.lowerRight.x && pos.y >= this.obj.upperLeft.y && pos.y <= this.obj.lowerRight.y);
     },
 
     debug: function(){
     },
 
+    click: function(e){
+        console.log(this.detect(e));
+    },
+
     //draw is just for testing range of detect
     draw: function(parentCtx){
+        this.size = {
+            width: this.obj.lowerRight.x - this.obj.upperLeft.x,
+            height: this.obj.lowerRight.y - this.obj.upperLeft.y
+        };
         parentCtx.fillStyle = "blue";
-        parentCtx.fillRect(this.position.x , this.position.y, this.size.width, this.size.height);
+        parentCtx.fillRect(this.obj.upperLeft.x , this.obj.upperLeft.y, this.size.width, this.size.height);
+        this.obj.draw();
     }
 });

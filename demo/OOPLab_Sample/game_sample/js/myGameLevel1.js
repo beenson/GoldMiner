@@ -144,7 +144,6 @@
             
             self.timer = setInterval(function(){
                 self.time--;
-                console.log(self.time);
             }, 1000);
             self.haveLoaded = 1;
         }, 2000);
@@ -251,7 +250,10 @@
             parentCtx.moveTo(this.circle.position.x, this.circle.position.y);
             parentCtx.lineTo(this.catcherPos.x, this.catcherPos.y);
             parentCtx.stroke();
-            this.circle.draw();            
+            this.circle.draw();
+            
+            //debug
+            //this.object.draw(parentCtx);
         }
         //可支援畫各種單純的圖形和字
         /*parentCtx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
@@ -313,8 +315,9 @@
     },
 
     click: function (e) {  
-        console.log(e.x, e.y);
-        console.log(this.circle.rotation);
+        //console.log(e.x, e.y);
+        //console.log(this.circle.rotation);
+        this.object.click(e);
         
         //button
         this.backBtn1.click(e);
