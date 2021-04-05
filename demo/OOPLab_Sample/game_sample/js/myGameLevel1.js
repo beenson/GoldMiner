@@ -8,13 +8,42 @@
         this.oldman_status = "default";
         this.shooting = false;
         this.isPullback = false;
+        
+        //load sound
+        //載入要被播放的音樂清單
+        //資料夾內只提供mp3檔案, 其餘的音樂檔案, 請自行轉檔測試
+        this.audio = new Framework.Audio({
+            start: {
+                mp3: define.soundPath + 'GameStart.mp3'
+            },
+            pull: {
+                mp3: define.soundPath + 'PullingString.mp3'
+            },
+            catch: {
+                mp3: define.soundPath + 'Catch.mp3'
+            },
+            boom: {
+                mp3: define.soundPath + 'Boom.mp3'
+            },
+            stone: {
+                mp3: define.soundPath + 'GetStone.mp3'
+            },
+            bigPrice: {
+                mp3: define.soundPath + 'BigPrice.mp3'
+            },
+            mysteryBag: {
+                mp3: define.soundPath + 'MysteryBag.mp3'
+            }
+        });
+        //播放時, 需要給name, 其餘參數可參考W3C
+        this.audio.play({name: 'start'});
         //----------------------------------------------
         this.oldmanScene = new Framework.Scene();
         this.oldmanScene.position = {
             x: 0,
             y: 0
         };
-        this.Oldman = new Oldman(this, this.oldmanScene);
+        this.Oldman = new Oldman(this, this.oldmanScene, this.audio);
         //----------------------------------------------
 	    this.loadingPic = new Framework.Sprite(define.imagePath+'/background/Gold.jpg');
         this.loadingPic.position = {
@@ -55,35 +84,6 @@
         this.catcher.scale = 1.1;
 
         this.circleSpeed = 0.7;
-
-        //load sound
-        //載入要被播放的音樂清單
-        //資料夾內只提供mp3檔案, 其餘的音樂檔案, 請自行轉檔測試
-        this.audio = new Framework.Audio({
-            start: {
-                mp3: define.soundPath + 'GameStart.mp3'
-            },
-            pull: {
-                mp3: define.soundPath + 'PullingString.mp3'
-            },
-            catch: {
-                mp3: define.soundPath + 'Catch.mp3'
-            },
-            boom: {
-                mp3: define.soundPath + 'Boom.mp3'
-            },
-            stone: {
-                mp3: define.soundPath + 'GetStone.mp3'
-            },
-            bigPrice: {
-                mp3: define.soundPath + 'BigPrice.mp3'
-            },
-            mysteryBag: {
-                mp3: define.soundPath + 'MysteryBag.mp3'
-            }
-        });
-        //播放時, 需要給name, 其餘參數可參考W3C
-        this.audio.play({name: 'start'});
         
         //WTF is this?
         /*this.rectPosition = { 
@@ -137,7 +137,7 @@
             self.rootScene.attach(self.gameMap);
             self.oldmanScene.layer = 1;
             self.rootScene.detach(self.loadingPic);
-            self.Oldman.status_default();
+            self.Oldman.default();
             self.rootScene.attach(self.objectScene);
             self.rootScene.attach(self.circle);
             self.circle.attach(self.catcher);
@@ -184,30 +184,26 @@
             this.circleSpeed *= -1;
         }
 
-        if(this.shooting) {
-            this.length += 5;
-            if(this.oldman_status === "default"){
-                this.oldman_status = "shooting";
-                this.Oldman.status_shoot();
-            }
-            if(this.catcher.position.y >= Framework.Game.getCanvasHeight()) {
-                this.shooting = false;
-                this.isPullback = true;
-            }
-        } else if(this.isPullback){
-            this.length -= 10;
-            if(this.oldman_status === "shooting") {
-                this.oldman_status = "pulling";
-                this.Oldman.status_pull();
-            }
-            if(this.length <= 50) {
-                this.length = 50;
-                this.isPullback = false;
-                this.Oldman.status_default();
-                this.oldman_status = "default";
-            }
-        } else {
-            this.circle.rotation += this.circleSpeed;
+        switch(this.Oldman.status) {
+            case "shooting":
+                this.length += 5;
+                if(this.catcher.position.y >= Framework.Game.getCanvasHeight()) {
+                    this.Oldman.pull();
+                }
+                break;
+            case "pulling":
+                this.length -= 10;
+                if(this.length <= 50) {
+                    this.length = 50;
+                    this.Oldman.default(true);
+                }
+                break;
+            case "default":
+                this.circle.rotation += this.circleSpeed;
+                break;
+            default:
+                console.log("unknown status " + this.Oldman.status);
+                break;
         }
         
         this.catcher.position = {
@@ -279,9 +275,8 @@
         }
 
         if(e.key === 'Space') {
-            if(this.oldman_status === "default"){
-                this.audio.play({name: 'catch'});
-                this.shooting = true;
+            if(this.Oldman.status === "default"){
+                this.Oldman.shoot();
             }
         }
 

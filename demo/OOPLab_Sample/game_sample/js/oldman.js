@@ -1,8 +1,11 @@
 var Oldman = Framework.exClass({
-    __construct:function(parent, scene){
+    __construct:function(parent, scene, audio){
         this.load(parent);
 
         this.baseScene = scene;
+        this.audio = audio;
+
+        this.status = "default";
         
         var photoLink = [
             define.imagePath + 'OldMan/1.png',
@@ -26,17 +29,17 @@ var Oldman = Framework.exClass({
         };
         this.scale = 1
 
-        this.default = new Framework.Sprite(define.imagePath + 'OldMan/align.png');
-        this.shoot = new Framework.Sprite(define.imagePath + 'OldMan/shooting.png');
-        this.pull = new Framework.AnimationSprite({url: photoLink, loop: true,  speed: 5});
+        this.defaultSprite = new Framework.Sprite(define.imagePath + 'OldMan/align.png');
+        this.shootSprite = new Framework.Sprite(define.imagePath + 'OldMan/shooting.png');
+        this.pullSprite = new Framework.AnimationSprite({url: photoLink, loop: true,  speed: 5});
         
-        this.default.scale = this.scale;
-        this.shoot.scale = this.scale;
-        this.pull.scale = this.scale;
+        this.defaultSprite.scale = this.scale;
+        this.shootSprite.scale = this.scale;
+        this.pullSprite.scale = this.scale;
 
-        this.default.position = this.position;
-        this.shoot.position = this.position;
-        this.pull.position = this.position;
+        this.defaultSprite.position = this.position;
+        this.shootSprite.position = this.position;
+        this.pullSprite.position = this.position;
     },
 
 	load: function(parent){
@@ -52,23 +55,31 @@ var Oldman = Framework.exClass({
     },
 
 	status_load:function(){
-        this.baseScene.attach(this.pull);
-        this.pull.start();
+        this.baseScene.attach(this.pullSprite);
+        this.pullSprite.start();
     },
 
-    status_default:function(){
-        this.baseScene.attach(this.default);
-        this.baseScene.detach(this.pull);
+    default:function(stop){
+        this.status = "default";
+        if(stop)
+            this.audio.stopAll();
+        this.baseScene.attach(this.defaultSprite);
+        this.baseScene.detach(this.pullSprite);
     },
 
-    status_shoot:function(){
-        this.baseScene.attach(this.shoot);
-        this.baseScene.detach(this.default);
+    shoot:function(){
+        this.status = "shooting";
+        this.audio.play({name: "catch"});
+        this.baseScene.attach(this.shootSprite);
+        this.baseScene.detach(this.defaultSprite);
     },
 
-    status_pull:function(){
-        this.baseScene.attach(this.pull);
-        this.pull.start();
-        this.baseScene.detach(this.shoot);
+    pull:function(){
+        this.status = "pulling";
+        this.audio.stopAll();
+        this.audio.play({name: "pull", loop: true});
+        this.baseScene.attach(this.pullSprite);
+        this.pullSprite.start();
+        this.baseScene.detach(this.shootSprite);
     },
 });
