@@ -109,16 +109,17 @@
 
         //button
         this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20, 70, 50,
-        {text: '退出', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
+        {text: '略過', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
             clearInterval(self.timer);
-            Framework.Game.goToPreviousLevel();
+            //Framework.Game.goToPreviousLevel();
+            Framework.Game.goToNextLevel()
         }});
 
         //text
         this.backBtn2 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20+50, 70, 50,
         {text: '關卡', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
             clearInterval(self.timer);
-            Framework.Game.goToPreviousLevel();
+            Framework.Game.goToNextLevel()
         }});
         this.currentMoney = new Text(this, 160, 20, 100, 40,
             {text: '金錢:', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
