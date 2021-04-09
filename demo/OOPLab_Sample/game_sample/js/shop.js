@@ -15,6 +15,7 @@ var Shop = Framework.Class(Framework.Level , {
         this.mapPic.position = {x: Framework.Game.getCanvasWidth() / 2 , y: Framework.Game.getCanvasHeight() / 2};
         this.rootScene.attach(this.mapPic);
         //----------items----------
+        this.buy = [];
         this.itemPosition = [
             {x:(Framework.Game.getCanvasWidth() / 2) - 500 , y:(Framework.Game.getCanvasHeight() / 2) + 100},
             {x:(Framework.Game.getCanvasWidth() / 2) - 250 , y:(Framework.Game.getCanvasHeight() / 2) + 100},
@@ -48,7 +49,7 @@ var Shop = Framework.Class(Framework.Level , {
     },
 
     update: function() {
-        
+        this.draw(this.Ctx);
     },
 
     draw:function(parentCtx){
@@ -56,6 +57,7 @@ var Shop = Framework.Class(Framework.Level , {
         this.price1.draw(parentCtx);
         this.price2.draw(parentCtx);
         this.price3.draw(parentCtx);
+        this.Ctx = parentCtx;
     },
 
     /*keydown:function(e, list){
@@ -120,46 +122,30 @@ var Shop = Framework.Class(Framework.Level , {
         }*/
         if(e.x>=this.clover.upperLeft.x && e.x<=this.clover.lowerRight.x && e.y>=this.clover.upperLeft.y &&  e.y<=this.clover.lowerRight.y){
             console.log('clover');
+            this.rootScene.detach(this.clover);
+            if(this.buy.indexOf('clover') === -1){
+                this.buy.push('clover');
+            }
+            this.price1.remove();
         }
         if(e.x>=this.bomb.upperLeft.x && e.x<=this.bomb.lowerRight.x && e.y>=this.bomb.upperLeft.y &&  e.y<=this.bomb.lowerRight.y){
             console.log('bomb');
+            this.rootScene.detach(this.bomb);
+            if(this.buy.indexOf('bomb') === -1){
+                this.buy.push('bomb');
+            }
+            this.price2.remove();
         }
         if(e.x>=this.book.upperLeft.x && e.x<=this.book.lowerRight.x && e.y>=this.book.upperLeft.y &&  e.y<=this.book.lowerRight.y){
             console.log('book');
+            this.rootScene.detach(this.book);
+            if(this.buy.indexOf('book') === -1){
+                this.buy.push('book');
+            }
+            this.price3.remove();
         }
-        /*this.object.click(e);
+        localStorage.setItem('buyItem', this.buy)
         
-        //button
-        this.backBtn1.click(e);
-        this.backBtn2.click(e);
-        
-        //WTF??
-        if (!this.rectPosition) {
-            return;
-        } */
-        /*if(e.x >= this.rectPosition.x && e.x <= this.rectPosition.x + 260 && e.y >= this.rectPosition.y && e.y <= this.rectPosition.y + 90) {
-            if(!this.isStop) {
-                this.secondHandRotationRate = 0;
-                this.isStop = true;
-                //Audio可以一次暫停所有的音樂
-                //this.audio.pauseAll();
-                clearInterval(this.timer);
-                Framework.Game.goToNextLevel();
-            }
-            else {
-                this.isStop = false;
-                this.secondHandRotationRate = 0.3;
-                //Audio也可以針對一首歌進行操作(繼續播放)
-                //this.audio.resume('song2');
-            }
-        }*/
-        /*else if(e.x >= this.clock.upperLeft.x && e.x <= this.clock.lowerRight.x && e.y >= this.clock.upperLeft.y && e.y <= this.clock.lowerRight.y) {
-            //由於Click Me在太小的螢幕的情況下會蓋到Clock, 導致點擊Click Me時, 會回到前一個Level,
-            //故使用else if, 並優先選擇Click Me會觸發的條件
-            this.audio.stopAll();
-            Framework.Game.goToPreviousLevel();            
-            return;
-        }*/
     },
     
 });
