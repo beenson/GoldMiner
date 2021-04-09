@@ -105,7 +105,17 @@
         this.objectScene.position = {x: 150, y:0};
 
         //objects
-        this.object = new Object(Items.larGold , {x:0, y:0}, this.audio, this.objectScene);
+        this.objs = []
+        this.objs.push(new Object(Items.larGold , {x:10, y:400}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.medGold , {x:200, y:400}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.smaGold , {x:400, y:400}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.bigGold , {x:600, y:400}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.bigStone , {x:100, y:100}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.bone , {x:200, y:100}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.boom , {x:300, y:100}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.smaStone , {x:400, y:100}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.head , {x:500, y:100}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.mysteryBag , {x:600, y:100}, this.audio, this.objectScene));
 
         //button
         this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20, 70, 50,
@@ -320,7 +330,9 @@
     click: function (e) {  
         //console.log(e.x, e.y);
         //console.log(this.circle.rotation);
-        this.object.click(e);
+        this.objs.forEach(element => {
+            element.click(e);
+        });
         
         //button
         this.backBtn1.click(e);
