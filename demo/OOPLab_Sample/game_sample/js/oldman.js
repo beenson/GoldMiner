@@ -6,6 +6,7 @@ var Oldman = Framework.exClass({
         this.audio = audio;
 
         this.status = "default";
+        this.pullSpeed = 10;
         
         var photoLink = [
             define.imagePath + 'OldMan/1.png',
@@ -27,7 +28,7 @@ var Oldman = Framework.exClass({
             x: Framework.Game.getCanvasWidth() / 2 + 10,
             y: 56
         };
-        this.scale = 1
+        this.scale = 1;
 
         this.defaultSprite = new Framework.Sprite(define.imagePath + 'OldMan/align.png');
         this.shootSprite = new Framework.Sprite(define.imagePath + 'OldMan/shooting.png');
@@ -74,12 +75,13 @@ var Oldman = Framework.exClass({
         this.baseScene.detach(this.defaultSprite);
     },
 
-    pull:function(){
+    pull:function(weight){
         this.status = "pulling";
         this.audio.stopAll();
         this.audio.play({name: "pull", loop: true});
         this.baseScene.attach(this.pullSprite);
         this.pullSprite.start();
         this.baseScene.detach(this.shootSprite);
+        this.pullSpeed = 10 - weight;
     },
 });

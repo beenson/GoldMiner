@@ -24,23 +24,26 @@ var Object = Framework.exClass({
         this.scene.attach(this.obj);
     },
 
-    getObj: function(){
-        return this.obj;
+    catch: function(pos) {
+        if(this.detect(pos)) {
+            console.log("hihi");
+        }
     },
 
-    detect: function(pos){
+    detect: function(pos) {
         return (pos.x >= this.obj.upperLeft.x && pos.x <= this.obj.lowerRight.x && pos.y >= this.obj.upperLeft.y && pos.y <= this.obj.lowerRight.y);
     },
 
-    debug: function(){
+    debug: function() {
+
     },
 
-    click: function(e){
+    click: function(e) {
         console.log(this.detect(e));
     },
 
     //draw is just for testing range of detect
-    draw: function(parentCtx){
+    draw: function(parentCtx) {
         this.size = {
             width: this.obj.lowerRight.x - this.obj.upperLeft.x,
             height: this.obj.lowerRight.y - this.obj.upperLeft.y

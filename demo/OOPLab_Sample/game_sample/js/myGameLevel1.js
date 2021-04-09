@@ -3,11 +3,7 @@
         this.target = 650;
         this.time = 60;
         this.money = 0;
-
-        this.isStop = false;
         this.oldman_status = "default";
-        this.shooting = false;
-        this.isPullback = false;
         
         //load sound
         //載入要被播放的音樂清單
@@ -191,20 +187,30 @@
             Framework.Game.goToNextLevel();
         }
 
+        //catcher
+        this.catcherPos = {
+            x: this.circle.position.x + (this.length - this.catcher.height / 2) * Math.cos((this.circle.rotation + 90) / 180 * Math.PI),
+            y: this.circle.position.y + (this.length - this.catcher.height / 2) * Math.sin((this.circle.rotation + 90) / 180 * Math.PI)
+        }
+        this.objs.forEach(element => {
+            element.catch(this.catcherPos);
+        });
+
         //rotate direction
         if(Math.abs(this.circle.rotation) >= 70) {
             this.circleSpeed *= -1;
         }
 
+        //Oldman status
         switch(this.Oldman.status) {
             case "shooting":
                 this.length += 5;
                 if(this.catcher.position.y >= Framework.Game.getCanvasHeight()) {
-                    this.Oldman.pull();
+                    this.Oldman.pull(0);
                 }
                 break;
             case "pulling":
-                this.length -= 10;
+                this.length -= this.Oldman.pullSpeed;
                 if(this.length <= 50) {
                     this.length = 50;
                     this.Oldman.default(true);
@@ -253,10 +259,6 @@
             this.oldmanScene.draw();
 
             //catcher
-            this.catcherPos = {
-                x: this.circle.position.x + (this.length - this.catcher.height / 2) * Math.cos((this.circle.rotation + 90) / 180 * Math.PI),
-                y: this.circle.position.y + (this.length - this.catcher.height / 2) * Math.sin((this.circle.rotation + 90) / 180 * Math.PI)
-            }
             parentCtx.strokeStyle = 'black'; 
             parentCtx.lineWidth = 5;
             parentCtx.beginPath();

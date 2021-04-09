@@ -49,7 +49,7 @@ var Items = {
     smaStone: {
         image: define.itemPath + "SmallStone.png",
         size: {width: 0, height: 0},
-        value: 0, //TODO
+        value: 11,
         weight: 0
     }, 
     
@@ -63,7 +63,7 @@ var Items = {
     bone: {
         image: define.itemPath + "Bone.png",
         size: {width: 0, height: 0},
-        value: 0, //TODO
+        value: 7,
         weight: 0
     },
 
@@ -84,7 +84,7 @@ var Items = {
     mysteryBag: {
         image: define.itemPath + "MysteryBag_.png",
         size: {width: 0, height: 0},
-        value: 0, //TODO
+        value: -1, //-1 for random
         weight: 0
     }
 }
