@@ -25,7 +25,7 @@ var Shop = Framework.Class(Framework.Level , {
         this.bomb = new Framework.Sprite(define.imagePath + 'shop/firecracker.png');
         this.potion = new Framework.Sprite(define.imagePath + 'shop/magicPotion.png');
         this.book = new Framework.Sprite(define.imagePath + 'shop/stoneBook_.png');
-        this.bottle = new Framework.Sprite(define.imagePath + 'shop/IDK.png');
+        this.bottle = new Framework.Sprite(define.imagePath + 'shop/IDK.png');  //make diamond price higher
 
         this.clover.position = this.itemPosition[0];
         this.bomb.position = this.itemPosition[1];
@@ -109,7 +109,7 @@ var Shop = Framework.Class(Framework.Level , {
 
     click: function (e) {  
         //console.log(e.x, e.y);
-        if(e.x>=(this.itemPosition[0].x)-37 && e.x<=(this.itemPosition[0].x)+37 &&  e.y>=this.itemPosition[0].y-65 && e.y<=(this.itemPosition[0].y)+65){
+        /*if(e.x>=(this.itemPosition[0].x)-37 && e.x<=(this.itemPosition[0].x)+37 &&  e.y>=this.itemPosition[0].y-65 && e.y<=(this.itemPosition[0].y)+65){
             console.log('clover');
         }
         if(e.x>=(this.itemPosition[1].x)-25 && e.x<=(this.itemPosition[1].x)+25 &&  e.y>=this.itemPosition[1].y-51 && e.y<=(this.itemPosition[1].y)+51){
@@ -117,8 +117,16 @@ var Shop = Framework.Class(Framework.Level , {
         }
         if(e.x>=(this.itemPosition[2].x)-69 && e.x<=(this.itemPosition[2].x)+69 &&  e.y>=this.itemPosition[2].y-65 && e.y<=(this.itemPosition[2].y)+65){
             console.log('book');
+        }*/
+        if(e.x>=this.clover.upperLeft.x && e.x<=this.clover.lowerRight.x && e.y>=this.clover.upperLeft.y &&  e.y<=this.clover.lowerRight.y){
+            console.log('clover');
         }
-        
+        if(e.x>=this.bomb.upperLeft.x && e.x<=this.bomb.lowerRight.x && e.y>=this.bomb.upperLeft.y &&  e.y<=this.bomb.lowerRight.y){
+            console.log('bomb');
+        }
+        if(e.x>=this.book.upperLeft.x && e.x<=this.book.lowerRight.x && e.y>=this.book.upperLeft.y &&  e.y<=this.book.lowerRight.y){
+            console.log('book');
+        }
         /*this.object.click(e);
         
         //button
