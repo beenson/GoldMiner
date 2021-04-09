@@ -49,7 +49,9 @@ var Text = Framework.exClass({
 
 	click: function(e) {
         
-    }
+    },
 
-
+    remove: function() {
+        this.text = '';
+    },
 });
