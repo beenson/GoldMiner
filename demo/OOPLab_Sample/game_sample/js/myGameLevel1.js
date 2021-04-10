@@ -65,6 +65,7 @@
         this.rootScene.attach(this.oldman);*/
 
         //爪子爪子
+        this.catcherPos = { x:-1, y:-1};
         this.circle = new Framework.Scene();
         this.circle.position = {
             x: Framework.Game.getCanvasWidth() / 2,
@@ -119,20 +120,22 @@
             clearInterval(self.timer);
             //Framework.Game.goToPreviousLevel();
             localStorage.setItem('myMoney', this.money);
+            self.audio.stopAll();
             Framework.Game.goToNextLevel();
         }});
-
-        //text
         this.backBtn2 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20+50, 70, 50,
         {text: '關卡', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
             clearInterval(self.timer);
             localStorage.setItem('myMoney', this.money);
+            self.audio.stopAll();
             Framework.Game.goToNextLevel();
         }});
+
+        //text
         this.currentMoney = new Text(this, 160, 20, 100, 40,
             {text: '金錢:', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
         this.moneyTxt = new Text(this, 250, 20, 100, 40,
-            {text: '金錢:', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
+            {text: '0', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
         this.targetMoney = new Text(this, 160, 70, 200, 40,
             {text: '目標金錢:' + this.target, font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
         this.remainTimeText = new Text(this, Framework.Game.getCanvasWidth()-350, 20, 80, 40,
@@ -184,16 +187,20 @@
         //timeout
         if(this.time <= 0){
             clearInterval(this.timer);
+            this.audio.stopAll();
             Framework.Game.goToNextLevel();
         }
 
         //catcher
-        this.catcherPos = {
-            x: this.circle.position.x + (this.length - this.catcher.height / 2) * Math.cos((this.circle.rotation + 90) / 180 * Math.PI),
-            y: this.circle.position.y + (this.length - this.catcher.height / 2) * Math.sin((this.circle.rotation + 90) / 180 * Math.PI)
-        }
         this.objs.forEach(element => {
-            element.catch(this.catcherPos);
+            if(element.catch(this.catcherPos, this.circle)){
+                element.setPos(this.catcher.position);
+
+                //remove from objs
+                this.objs.splice(this.objs.indexOf(element), 1);
+
+                this.Oldman.pull(element.weight, element);
+            }
         });
 
         //rotate direction
@@ -211,6 +218,10 @@
                 break;
             case "pulling":
                 this.length -= this.Oldman.pullSpeed;
+                if(this.Oldman.grabbing) {
+                    this.Oldman.grabbing.setPos(this.catcher.position);
+                }
+
                 if(this.length <= 50) {
                     this.length = 50;
                     this.Oldman.default(true);
@@ -259,6 +270,10 @@
             this.oldmanScene.draw();
 
             //catcher
+            this.catcherPos = {
+                x: this.circle.position.x + (this.length - this.catcher.height / 2) * Math.cos((this.circle.rotation + 90) / 180 * Math.PI),
+                y: this.circle.position.y + (this.length - this.catcher.height / 2) * Math.sin((this.circle.rotation + 90) / 180 * Math.PI)
+            }
             parentCtx.strokeStyle = 'black'; 
             parentCtx.lineWidth = 5;
             parentCtx.beginPath();
@@ -338,6 +353,8 @@
         
         //button
         this.backBtn1.click(e);
+        if(this.backBtn1.isHovered)
+            return;
         this.backBtn2.click(e);
         
         //WTF??

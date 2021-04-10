@@ -6,6 +6,7 @@ var Oldman = Framework.exClass({
         this.audio = audio;
 
         this.status = "default";
+        this.grabbing = undefined;
         this.pullSpeed = 10;
         
         var photoLink = [
@@ -64,6 +65,10 @@ var Oldman = Framework.exClass({
         this.status = "default";
         if(stop)
             this.audio.stopAll();
+        if(this.grabbing) {
+            this.grabbing.detach();
+            this.grabbing = undefined;
+        }
         this.baseScene.attach(this.defaultSprite);
         this.baseScene.detach(this.pullSprite);
     },
@@ -75,7 +80,7 @@ var Oldman = Framework.exClass({
         this.baseScene.detach(this.defaultSprite);
     },
 
-    pull:function(weight){
+    pull:function(weight, obj){
         this.status = "pulling";
         this.audio.stopAll();
         this.audio.play({name: "pull", loop: true});
@@ -83,5 +88,6 @@ var Oldman = Framework.exClass({
         this.pullSprite.start();
         this.baseScene.detach(this.shootSprite);
         this.pullSpeed = 10 - weight;
+        this.grabbing = obj;
     },
 });

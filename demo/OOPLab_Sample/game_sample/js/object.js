@@ -21,13 +21,36 @@ var Object = Framework.exClass({
         this.obj = new Framework.Sprite(this.image);
         this.obj.scale = this.scale;
         this.obj.position = this.position;
+        this.attach();
+    },
+
+    attach: function(){
+        this.obj.layer = 100;
         this.scene.attach(this.obj);
     },
 
-    catch: function(pos) {
+    detach: function() {
+        this.scene.detach(this.obj);
+    },
+
+    catch: function(pos, scene) {
         if(this.detect(pos)) {
             console.log("hihi");
+            this.grabbed();
+            this.detach();
+            this.scene = scene;
+            this.attach();
+            return true;   
         }
+        return false;
+    },
+
+    //only for grabbing
+    setPos: function(pos) {
+        this.obj.position = {
+            x: pos.x,
+            y: pos.y + this.obj.height / 2 - 14
+        };
     },
 
     detect: function(pos) {
