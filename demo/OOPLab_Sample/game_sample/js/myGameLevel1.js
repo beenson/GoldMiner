@@ -107,12 +107,14 @@
         this.objs.push(new Object(Items.medGold , {x:200, y:400}, this.audio, this.objectScene));
         this.objs.push(new Object(Items.smaGold , {x:400, y:400}, this.audio, this.objectScene));
         this.objs.push(new Object(Items.bigGold , {x:600, y:400}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.bigStone , {x:100, y:100}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.bone , {x:200, y:100}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.boom , {x:300, y:100}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.smaStone , {x:400, y:100}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.head , {x:500, y:100}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.mysteryBag , {x:600, y:100}, this.audio, this.objectScene));
+        
+        this.objs.push(new Object(Items.bigStone , {x:100, y:400}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.bone , {x:200, y:400}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.boom , {x:300, y:400}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.smaStone , {x:400, y:400}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.head , {x:500, y:400}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.mysteryBag , {x:600, y:400}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.diamond , {x:700, y:400}, this.audio, this.objectScene));
 
         //button
         this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20, 70, 50,
@@ -194,11 +196,12 @@
         //catcher
         this.objs.forEach(element => {
             if(element.catch(this.catcherPos, this.circle)){
-                element.setPos(this.catcher.position);
+                element.setPos(this.catcher.position, {x: 0, y: -14});
 
                 //remove from objs
                 this.objs.splice(this.objs.indexOf(element), 1);
 
+                console.log(element.weight);
                 this.Oldman.pull(element.weight, element);
             }
         });
@@ -219,7 +222,7 @@
             case "pulling":
                 this.length -= this.Oldman.pullSpeed;
                 if(this.Oldman.grabbing) {
-                    this.Oldman.grabbing.setPos(this.catcher.position);
+                    this.Oldman.grabbing.setPos(this.catcher.position, {x: 0, y: -14});
                 }
 
                 if(this.length <= 50) {

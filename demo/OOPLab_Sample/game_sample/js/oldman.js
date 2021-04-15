@@ -87,7 +87,7 @@ var Oldman = Framework.exClass({
         this.baseScene.attach(this.pullSprite);
         this.pullSprite.start();
         this.baseScene.detach(this.shootSprite);
-        this.pullSpeed = 10 - weight;
+        this.pullSpeed = 15 - weight;
         this.grabbing = obj;
     },
 });

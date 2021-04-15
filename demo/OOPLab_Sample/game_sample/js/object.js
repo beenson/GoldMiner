@@ -46,10 +46,10 @@ var Object = Framework.exClass({
     },
 
     //only for grabbing
-    setPos: function(pos) {
+    setPos: function(pos, offset) {
         this.obj.position = {
-            x: pos.x,
-            y: pos.y + this.obj.height / 2 - 14
+            x: pos.x + offset.x,
+            y: pos.y + this.obj.height / 2 + offset.y
         };
     },
 

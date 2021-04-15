@@ -1,90 +1,88 @@
 /**
  * image
  * scale
- * size
- * value
- * weight
+ * value (-1 for random)
+ * weight (max is 15)
  */
 
 var Items = {
     larGold: {
         image: define.itemPath + "Gold.png",
         scale: 1.1,
-        size: {width: 142,height: 129},
         value: 500,
-        weight: 0
+        weight: 14
     },
 
     bigGold: {
         image: define.itemPath + "Gold.png",
         scale: 0.8,
-        size: {width: 0, height: 0},
         value: 250,
-        weight: 0
+        weight: 13
     },
 
     medGold: {
         image: define.itemPath + "Gold.png",
         scale: 0.6,
-        size: {width: 0, height: 0},
         value: 100,
-        weight: 0
+        weight: 12
     },
 
     smaGold: {
         image: define.itemPath + "Gold.png",
-        scale: 0.4,
-        size: {width: 0, height: 0},
+        scale: 0.3,
         value: 50,
-        weight: 0
+        weight: 8
     },
 
     bigStone: {
         image: define.itemPath + "BigStone.png",
-        size: {width: 0, height: 0},
         value: 20,
-        weight: 0
+        weight: 13
     },
 
     smaStone: {
         image: define.itemPath + "SmallStone.png",
-        size: {width: 0, height: 0},
         value: 11,
-        weight: 0
+        weight: 12.5
     }, 
     
     head: {
         image: define.itemPath + "HeadBone.png",
-        size: {width: 0, height: 0},
         value: 20,
-        weight: 0
+        weight: 6
     },
 
     bone: {
         image: define.itemPath + "Bone.png",
-        size: {width: 0, height: 0},
         value: 7,
-        weight: 0
+        weight: 5
     },
 
     diamond: {
         image: define.itemPath + "Diamond.png",
-        size: {width: 0, height: 0},
+        scale: 2,
         value: 600,
-        weight: 0
+        weight: 8
     },
 
     boom: {
         image: define.itemPath + "Boom.png",
-        size: {width: 0, height: 0},
         value: 1,
-        weight: 0
+        weight: 8
     },
 
     mysteryBag: {
         image: define.itemPath + "MysteryBag_.png",
-        size: {width: 0, height: 0},
         value: -1, //-1 for random
-        weight: 0
+        weight: -1 //-1 for random
+    },
+
+    mouse: {
+        weight: 8
+    },
+
+
+    mouseWithDiamond: {
+        weight: 9
     }
 }
