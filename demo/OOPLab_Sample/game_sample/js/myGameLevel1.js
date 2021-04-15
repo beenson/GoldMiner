@@ -2,7 +2,7 @@
 	load: function(){
         this.target = 650;
         this.time = 60;
-        this.money = 0;
+        this.money = parseInt(localStorage.getItem("myMoney"));
         this.oldman_status = "default";
         
         //load sound
@@ -119,14 +119,14 @@
         {text: '略過', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
             clearInterval(self.timer);
             //Framework.Game.goToPreviousLevel();
-            localStorage.setItem('myMoney', this.money);
+            localStorage.setItem('myMoney', self.money);
             self.audio.stopAll();
             Framework.Game.goToNextLevel();
         }});
         this.backBtn2 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20+50, 70, 50,
         {text: '關卡', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
             clearInterval(self.timer);
-            localStorage.setItem('myMoney', this.money);
+            localStorage.setItem('myMoney', self.money);
             self.audio.stopAll();
             Framework.Game.goToNextLevel();
         }});
@@ -224,7 +224,7 @@
 
                 if(this.length <= 50) {
                     this.length = 50;
-                    this.Oldman.default(true);
+                    this.money += this.Oldman.default(true);
                 }
                 break;
             case "default":

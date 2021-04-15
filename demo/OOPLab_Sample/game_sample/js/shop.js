@@ -17,9 +17,9 @@ var Shop = Framework.Class(Framework.Level , {
         //----------items----------
         this.buy = [];
         this.itemPosition = [
-            {x:(Framework.Game.getCanvasWidth() / 2) - 500 , y:(Framework.Game.getCanvasHeight() / 2) + 100},
-            {x:(Framework.Game.getCanvasWidth() / 2) - 250 , y:(Framework.Game.getCanvasHeight() / 2) + 100},
-            {x:Framework.Game.getCanvasWidth() / 2, y:(Framework.Game.getCanvasHeight() / 2) + 100},
+            {x:(Framework.Game.getCanvasWidth() / 2) - 500 , y:(Framework.Game.getCanvasHeight() / 2) + 150},
+            {x:(Framework.Game.getCanvasWidth() / 2) - 250 , y:(Framework.Game.getCanvasHeight() / 2) + 150},
+            {x:Framework.Game.getCanvasWidth() / 2, y:(Framework.Game.getCanvasHeight() / 2) + 150},
         ];
 
         this.clover = new Framework.Sprite(define.imagePath + 'shop/luckyFlower.png');
@@ -36,12 +36,18 @@ var Shop = Framework.Class(Framework.Level , {
         this.rootScene.attach(this.bomb);
         this.rootScene.attach(this.book);
         //----------price text----------
-        this.price1 = new Text(this, (this.itemPosition[0].x) - 30, (this.itemPosition[0].y) + 75, 100, 40,
+        this.price1 = new Text(this, (this.itemPosition[0].x) - 30, (this.itemPosition[0].y) + 80, 100, 40,
             {text: '$ 30', font: 'bold 32px 標楷體', color: 'lime', textAlign: 'left'});
-        this.price2 = new Text(this, (this.itemPosition[1].x) - 30, (this.itemPosition[1].y) + 75, 100, 40,
+        this.price2 = new Text(this, (this.itemPosition[1].x) - 30, (this.itemPosition[1].y) + 80, 100, 40,
             {text: '$ 100', font: 'bold 32px 標楷體', color: 'lime', textAlign: 'left'});
-        this.price3 = new Text(this, (this.itemPosition[2].x) - 30, (this.itemPosition[2].y) + 75, 100, 40,
+        this.price3 = new Text(this, (this.itemPosition[2].x) - 30, (this.itemPosition[2].y) + 80, 100, 40,
             {text: '$ 50', font: 'bold 32px 標楷體', color: 'lime', textAlign: 'left'});
+
+        //----------other setting----------
+        localStorage.setItem('buyItem', [])
+        this.money = parseInt(localStorage.getItem("myMoney"));
+        this.moneyTxt = new Text(this, Framework.Game.getCanvasWidth() - 500, 50, 100, 40,
+            {text: "金錢: " + this.money, font: 'bold 32px 標楷體', color: 'white', textAlign: 'center'});
 	},
 
     initialize: function() {
@@ -49,6 +55,7 @@ var Shop = Framework.Class(Framework.Level , {
     },
 
     update: function() {
+        this.moneyTxt.text = "金錢: " + this.money;
         this.draw(this.Ctx);
     },
 
@@ -57,6 +64,7 @@ var Shop = Framework.Class(Framework.Level , {
         this.price1.draw(parentCtx);
         this.price2.draw(parentCtx);
         this.price3.draw(parentCtx);
+        this.moneyTxt.draw(parentCtx);
         this.Ctx = parentCtx;
     },
 
@@ -125,6 +133,7 @@ var Shop = Framework.Class(Framework.Level , {
             this.rootScene.detach(this.clover);
             if(this.buy.indexOf('clover') === -1){
                 this.buy.push('clover');
+                this.money -= 30;
             }
             this.price1.remove();
         }
@@ -133,6 +142,7 @@ var Shop = Framework.Class(Framework.Level , {
             this.rootScene.detach(this.bomb);
             if(this.buy.indexOf('bomb') === -1){
                 this.buy.push('bomb');
+                this.money -= 100;
             }
             this.price2.remove();
         }
@@ -141,6 +151,7 @@ var Shop = Framework.Class(Framework.Level , {
             this.rootScene.detach(this.book);
             if(this.buy.indexOf('book') === -1){
                 this.buy.push('book');
+                this.money -= 50;
             }
             this.price3.remove();
         }

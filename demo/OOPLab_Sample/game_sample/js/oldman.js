@@ -63,14 +63,17 @@ var Oldman = Framework.exClass({
 
     default:function(stop){
         this.status = "default";
+        this.baseScene.attach(this.defaultSprite);
+        this.baseScene.detach(this.pullSprite);
         if(stop)
             this.audio.stopAll();
         if(this.grabbing) {
+            this.value = this.grabbing.value;
             this.grabbing.detach();
             this.grabbing = undefined;
+            return this.value;
         }
-        this.baseScene.attach(this.defaultSprite);
-        this.baseScene.detach(this.pullSprite);
+        return 0;
     },
 
     shoot:function(){
