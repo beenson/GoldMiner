@@ -103,10 +103,10 @@
 
         //objects
         this.objs = []
-        this.objs.push(new Object(Items.larGold , {x:10, y:400}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.medGold , {x:200, y:400}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.smaGold , {x:400, y:400}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.bigGold , {x:600, y:400}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.larGold , {x:10, y:200}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.medGold , {x:200, y:200}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.smaGold , {x:400, y:200}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.bigGold , {x:600, y:200}, this.audio, this.objectScene));
         
         this.objs.push(new Object(Items.bigStone , {x:100, y:400}, this.audio, this.objectScene));
         this.objs.push(new Object(Items.bone , {x:200, y:400}, this.audio, this.objectScene));
@@ -119,18 +119,11 @@
         //button
         this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20, 70, 50,
         {text: '略過', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
-            clearInterval(self.timer);
-            //Framework.Game.goToPreviousLevel();
-            localStorage.setItem('myMoney', self.money);
-            self.audio.stopAll();
-            Framework.Game.goToNextLevel();
+            self.toNextLevel();
         }});
         this.backBtn2 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20+50, 70, 50,
         {text: '關卡', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
-            clearInterval(self.timer);
-            localStorage.setItem('myMoney', self.money);
-            self.audio.stopAll();
-            Framework.Game.goToNextLevel();
+            self.toNextLevel();
         }});
 
         //text
@@ -163,6 +156,13 @@
         }, 2000);
 	},
 
+    toNextLevel: function(){
+        clearInterval(this.timer);
+        localStorage.setItem('myMoney', this.money);
+        this.audio.stopAll();
+        Framework.Game.goToNextLevel();
+    },
+
     initialize: function() {
         /*this.audio = new Framework.Audio({
             start: {
@@ -188,9 +188,7 @@
 
         //timeout
         if(this.time <= 0){
-            clearInterval(this.timer);
-            this.audio.stopAll();
-            Framework.Game.goToNextLevel();
+            this.toNextLevel();
         }
 
         //catcher

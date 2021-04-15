@@ -60,7 +60,7 @@ var Items = {
 
     diamond: {
         image: define.itemPath + "Diamond.png",
-        scale: 2,
+        scale: 1.1,
         value: 600,
         weight: 8
     },
