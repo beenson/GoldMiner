@@ -36,24 +36,31 @@ var Shop = Framework.Class(Framework.Level , {
         this.rootScene.attach(this.bottle);
         //----------price text----------
         this.price1 = new Text(this, (this.bomb.position.x) - 30, (this.bomb.position.y) + 80, 100, 40,
-            {text: '$' + shopItems.bomb.value, font: 'bold 32px 標楷體', color: 'green', textAlign: 'center'});
+            {text: '$' + shopItems.bomb.value, font: 'bold 32px 華康中圓體', color: 'green', textAlign: 'center'});
         this.price2 = new Text(this, (this.potion.position.x) - 30, (this.potion.position.y) + 80, 100, 40,
-            {text: '$' + shopItems.potion.value, font: 'bold 32px 標楷體', color: 'green', textAlign: 'center'});
+            {text: '$' + shopItems.potion.value, font: 'bold 32px 華康中圓體', color: 'green', textAlign: 'center'});
         this.price3 = new Text(this, (this.clover.position.x) - 30, (this.clover.position.y) + 80, 100, 40,
-            {text: '$' + shopItems.clover.value, font: 'bold 32px 標楷體', color: 'green', textAlign: 'center'});
+            {text: '$' + shopItems.clover.value, font: 'bold 32px 華康中圓體', color: 'green', textAlign: 'center'});
         this.price4 = new Text(this, (this.book.position.x) - 30, (this.book.position.y) + 80, 100, 40,
-            {text: '$' + shopItems.book.value, font: 'bold 32px 標楷體', color: 'green', textAlign: 'center'});
+            {text: '$' + shopItems.book.value, font: 'bold 32px 華康中圓體', color: 'green', textAlign: 'center'});
         this.price5 = new Text(this, (this.bottle.position.x) - 30, (this.bottle.position.y) + 80, 100, 40,
-            {text: '$' + shopItems.bottle.value, font: 'bold 32px 標楷體', color: 'green', textAlign: 'center'});
+            {text: '$' + shopItems.bottle.value, font: 'bold 32px 華康中圓體', color: 'green', textAlign: 'center'});
 
         //----------other setting----------
         this.defaultInfo = "點擊以購買物品";
         localStorage.setItem('buyItem', [])
         this.money = parseInt(localStorage.getItem("myMoney"));
         this.moneyTxt = new Text(this, Framework.Game.getCanvasWidth() - 700, (Framework.Game.getCanvasHeight() / 2) - 125, 100, 40,
-            {text: "持有金錢: " + this.money, font: 'bold 32px 標楷體', color: 'black', textAlign: 'center'});
+            {text: "持有金錢: " + this.money, font: 'bold 32px 華康中圓體', color: 'black', textAlign: 'center'});
         this.infoTxt = new Text(this, 225, (Framework.Game.getCanvasHeight() / 2) - 170, 100, 40,
             {text: this.defaultInfo, font: 'bold 32px 華康中圓體', color: 'black', textAlign: 'left'});
+
+        this.btn = new Button(this, Framework.Game.getCanvasWidth() - 500, 100, 175, 65,
+        {text: '下一關', font: 'bold 48px 華康中圓體', color: 'white', background: 'green', textOffset: 7, click: function(){
+            Framework.Game.goToNextLevel();
+        }});
+        this.subBtn = new Button(this, Framework.Game.getCanvasWidth() - 502, 98, 179, 69,
+        {text: '', font: 'bold 48px 華康中圓體', color: 'white', background: 'lime', textOffset: 10});
 	},
 
     initialize: function() {
@@ -74,6 +81,8 @@ var Shop = Framework.Class(Framework.Level , {
         this.price4.draw(parentCtx);
         this.price5.draw(parentCtx);
         this.moneyTxt.draw(parentCtx);
+        this.subBtn.draw(parentCtx);
+        this.btn.draw(parentCtx);
         this.Ctx = parentCtx;
     },
 
@@ -139,7 +148,6 @@ var Shop = Framework.Class(Framework.Level , {
             this.infoTxt.text = shopItems.bottle.info;
         }
         else{
-            console.log(this.defaultInfo);
             this.infoTxt.text = this.defaultInfo;
         }
     },
@@ -202,6 +210,7 @@ var Shop = Framework.Class(Framework.Level , {
         }
         localStorage.setItem('buyItem', this.buy)
         
+        this.btn.click(e);
     },
     
 });
