@@ -68,10 +68,21 @@ var Oldman = Framework.exClass({
         if(stop)
             this.audio.stopAll();
         if(this.grabbing) {
-            this.value = this.grabbing.value;
+            var value = this.grabbing.value;
+            if(value == -1) {
+                value = Math.floor(Math.random() * 900) + 1;
+            }
             this.grabbing.detach();
             this.grabbing = undefined;
-            return this.value;
+            if(value > 800) {
+                if(Math.random() >= 0.5) {
+                    //firecracker
+                }else {
+                    //streng
+                }
+            }else {
+                return value;
+            }
         }
         return 0;
     },
@@ -90,6 +101,9 @@ var Oldman = Framework.exClass({
         this.baseScene.attach(this.pullSprite);
         this.pullSprite.start();
         this.baseScene.detach(this.shootSprite);
+        if(weight == -1) {
+            weight = Math.floor(Math.random() * 13) + 2; //2 ~ 14
+        }
         this.pullSpeed = 15 - weight;
         this.grabbing = obj;
     },
