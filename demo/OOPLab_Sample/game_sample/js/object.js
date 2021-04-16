@@ -33,8 +33,24 @@ var Object = Framework.exClass({
         this.scene.detach(this.obj);
     },
 
-    catch: function(pos, scene) {
-        if(this.detect(pos)) {
+    detect: function(pos) {
+        return (pos.x >= this.obj.upperLeft.x && pos.x <= this.obj.lowerRight.x && pos.y >= this.obj.upperLeft.y && pos.y <= this.obj.lowerRight.y);
+    },
+
+    detectArea: function(range) {
+        var center = {
+            x: (range.lowerRight.x + range.upperLeft.x) / 2,
+            y: (range.lowerRight.y + range.upperLeft.y) / 2
+        }
+        var right = range.lowerRight;
+        var left = range.upperLeft;
+        right.y = center.y;
+        left.y = center.y;
+        return this.detect(left) || this.detect(center) || this.detect(right);
+    },
+
+    catch: function(catcher, scene) {
+        if(this.detectArea(catcher)) {
             console.log("hihi");
             this.grabbed();
             this.detach();
@@ -51,10 +67,6 @@ var Object = Framework.exClass({
             x: pos.x + offset.x,
             y: pos.y + this.obj.height / 2 + offset.y
         };
-    },
-
-    detect: function(pos) {
-        return (pos.x >= this.obj.upperLeft.x && pos.x <= this.obj.lowerRight.x && pos.y >= this.obj.upperLeft.y && pos.y <= this.obj.lowerRight.y);
     },
 
     debug: function() {
