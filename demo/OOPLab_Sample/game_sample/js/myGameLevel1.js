@@ -160,6 +160,7 @@
         clearInterval(this.timer);
         localStorage.setItem('myMoney', this.money);
         this.audio.stopAll();
+        Framework.Game.addNewLevel({Shop: new Shop()});
         Framework.Game.goToNextLevel();
     },
 
@@ -191,19 +192,6 @@
             this.toNextLevel();
         }
 
-        //catcher
-        this.objs.forEach(element => {
-            if(element.catch(this.catcherPos, this.circle)){
-                element.setPos(this.catcher.position, {x: 0, y: -14});
-
-                //remove from objs
-                this.objs.splice(this.objs.indexOf(element), 1);
-
-                console.log(element.weight);
-                this.Oldman.pull(element.weight, element);
-            }
-        });
-
         //rotate direction
         if(Math.abs(this.circle.rotation) >= 70) {
             this.circleSpeed *= -1;
@@ -216,6 +204,20 @@
                 if(this.catcher.position.y >= Framework.Game.getCanvasHeight()) {
                     this.Oldman.pull(0);
                 }
+
+                //object detect
+                this.objs.forEach(element => {
+                    if(element.catch(this.catcher, this.circle)){
+                        element.setPos(this.catcher.position, {x: 0, y: -14});
+
+                        //remove from objs
+                        this.objs.splice(this.objs.indexOf(element), 1);
+
+                        console.log(element.weight);
+                        this.Oldman.pull(element.weight, element);
+                    }
+                });
+
                 break;
             case "pulling":
                 this.length -= this.Oldman.pullSpeed;
