@@ -91,31 +91,31 @@ var shopItems = {
     bomb: {
         image: define.imagePath + "shop/firecracker.png",
         value: 50,
-        describe: "拉到你不要的東西按↑鍵，就可以炸掉那個東西",
+        info: "拉到你不要的東西按↑鍵，就可以炸掉那個東西",
         position: {x:(Framework.Game.getCanvasWidth() / 2) - 550, y:(Framework.Game.getCanvasHeight() / 2) + 150},
     },
     potion: {
         image: define.imagePath + "shop/magicPotion.png",
         value: 200,
-        describe: "力量增加，拉東西的速度上升",
+        info: "力量增加，拉東西的速度上升",
         position: {x:(Framework.Game.getCanvasWidth() / 2) - 375, y:(Framework.Game.getCanvasHeight() / 2) + 150},
     },
     clover: {
         image: define.imagePath + "shop/luckyFlower.png",
         value: 100,
-        describe: "使幸運度提高",
+        info: "使幸運度提高",
         position: {x:(Framework.Game.getCanvasWidth() / 2) - 200, y:(Framework.Game.getCanvasHeight() / 2) + 150},
     },
     book: {
         image: define.imagePath + "shop/stoneBook.png",
         value: 150,
-        describe: "使石頭的價值變成原本的3倍",
+        info: "使石頭的價值變成原本的3倍",
         position: {x:(Framework.Game.getCanvasWidth() / 2) - 25, y:(Framework.Game.getCanvasHeight() / 2) + 150},
     },
     bottle: {
         image: define.imagePath + "shop/IDK.png",
         value: 600,
-        describe: "鑽石的價值增加，從600提升為900",
+        info: "鑽石的價值增加，從600提升為900",
         position: {x:(Framework.Game.getCanvasWidth() / 2) + 150, y:(Framework.Game.getCanvasHeight() / 2) + 150},
     },
 

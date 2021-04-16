@@ -47,10 +47,13 @@ var Shop = Framework.Class(Framework.Level , {
             {text: '$' + shopItems.bottle.value, font: 'bold 32px 標楷體', color: 'green', textAlign: 'center'});
 
         //----------other setting----------
+        this.defaultInfo = "點擊以購買物品";
         localStorage.setItem('buyItem', [])
         this.money = parseInt(localStorage.getItem("myMoney"));
-        this.moneyTxt = new Text(this, Framework.Game.getCanvasWidth() - 500, 50, 100, 40,
-            {text: "金錢: " + this.money, font: 'bold 32px 標楷體', color: 'white', textAlign: 'center'});
+        this.moneyTxt = new Text(this, Framework.Game.getCanvasWidth() - 700, (Framework.Game.getCanvasHeight() / 2) - 125, 100, 40,
+            {text: "持有金錢: " + this.money, font: 'bold 32px 標楷體', color: 'black', textAlign: 'center'});
+        this.infoTxt = new Text(this, 225, (Framework.Game.getCanvasHeight() / 2) - 170, 100, 40,
+            {text: this.defaultInfo, font: 'bold 32px 華康中圓體', color: 'black', textAlign: 'left'});
 	},
 
     initialize: function() {
@@ -58,12 +61,13 @@ var Shop = Framework.Class(Framework.Level , {
     },
 
     update: function() {
-        this.moneyTxt.text = "金錢: " + this.money;
+        this.moneyTxt.text = "持有金錢: " + this.money;
         this.draw(this.Ctx);
     },
 
     draw:function(parentCtx){
         this.rootScene.draw();
+        this.infoTxt.draw(parentCtx);
         this.price1.draw(parentCtx);
         this.price2.draw(parentCtx);
         this.price3.draw(parentCtx);
@@ -119,7 +123,25 @@ var Shop = Framework.Class(Framework.Level , {
     },*/
     
     mousemove: function(e) {
-        
+        if(e.x>=this.bomb.upperLeft.x && e.x<=this.bomb.lowerRight.x && e.y>=this.bomb.upperLeft.y &&  e.y<=this.bomb.lowerRight.y){
+            this.infoTxt.text = shopItems.bomb.info;
+        }
+        else if(e.x>=this.potion.upperLeft.x && e.x<=this.potion.lowerRight.x && e.y>=this.potion.upperLeft.y &&  e.y<=this.potion.lowerRight.y){
+            this.infoTxt.text = shopItems.potion.info;
+        }
+        else if(e.x>=this.clover.upperLeft.x && e.x<=this.clover.lowerRight.x && e.y>=this.clover.upperLeft.y &&  e.y<=this.clover.lowerRight.y){
+            this.infoTxt.text = shopItems.clover.info;
+        }
+        else if(e.x>=this.book.upperLeft.x && e.x<=this.book.lowerRight.x && e.y>=this.book.upperLeft.y &&  e.y<=this.book.lowerRight.y){
+            this.infoTxt.text = shopItems.book.info;
+        }
+        else if(e.x>=this.bottle.upperLeft.x && e.x<=this.bottle.lowerRight.x && e.y>=this.bottle.upperLeft.y &&  e.y<=this.bottle.lowerRight.y){
+            this.infoTxt.text = shopItems.bottle.info;
+        }
+        else{
+            console.log(this.defaultInfo);
+            this.infoTxt.text = this.defaultInfo;
+        }
     },
 
     click: function (e) {  
