@@ -85,4 +85,45 @@ var Items = {
     mouseWithDiamond: {
         weight: 9
     }
-}
+};
+
+var shopItems = {
+    bomb: {
+        image: define.imagePath + "shop/firecracker.png",
+        value: 50,
+        describe: "拉到你不要的東西按↑鍵，就可以炸掉那個東西",
+        position: {x:(Framework.Game.getCanvasWidth() / 2) - 550, y:(Framework.Game.getCanvasHeight() / 2) + 150},
+    },
+    potion: {
+        image: define.imagePath + "shop/magicPotion.png",
+        value: 200,
+        describe: "力量增加，拉東西的速度上升",
+        position: {x:(Framework.Game.getCanvasWidth() / 2) - 375, y:(Framework.Game.getCanvasHeight() / 2) + 150},
+    },
+    clover: {
+        image: define.imagePath + "shop/luckyFlower.png",
+        value: 100,
+        describe: "使幸運度提高",
+        position: {x:(Framework.Game.getCanvasWidth() / 2) - 200, y:(Framework.Game.getCanvasHeight() / 2) + 150},
+    },
+    book: {
+        image: define.imagePath + "shop/stoneBook.png",
+        value: 150,
+        describe: "使石頭的價值變成原本的3倍",
+        position: {x:(Framework.Game.getCanvasWidth() / 2) - 25, y:(Framework.Game.getCanvasHeight() / 2) + 150},
+    },
+    bottle: {
+        image: define.imagePath + "shop/IDK.png",
+        value: 600,
+        describe: "鑽石的價值增加，從600提升為900",
+        position: {x:(Framework.Game.getCanvasWidth() / 2) + 150, y:(Framework.Game.getCanvasHeight() / 2) + 150},
+    },
+
+    itemPosition: {
+        pos1: {x:(Framework.Game.getCanvasWidth() / 2) - 500, y:(Framework.Game.getCanvasHeight() / 2) + 150},
+        pos2: {x:(Framework.Game.getCanvasWidth() / 2) - 375, y:(Framework.Game.getCanvasHeight() / 2) + 150},
+        pos3: {x:(Framework.Game.getCanvasWidth() / 2) - 250, y:(Framework.Game.getCanvasHeight() / 2) + 150},
+        pos4: {x:(Framework.Game.getCanvasWidth() / 2) - 125, y:(Framework.Game.getCanvasHeight() / 2) + 150},
+        pos5: {x:(Framework.Game.getCanvasWidth() / 2), y:(Framework.Game.getCanvasHeight() / 2) + 150},
+    },
+};
