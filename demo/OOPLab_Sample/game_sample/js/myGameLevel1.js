@@ -103,10 +103,10 @@
 
         //objects
         this.objs = []
-        this.objs.push(new Object(Items.larGold , {x:10, y:200}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.medGold , {x:200, y:200}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.smaGold , {x:400, y:200}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.bigGold , {x:600, y:200}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.mysteryBag , {x:10, y:200}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.mysteryBag , {x:200, y:200}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.mysteryBag , {x:400, y:200}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.mysteryBag , {x:600, y:200}, this.audio, this.objectScene));
         
         this.objs.push(new Object(Items.bigStone , {x:100, y:400}, this.audio, this.objectScene));
         this.objs.push(new Object(Items.bone , {x:200, y:400}, this.audio, this.objectScene));
