@@ -1,9 +1,11 @@
 /**
  * family
+ * animation
  * image
  * scale
  * value (-1 for random)
  * weight (max is 15)
+ * anima {animaForward, animaBackward, startX, endX, Y}
  */
 
 var Items = {
@@ -91,11 +93,36 @@ var Items = {
 
     mouse: {
         family: "other",
+        anima: {
+            animaForward: [
+                define.imagePath + "mouse/1.png",
+                define.imagePath + "mouse/2.png",
+                define.imagePath + "mouse/3.png",
+                define.imagePath + "mouse/4.png",
+                define.imagePath + "mouse/5.png",
+                define.imagePath + "mouse/6.png",
+                define.imagePath + "mouse/7.png",
+                define.imagePath + "mouse/8.png"
+            ],
+            animaBackward: [
+                define.imagePath + "mouse/1.png",
+                define.imagePath + "mouse/2.png",
+                define.imagePath + "mouse/3.png",
+                define.imagePath + "mouse/4.png",
+                define.imagePath + "mouse/5.png",
+                define.imagePath + "mouse/6.png",
+                define.imagePath + "mouse/7.png",
+                define.imagePath + "mouse/8.png"
+            ]
+        },
+        value: 2,
         weight: 8
     },
 
 
     mouseWithDiamond: {
+        family: "diamond",
+        value: 602,
         weight: 9
     }
 };

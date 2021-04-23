@@ -94,7 +94,7 @@ var Oldman = Framework.exClass({
                     value = value * 3;
                 }
                 else if((this.grabbing.family === "diamond") && (this.effect.indexOf("bottle") != -1)) {
-                    value = 900;
+                    value = value + 300;
                 }
                 this.grabbing = undefined;
                 return value;
