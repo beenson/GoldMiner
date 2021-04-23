@@ -4,6 +4,7 @@ var Object = Framework.exClass({
         this.size = type.size || {width: 0, length: 0};
         this.value = type.value || 0;
         this.weight = type.weight || 0;
+        this.family = type.family || "other";
         this.isBigPrice = type.isBigPrice || false;
         this.image = type.image || "";
         this.scale = type.scale || 1;

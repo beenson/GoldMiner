@@ -1,13 +1,21 @@
 var Oldman = Framework.exClass({
     __construct:function(parent, scene, audio){
         this.load(parent);
-
+        //----------item effect----------
+        this.effect = localStorage.getItem("buyItem");
+        if(this.effect.indexOf("potion") != -1){
+            this.powerAdd = 1.2;
+        }
+        else{
+            this.powerAdd = 1;
+        }
+        //----------item effect----------
         this.baseScene = scene;
         this.audio = audio;
 
         this.status = "default";
         this.grabbing = undefined;
-        this.pullSpeed = 10;
+        this.pullSpeed = 15;
         
         var photoLink = [
             define.imagePath + 'OldMan/1.png',
@@ -73,14 +81,22 @@ var Oldman = Framework.exClass({
                 value = Math.floor(Math.random() * 900) + 1;
             }
             this.grabbing.detach();
-            this.grabbing = undefined;
             if(value > 800) {
                 if(Math.random() >= 0.5) {
                     //firecracker
                 }else {
                     //streng
                 }
+                this.grabbing = undefined;
             }else {
+                if((this.grabbing.family === "stone") && (this.effect.indexOf("book") != -1)){
+                    console.log(this.effect.indexOf("book"));
+                    value = value * 3;
+                }
+                else if((this.grabbing.family === "diamond") && (this.effect.indexOf("bottle") != -1)) {
+                    value = 900;
+                }
+                this.grabbing = undefined;
                 return value;
             }
         }
@@ -104,7 +120,12 @@ var Oldman = Framework.exClass({
         if(weight == -1) {
             weight = Math.floor(Math.random() * 13) + 2; //2 ~ 14
         }
-        this.pullSpeed = 15 - weight;
+        if(obj){
+            this.pullSpeed = (15*this.powerAdd) - weight;
+        }
+        else{
+            this.pullSpeed = 15;
+        }
         this.grabbing = obj;
     },
 });

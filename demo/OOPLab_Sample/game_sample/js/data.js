@@ -1,4 +1,5 @@
 /**
+ * family
  * image
  * scale
  * value (-1 for random)
@@ -7,6 +8,7 @@
 
 var Items = {
     larGold: {
+        family: "gold",
         image: define.itemPath + "Gold.png",
         scale: 1.1,
         value: 500,
@@ -14,6 +16,7 @@ var Items = {
     },
 
     bigGold: {
+        family: "gold",
         image: define.itemPath + "Gold.png",
         scale: 0.8,
         value: 250,
@@ -21,6 +24,7 @@ var Items = {
     },
 
     medGold: {
+        family: "gold",
         image: define.itemPath + "Gold.png",
         scale: 0.6,
         value: 100,
@@ -28,6 +32,7 @@ var Items = {
     },
 
     smaGold: {
+        family: "gold",
         image: define.itemPath + "Gold.png",
         scale: 0.3,
         value: 50,
@@ -35,30 +40,35 @@ var Items = {
     },
 
     bigStone: {
+        family: "stone",
         image: define.itemPath + "BigStone.png",
         value: 20,
         weight: 13
     },
 
     smaStone: {
+        family: "stone",
         image: define.itemPath + "SmallStone.png",
         value: 11,
         weight: 12.5
     }, 
     
     head: {
+        family: "other",
         image: define.itemPath + "HeadBone.png",
         value: 20,
         weight: 6
     },
 
     bone: {
+        family: "other",
         image: define.itemPath + "Bone.png",
         value: 7,
         weight: 5
     },
 
     diamond: {
+        family: "diamond",
         image: define.itemPath + "Diamond.png",
         scale: 1.1,
         value: 600,
@@ -66,18 +76,21 @@ var Items = {
     },
 
     boom: {
+        family: "other",
         image: define.itemPath + "Boom.png",
         value: 1,
         weight: 8
     },
 
     mysteryBag: {
+        family: "other",
         image: define.itemPath + "MysteryBag_.png",
         value: -1, //-1 for random
         weight: -1 //-1 for random
     },
 
     mouse: {
+        family: "other",
         weight: 8
     },
 
