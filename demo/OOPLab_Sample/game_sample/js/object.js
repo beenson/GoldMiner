@@ -1,7 +1,7 @@
 var Object = Framework.exClass({
-    __construct:function(type, position, audio, scene){
+    __construct:function(type, position, audio, scene, move){
         this.position = position || {x: 0, y: 0};
-        this.size = type.size || {width: 0, length: 0};
+        this.move = move || {};
         this.value = type.value || 0;
         this.weight = type.weight || 0;
         this.isBigPrice = type.isBigPrice || false;
@@ -9,7 +9,6 @@ var Object = Framework.exClass({
         this.scale = type.scale || 1;
         this.destory = type.destory || function(){};
         this.grabbed = type.grabbed || function(){};
-        this.move = type.move || function(){};
         this.scene = scene;
 
         this.sound = audio;
@@ -18,7 +17,18 @@ var Object = Framework.exClass({
             y: this.position.y + 202
         };
 
-        this.obj = new Framework.Sprite(this.image);
+        if(this.image) {
+            this.obj = new Framework.Sprite(this.image);
+        } else {
+            this.move.dir = 2;
+            this.anima = type.anima;
+            this.forward = new Framework.AnimationSprite({url:this.anima.animaForward, loop:true , speed:2});
+            this.forward.start();
+            this.backward = new Framework.AnimationSprite({url:this.anima.animaBackward, loop:true , speed:2});
+            this.backward.start();
+            this.obj = this.forward;
+        }
+        
         this.obj.scale = this.scale;
         this.obj.position = this.position;
         this.attach();
@@ -27,6 +37,9 @@ var Object = Framework.exClass({
     attach: function(){
         this.obj.layer = 100;
         this.scene.attach(this.obj);
+        if(!this.animation) {
+            this.obj.draw();
+        }
     },
 
     detach: function() {
@@ -48,15 +61,33 @@ var Object = Framework.exClass({
         left.y = center.y;
         return this.detect(left) || this.detect(center) || this.detect(right);
     },
+    
+    update: function() {
+        if(!this.move || !this.move.dir)
+            return;
+
+        if((this.move.dir > 0 && this.position.x >= this.move.end) || (this.move.dir < 0 && this.position.x <= this.move.start)) {
+            this.move.dir *= -1;
+            this.detach();
+            if(this.move.dir > 0){
+                this.obj = this.forward;
+            } else {
+                this.obj = this.backward;
+            }
+            this.attach();
+        }
+
+        this.position.x += this.move.dir;
+        this.obj.position = this.position;
+    },
 
     catch: function(catcher, scene) {
         if(this.detectArea(catcher)) {
-            console.log("hihi");
             this.grabbed();
             this.detach();
             this.scene = scene;
             this.attach();
-            return true;   
+            return true;
         }
         return false;
     },

@@ -103,18 +103,19 @@
 
         //objects
         this.objs = []
-        this.objs.push(new Object(Items.mysteryBag , {x:10, y:200}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.mysteryBag , {x:200, y:200}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.mysteryBag , {x:400, y:200}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.mysteryBag , {x:600, y:200}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.mouse, {x:10, y:200}, this.audio, this.objectScene,{start: 0, end:200}));
+        this.objs.push(new Object(Items.mouse, {x:200, y:200}, this.audio, this.objectScene, {start: 200, end:400}));
+        this.objs.push(new Object(Items.mouse, {x:400, y:200}, this.audio, this.objectScene, {start: 400, end:600}));
+        this.objs.push(new Object(Items.mouse, {x:600, y:200}, this.audio, this.objectScene, {start: 600, end:900}));
+        this.objs.push(new Object(Items.mouse, {x:800, y:200}, this.audio, this.objectScene, {start: 800, end:1000}));
         
-        this.objs.push(new Object(Items.bigStone , {x:100, y:400}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.bone , {x:200, y:400}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.boom , {x:300, y:400}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.smaStone , {x:400, y:400}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.head , {x:500, y:400}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.mysteryBag , {x:600, y:400}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.diamond , {x:700, y:400}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.bigStone, {x:100, y:400}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.bone, {x:200, y:400}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.boom, {x:300, y:400}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.smaStone, {x:400, y:400}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.head, {x:500, y:400}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.mysteryBag, {x:600, y:400}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.diamond, {x:700, y:400}, this.audio, this.objectScene));
 
         //button
         this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20, 70, 50,
@@ -145,9 +146,9 @@
             self.oldmanScene.layer = 1;
             self.rootScene.detach(self.loadingPic);
             self.Oldman.default();
-            self.rootScene.attach(self.objectScene);
             self.rootScene.attach(self.circle);
             self.circle.attach(self.catcher);
+            self.rootScene.attach(self.objectScene);
             
             self.timer = setInterval(function(){
                 self.time--;
@@ -182,6 +183,11 @@
         //update
         this.backBtn1.update();
         this.backBtn2.update();
+
+        //object update
+        this.objs.forEach(element => {
+            element.update();
+        });
 
         //text update
         this.moneyTxt.text = this.money;
