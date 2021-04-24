@@ -23,9 +23,9 @@ var Object = Framework.exClass({
         } else {
             this.move.dir = 2;
             this.anima = type.anima;
-            this.forward = new Framework.AnimationSprite({url:this.anima.animaForward, loop:true , speed:2});
+            this.forward = new Framework.AnimationSprite({url:this.anima.animaForward, loop:true , speed:6});
             this.forward.start();
-            this.backward = new Framework.AnimationSprite({url:this.anima.animaBackward, loop:true , speed:2});
+            this.backward = new Framework.AnimationSprite({url:this.anima.animaBackward, loop:true , speed:6});
             this.backward.start();
             this.obj = this.forward;
         }

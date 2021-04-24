@@ -95,24 +95,24 @@ var Items = {
         family: "other",
         anima: {
             animaForward: [
-                define.imagePath + "mouse/1.png",
-                define.imagePath + "mouse/2.png",
-                define.imagePath + "mouse/3.png",
-                define.imagePath + "mouse/4.png",
-                define.imagePath + "mouse/5.png",
-                define.imagePath + "mouse/6.png",
-                define.imagePath + "mouse/7.png",
-                define.imagePath + "mouse/8.png"
+                define.imagePath + "mouse/normal/forward/1.png",
+                define.imagePath + "mouse/normal/forward/2.png",
+                define.imagePath + "mouse/normal/forward/3.png",
+                define.imagePath + "mouse/normal/forward/4.png",
+                define.imagePath + "mouse/normal/forward/5.png",
+                define.imagePath + "mouse/normal/forward/6.png",
+                define.imagePath + "mouse/normal/forward/7.png",
+                define.imagePath + "mouse/normal/forward/8.png"
             ],
             animaBackward: [
-                define.imagePath + "mouse/1.png",
-                define.imagePath + "mouse/2.png",
-                define.imagePath + "mouse/3.png",
-                define.imagePath + "mouse/4.png",
-                define.imagePath + "mouse/5.png",
-                define.imagePath + "mouse/6.png",
-                define.imagePath + "mouse/7.png",
-                define.imagePath + "mouse/8.png"
+                define.imagePath + "mouse/normal/backward/1.png",
+                define.imagePath + "mouse/normal/backward/2.png",
+                define.imagePath + "mouse/normal/backward/3.png",
+                define.imagePath + "mouse/normal/backward/4.png",
+                define.imagePath + "mouse/normal/backward/5.png",
+                define.imagePath + "mouse/normal/backward/6.png",
+                define.imagePath + "mouse/normal/backward/7.png",
+                define.imagePath + "mouse/normal/backward/8.png"
             ]
         },
         value: 2,
@@ -122,6 +122,28 @@ var Items = {
 
     mouseWithDiamond: {
         family: "diamond",
+        anima: {
+            animaForward: [
+                define.imagePath + "mouse/diamond/forward/1.png",
+                define.imagePath + "mouse/diamond/forward/2.png",
+                define.imagePath + "mouse/diamond/forward/3.png",
+                define.imagePath + "mouse/diamond/forward/4.png",
+                define.imagePath + "mouse/diamond/forward/5.png",
+                define.imagePath + "mouse/diamond/forward/6.png",
+                define.imagePath + "mouse/diamond/forward/7.png",
+                define.imagePath + "mouse/diamond/forward/8.png"
+            ],
+            animaBackward: [
+                define.imagePath + "mouse/diamond/backward/1.png",
+                define.imagePath + "mouse/diamond/backward/2.png",
+                define.imagePath + "mouse/diamond/backward/3.png",
+                define.imagePath + "mouse/diamond/backward/4.png",
+                define.imagePath + "mouse/diamond/backward/5.png",
+                define.imagePath + "mouse/diamond/backward/6.png",
+                define.imagePath + "mouse/diamond/backward/7.png",
+                define.imagePath + "mouse/diamond/backward/8.png"
+            ]
+        },
         value: 602,
         weight: 9
     }

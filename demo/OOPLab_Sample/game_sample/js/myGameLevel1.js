@@ -103,9 +103,9 @@
 
         //objects
         this.objs = []
-        this.objs.push(new Object(Items.mouse, {x:10, y:200}, this.audio, this.objectScene,{start: 0, end:200}));
-        this.objs.push(new Object(Items.mouse, {x:200, y:200}, this.audio, this.objectScene, {start: 200, end:400}));
-        this.objs.push(new Object(Items.mouse, {x:400, y:200}, this.audio, this.objectScene, {start: 400, end:600}));
+        this.objs.push(new Object(Items.mouseWithDiamond, {x:10, y:200}, this.audio, this.objectScene,{start: 0, end:200}));
+        this.objs.push(new Object(Items.mouseWithDiamond, {x:200, y:200}, this.audio, this.objectScene, {start: 200, end:400}));
+        this.objs.push(new Object(Items.mouseWithDiamond, {x:400, y:200}, this.audio, this.objectScene, {start: 400, end:600}));
         this.objs.push(new Object(Items.mouse, {x:600, y:200}, this.audio, this.objectScene, {start: 600, end:900}));
         this.objs.push(new Object(Items.mouse, {x:800, y:200}, this.audio, this.objectScene, {start: 800, end:1000}));
         

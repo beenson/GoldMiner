@@ -34,7 +34,7 @@ var Shop = Framework.Class(Framework.Level , {
             {text: this.defaultInfo, font: 'bold 32px 華康中圓體', color: 'black', textAlign: 'left'});
 
         this.btn = new Button(this, Framework.Game.getCanvasWidth() - 500, 100, 175, 65,
-        {text: '下一關', font: 'bold 48px 華康中圓體', color: 'white', background: 'green', textOffset: 7, click: function(){
+        {text: '下一關', font: 'bold 48px 標楷體', color: 'white', background: 'green', textOffset: 7, click: function(){
             Framework.Game.goToNextLevel();
         }});
         this.subBtn = new Button(this, Framework.Game.getCanvasWidth() - 502, 98, 179, 69,
