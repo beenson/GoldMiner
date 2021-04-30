@@ -8,8 +8,8 @@ var Object = Framework.exClass({
         this.isBigPrice = type.isBigPrice || false;
         this.image = type.image || "";
         this.scale = type.scale || 1;
-        this.destory = type.destory || function(){};
         this.grabbed = type.grabbed || function(){};
+        this.boom = type.boom;
         this.scene = scene;
 
         this.sound = audio;
@@ -35,6 +35,14 @@ var Object = Framework.exClass({
         this.attach();
     },
 
+    destory: function(range){
+        var inRange = this.detectArea(range);
+        if(inRange) {
+            this.detach();
+        }
+        return inRange;
+    },
+
     attach: function(){
         this.obj.layer = 100;
         this.scene.attach(this.obj);
@@ -52,15 +60,40 @@ var Object = Framework.exClass({
     },
 
     detectArea: function(range) {
-        var center = {
-            x: (range.lowerRight.x + range.upperLeft.x) / 2,
-            y: (range.lowerRight.y + range.upperLeft.y) / 2
-        }
-        var right = range.lowerRight;
-        var left = range.upperLeft;
-        right.y = center.y;
-        left.y = center.y;
-        return this.detect(left) || this.detect(center) || this.detect(right);
+        a = {
+            name: "obj",
+            start: {
+                x: this.obj.upperLeft.x, 
+                y: this.obj.upperLeft.y
+            },
+            end: {
+                x: this.obj.lowerRight.x, 
+                y: this.obj.lowerRight.y
+            }
+        };
+        b = {
+            name: "range",
+            start: {
+                x: range.x || range.upperLeft.x, 
+                y: range.y || range.upperLeft.y
+            },
+            end: {
+                x: (range.x + range.width) || range.lowerRight.x, 
+                y: (range.y + range.height) || range.lowerRight.y
+            }
+        };
+        
+        var inside = true;
+
+        if(a.start.x > b.start.x)
+            [a, b] = [b, a];
+        inside &= b.start.x <= a.end.x;
+
+        if(a.start.y > b.start.y)
+            [a, b] = [b, a];
+        inside &= b.start.y <= a.end.y;
+        
+        return inside;
     },
     
     update: function() {
@@ -84,6 +117,14 @@ var Object = Framework.exClass({
 
     catch: function(catcher, scene) {
         if(this.detectArea(catcher)) {
+            if(this.family == "TNT"){
+                this.boomRange = {
+                    x: this.obj.upperLeft.x - 50,
+                    y: this.obj.upperLeft.y - 50,
+                    width: this.obj.lowerRight.x - this.obj.upperLeft.x + 100,
+                    height: this.obj.lowerRight.y - this.obj.upperLeft.y + 100
+                }
+            }
             this.grabbed();
             this.detach();
             this.scene = scene;
@@ -109,14 +150,18 @@ var Object = Framework.exClass({
         console.log(this.detect(e));
     },
 
-    //draw is just for testing range of detect
+    //draw range of boom
     draw: function(parentCtx) {
+        return;
+        if(this.family != "TNT")
+            return;
+        
         this.size = {
             width: this.obj.lowerRight.x - this.obj.upperLeft.x,
             height: this.obj.lowerRight.y - this.obj.upperLeft.y
         };
         parentCtx.fillStyle = "blue";
-        parentCtx.fillRect(this.obj.upperLeft.x , this.obj.upperLeft.y, this.size.width, this.size.height);
+        parentCtx.fillRect(this.obj.upperLeft.x - 50 , this.obj.upperLeft.y-50, this.size.width + 100, this.size.height + 100);
         this.obj.draw();
     }
 });
