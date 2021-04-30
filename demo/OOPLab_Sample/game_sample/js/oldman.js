@@ -1,15 +1,7 @@
 var Oldman = Framework.exClass({
     __construct:function(parent, scene, audio){
         this.load(parent);
-        //----------item effect----------
-        this.effect = localStorage.getItem("buyItem");
-        if(this.effect.indexOf("potion") != -1){
-            this.powerAdd = 1.2;
-        }
-        else{
-            this.powerAdd = 1;
-        }
-        //----------item effect----------
+        
         this.baseScene = scene;
         this.audio = audio;
 
@@ -50,6 +42,26 @@ var Oldman = Framework.exClass({
         this.defaultSprite.position = this.position;
         this.shootSprite.position = this.position;
         this.pullSprite.position = this.position;
+
+        //----------item effect----------
+        this.effect = localStorage.getItem("buyItem");
+        if(this.effect.indexOf("potion") != -1){
+            this.powerAdd = 1.2;
+        }
+        else{
+            this.powerAdd = 1;
+        }
+        if(this.effect.indexOf("bomb") != -1){
+            this.hasBomb = true;
+            this.bomb = new Framework.Sprite(shopItems.bomb.image);
+            this.bomb.position = {
+                x: Framework.Game.getCanvasWidth() / 2 + 140,
+                y: 100     
+            }
+            this.bomb.scale = 0.3;
+            this.baseScene.attach(this.bomb)
+        }
+        //----------item effect end----------
     },
 
 	load: function(parent){
@@ -127,5 +139,14 @@ var Oldman = Framework.exClass({
             this.pullSpeed = 15;
         }
         this.grabbing = obj;
+    },
+
+    useBomb: function(){
+        if(this.status === "pulling" && this.hasBomb && this.grabbing){
+            this.grabbing.detach();
+            this.baseScene.detach(this.bomb)
+            this.hasBomb = false;
+            this.grabbing = undefined;
+        }
     },
 });

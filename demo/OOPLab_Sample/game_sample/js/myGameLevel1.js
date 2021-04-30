@@ -159,10 +159,15 @@
 
     toNextLevel: function(){
         clearInterval(this.timer);
-        localStorage.setItem('myMoney', this.money);
-        this.audio.stopAll();
-        Framework.Game.addNewLevel({Shop: new Shop()});
-        Framework.Game.goToNextLevel();
+        if(this.money >= this.target){
+            localStorage.setItem('myMoney', this.money);
+            this.audio.stopAll();
+            Framework.Game.addNewLevel({Shop: new Shop()});
+            Framework.Game.goToNextLevel();
+        }
+        else{
+            Framework.Game.goToPreviousLevel();
+        }
     },
 
     initialize: function() {
@@ -338,6 +343,10 @@
                 this.isFullScreen = false;
             }
             
+        }
+        
+        if(e.key === 'Up'){
+            this.Oldman.useBomb();
         }
 
     },
