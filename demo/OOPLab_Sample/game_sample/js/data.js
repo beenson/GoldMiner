@@ -78,10 +78,17 @@ var Items = {
     },
 
     boom: {
-        family: "other",
+        family: "TNT",
         image: define.itemPath + "Boom.png",
         value: 1,
-        weight: 8
+        weight: 8,
+        boom: function(list){
+            list.forEach(element => {            
+                if(element.destory(this.boomRange)) {
+                    list.splice(list.indexOf(element), 1);
+                }
+            });
+        }
     },
 
     mysteryBag: {

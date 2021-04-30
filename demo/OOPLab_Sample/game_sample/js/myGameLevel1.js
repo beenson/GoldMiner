@@ -108,6 +108,9 @@
         this.objs.push(new Object(Items.mouseWithDiamond, {x:400, y:200}, this.audio, this.objectScene, {start: 400, end:600}));
         this.objs.push(new Object(Items.mouse, {x:600, y:200}, this.audio, this.objectScene, {start: 600, end:900}));
         this.objs.push(new Object(Items.mouse, {x:800, y:200}, this.audio, this.objectScene, {start: 800, end:1000}));
+        this.objs.push(new Object(Items.boom, {x:300, y:100}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.boom, {x:300, y:200}, this.audio, this.objectScene));
+        this.objs.push(new Object(Items.boom, {x:300, y:300}, this.audio, this.objectScene));
         
         this.objs.push(new Object(Items.bigStone, {x:100, y:400}, this.audio, this.objectScene));
         this.objs.push(new Object(Items.bone, {x:200, y:400}, this.audio, this.objectScene));
@@ -166,17 +169,7 @@
     },
 
     initialize: function() {
-        /*this.audio = new Framework.Audio({
-            start: {
-                mp3: define.soundPath + 'GameStart.mp3'
-            },
-            pull: {
-                mp3: define.soundPath + 'PullingString.mp3'
-            },
-            catch: {
-                mp3: define.soundPath + 'Catch.mp3'
-            }
-        });*/
+        
     },
 
     update: function() {
@@ -219,6 +212,12 @@
                         //remove from objs
                         this.objs.splice(this.objs.indexOf(element), 1);
 
+                        //boom
+                        if(element.family == "TNT") {
+                            element.boom(this.objs);
+                        }
+
+                        console.log(this.objs);
                         console.log(element.weight);
                         this.Oldman.pull(element.weight, element);
                     }
@@ -291,6 +290,10 @@
             parentCtx.stroke();
             this.circle.draw();
             
+            
+            this.objs.forEach(element => {
+                element.draw(parentCtx);
+            });
             //debug
             //this.object.draw(parentCtx);
         }
