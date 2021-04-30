@@ -2,8 +2,7 @@
 //第一個被加進來的Level就是啟動點, 所以一開始遊戲就進入MyMenu
 Framework.Game.addNewLevel({menu: new MyMenu()});
 Framework.Game.addNewLevel({level1: new MyGame(650)});
-Framework.Game.addNewLevel({Loading: new Shop()});
-Framework.Game.addNewLevel({level2: new MyGame2()});
+Framework.Game.addNewLevel({shop: new Shop()});
 
 //讓Game開始運行
 Framework.Game.start();

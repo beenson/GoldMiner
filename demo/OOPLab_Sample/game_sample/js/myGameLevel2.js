@@ -216,7 +216,7 @@ var MyGame2 = Framework.Class(Framework.Level , {
             //由於Click Me在太小的螢幕的情況下會蓋到Clock, 導致點擊Click Me時, 會回到前一個Level,
             //故使用else if, 並優先選擇Click Me會觸發的條件
             this.audio.stopAll();
-            Framework.Game.goToPreviousLevel();            
+            Framework.Game.goToLevel('menu');            
             return;
         }
     },

@@ -162,11 +162,10 @@
         if(this.money >= this.target){
             localStorage.setItem('myMoney', this.money);
             this.audio.stopAll();
-            Framework.Game.addNewLevel({Shop: new Shop()});
-            Framework.Game.goToNextLevel();
+            Framework.Game.goToLevel('shop');
         }
         else{
-            Framework.Game.goToPreviousLevel();
+            Framework.Game.goToLevel('menu');   //return to menu
         }
     },
 

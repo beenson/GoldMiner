@@ -25,6 +25,7 @@ var Shop = Framework.Class(Framework.Level , {
         this.itemlist.push(new shopItem(shopItems.bottle, this.rootScene));   //make diamond price higher
 
         //----------other setting----------
+        var self = this;
         this.defaultInfo = "點擊以購買物品";
         localStorage.setItem('buyItem', [])
         this.money = parseInt(localStorage.getItem("myMoney"));
@@ -35,7 +36,15 @@ var Shop = Framework.Class(Framework.Level , {
 
         this.btn = new Button(this, Framework.Game.getCanvasWidth() - 500, 100, 175, 65,
         {text: '下一關', font: 'bold 48px 標楷體', color: 'white', background: 'green', textOffset: 7, click: function(){
-            Framework.Game.goToNextLevel();
+            localStorage.setItem("myMoney", self.money);
+            try{
+                Framework.Game.addNewLevel({level2: new MyGame2()});
+                Framework.Game.goToLevel('level2');
+            }
+            catch(e){
+                console.log("catched")
+                Framework.Game.goToNextLevel();
+            }
         }});
         this.subBtn = new Button(this, Framework.Game.getCanvasWidth() - 502, 98, 179, 69,
         {text: '', font: 'bold 48px 華康中圓體', color: 'white', background: 'lime', textOffset: 10});
@@ -121,7 +130,7 @@ var Shop = Framework.Class(Framework.Level , {
 
         this.itemlist.forEach(element => {
             if(element.detect(e)){
-                if(this.buy.indexOf(element.getName() === -1)){
+                if(this.buy.indexOf(element.getName() === -1) && this.money >= element.getValue()){
                     this.buy.push(element.getName());
                     this.money -= element.getValue();
                     element.detach();
