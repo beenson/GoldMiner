@@ -9,7 +9,6 @@ var Object = Framework.exClass({
         this.image = type.image || "";
         this.scale = type.scale || 1;
         this.grabbed = type.grabbed || function(){};
-        this.boom = type.boom;
         this.scene = scene;
 
         this.sound = audio;
@@ -35,11 +34,39 @@ var Object = Framework.exClass({
         this.attach();
     },
 
+    boom: function(list){
+        console.log(list);       
+        this.boomRange = {
+            x: this.obj.upperLeft.x - 50,
+            y: this.obj.upperLeft.y - 50,
+            width: this.obj.lowerRight.x - this.obj.upperLeft.x + 100,
+            height: this.obj.lowerRight.y - this.obj.upperLeft.y + 100
+        }
+        remove = [];
+
+        list.forEach(element => {    
+            if(element.destory(this.boomRange)) 
+                remove.push(element); 
+        });
+        
+        remove.forEach(element => {    
+            list.splice(list.indexOf(element), 1);
+        });
+
+        remove.forEach(element => {    
+            if(element.family == "TNT") { 
+                element.boom(list);
+            }
+        });
+    },
+
     destory: function(range){
         var inRange = this.detectArea(range);
-        if(inRange) {
+
+        if(inRange){
             this.detach();
         }
+        
         return inRange;
     },
 
@@ -54,7 +81,7 @@ var Object = Framework.exClass({
     detach: function() {
         this.scene.detach(this.obj);
     },
-
+    
     detect: function(pos) {
         return (pos.x >= this.obj.upperLeft.x && pos.x <= this.obj.lowerRight.x && pos.y >= this.obj.upperLeft.y && pos.y <= this.obj.lowerRight.y);
     },
@@ -115,15 +142,10 @@ var Object = Framework.exClass({
         this.obj.position = this.position;
     },
 
-    catch: function(catcher, scene) {
+    catch: function(catcher, scene, objList) {
         if(this.detectArea(catcher)) {
             if(this.family == "TNT"){
-                this.boomRange = {
-                    x: this.obj.upperLeft.x - 50,
-                    y: this.obj.upperLeft.y - 50,
-                    width: this.obj.lowerRight.x - this.obj.upperLeft.x + 100,
-                    height: this.obj.lowerRight.y - this.obj.upperLeft.y + 100
-                }
+                this.boom(objList);
             }
             this.grabbed();
             this.detach();
@@ -134,7 +156,11 @@ var Object = Framework.exClass({
         return false;
     },
 
-    //only for grabbing
+    /**
+     * set the position in scene
+     * @param {x, y} pos 
+     * @param {x, y} offset 
+     */
     setPos: function(pos, offset) {
         this.obj.position = {
             x: pos.x + offset.x,
@@ -146,6 +172,10 @@ var Object = Framework.exClass({
 
     },
 
+    /**
+     * testing if the clicked point is in the detect area
+     * @param {x, y} e 
+     */
     click: function(e) {
         console.log(this.detect(e));
     },

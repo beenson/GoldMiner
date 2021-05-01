@@ -162,9 +162,9 @@
 
     toNextLevel: function(){
         clearInterval(this.timer);
+        this.audio.stopAll();
         if(this.money >= this.target){
             localStorage.setItem('myMoney', this.money);
-            this.audio.stopAll();
             Framework.Game.goToLevel('shop');
         }
         else{
@@ -210,16 +210,17 @@
 
                 //object detect
                 this.objs.forEach(element => {
-                    if(element.catch(this.catcher, this.circle)){
+                    if(element.catch(this.catcher, this.circle, this.objs)){
                         element.setPos(this.catcher.position, {x: 0, y: -14});
 
                         //remove from objs
                         this.objs.splice(this.objs.indexOf(element), 1);
 
                         //boom
+                        /*
                         if(element.family == "TNT") {
                             element.boom(this.objs);
-                        }
+                        }*/
 
                         console.log(this.objs);
                         console.log(element.weight);
