@@ -11,12 +11,12 @@ var Object = Framework.exClass({
         this.grabbed = type.grabbed || function(){};
         this.scene = scene;
 
-        this.sound = audio;
+        this.audio = audio;
         this.position = {
             x: this.position.x + 73,
             y: this.position.y + 202
         };
-
+        
         if(this.image) {
             this.obj = new Framework.Sprite(this.image);
         } else {
@@ -34,42 +34,9 @@ var Object = Framework.exClass({
         this.attach();
     },
 
-    boom: function(list){
-        console.log(list);       
-        this.boomRange = {
-            x: this.obj.upperLeft.x - 50,
-            y: this.obj.upperLeft.y - 50,
-            width: this.obj.lowerRight.x - this.obj.upperLeft.x + 100,
-            height: this.obj.lowerRight.y - this.obj.upperLeft.y + 100
-        }
-        remove = [];
-
-        list.forEach(element => {    
-            if(element.destory(this.boomRange)) 
-                remove.push(element); 
-        });
-        
-        remove.forEach(element => {    
-            list.splice(list.indexOf(element), 1);
-        });
-
-        remove.forEach(element => {    
-            if(element.family == "TNT") { 
-                element.boom(list);
-            }
-        });
-    },
-
-    destory: function(range){
-        var inRange = this.detectArea(range);
-
-        if(inRange){
-            this.detach();
-        }
-        
-        return inRange;
-    },
-
+    /**
+     * attach to scene
+     */
     attach: function(){
         this.obj.layer = 100;
         this.scene.attach(this.obj);
@@ -78,14 +45,27 @@ var Object = Framework.exClass({
         }
     },
 
+    /**
+     * detach from scene
+     */
     detach: function() {
         this.scene.detach(this.obj);
     },
     
+    /**
+     * check if pos in obj area or not
+     * @param {x, y} pos 
+     * @returns pos in obj or not
+     */
     detect: function(pos) {
         return (pos.x >= this.obj.upperLeft.x && pos.x <= this.obj.lowerRight.x && pos.y >= this.obj.upperLeft.y && pos.y <= this.obj.lowerRight.y);
     },
 
+    /**
+     * check if object in range or not
+     * @param {x, y, width, height| upperLeft:{x, y}, lowerRight:{x, y}} range 
+     * @returns object in range or not
+     */
     detectArea: function(range) {
         a = {
             name: "obj",
@@ -122,7 +102,55 @@ var Object = Framework.exClass({
         
         return inside;
     },
+
+    /**
+     * if object in range deteach from scene
+     * @param {{x, y, width, height} | {upperLeft:{x, y}, lowerRight:{x, y}}} range 
+     * @returns object in range or not
+     */
+    destory: function(range){
+        var inRange = this.detectArea(range);
+
+        if(inRange){
+            this.detach();
+        }
+        
+        return inRange;
+    },
+
+    /**
+     * search all object in list and destroy the object in this object boom range
+     * @param {Object[]} list 
+     */
+    boom: function(list){
+        this.boomRange = {
+            x: this.obj.upperLeft.x - 50,
+            y: this.obj.upperLeft.y - 50,
+            width: this.obj.lowerRight.x - this.obj.upperLeft.x + 100,
+            height: this.obj.lowerRight.y - this.obj.upperLeft.y + 100
+        }
+        remove = [];
+
+        list.forEach(element => {    
+            if(element.destory(this.boomRange)) 
+                remove.push(element); 
+        });
+        
+        remove.forEach(element => {
+            list.splice(list.indexOf(element), 1);
+        });
+
+        remove.forEach(element => {    
+            if(element.family == "TNT") { 
+                element.boom(list);
+            }
+        });
+    },
     
+    /**
+     * for mouse moving
+     * @returns no return
+     */
     update: function() {
         if(!this.move || !this.move.dir)
             return;
@@ -142,6 +170,13 @@ var Object = Framework.exClass({
         this.obj.position = this.position;
     },
 
+    /**
+     * check if the catcher touch the object if true it will attach on scene and if family is TNT then boom
+     * @param {Catcher} catcher 
+     * @param {Scene} scene 
+     * @param {Object[]} objList 
+     * @returns if the catcher touch the object or not
+     */
     catch: function(catcher, scene, objList) {
         if(this.detectArea(catcher)) {
             if(this.family == "TNT"){

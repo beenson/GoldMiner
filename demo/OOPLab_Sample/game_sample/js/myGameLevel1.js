@@ -214,13 +214,9 @@
                         element.setPos(this.catcher.position, {x: 0, y: -14});
 
                         //remove from objs
-                        this.objs.splice(this.objs.indexOf(element), 1);
-
-                        //boom
-                        /*
-                        if(element.family == "TNT") {
-                            element.boom(this.objs);
-                        }*/
+                        index = this.objs.indexOf(element);
+                        if(index >= 0)
+                            this.objs.splice(index, 1);
 
                         console.log(this.objs);
                         console.log(element.weight);
