@@ -16,7 +16,7 @@ var Object = Framework.exClass({
             x: this.position.x + 73,
             y: this.position.y + 202
         };
-        
+
         if(this.image) {
             this.obj = new Framework.Sprite(this.image);
         } else {
@@ -29,6 +29,12 @@ var Object = Framework.exClass({
             this.obj = this.forward;
         }
         
+        this.baseScene = this.scene;
+        this.explode = new Framework.AnimationSprite({url: Anime.explode, loop: false,  speed: 7});
+        this.explode.scale = 2;
+        this.explode.position = this.position;
+        this.baseScene.attach(this.explode);
+
         this.obj.scale = this.scale;
         this.obj.position = this.position;
         this.attach();
@@ -123,6 +129,12 @@ var Object = Framework.exClass({
      * @param {Object[]} list 
      */
     boom: function(list){
+        this.explode.start();
+        let self = this;
+        setTimeout(function(){
+            self.baseScene.detach(self.explode);
+        }, 600);
+        
         this.boomRange = {
             x: this.obj.upperLeft.x - 50,
             y: this.obj.upperLeft.y - 50,
