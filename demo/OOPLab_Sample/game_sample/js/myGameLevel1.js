@@ -348,7 +348,7 @@
         }
         
         if(e.key === 'Up'){
-            if(this.Oldman.hasBomb){
+            if(this.Oldman.hasBomb && this.Oldman.status === "pulling"){
                 this.pressUp = true;            //是否按上
                 this.isBombAttached = false;    //是否attach
             }
