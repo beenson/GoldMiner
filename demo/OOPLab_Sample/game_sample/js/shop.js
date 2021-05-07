@@ -56,7 +56,7 @@ var Shop = Framework.Class(Framework.Level , {
             define.backgroundPath + 'shop/deal/7.jpg',
             define.backgroundPath + 'shop/deal/8.jpg'
         ];
-        this.pay = new Framework.AnimationSprite({url: photoLink, loop: false,  speed: 5}); //有買東西
+        this.pay = new Framework.AnimationSprite({url: photoLink, loop: false,  speed: 12}); //有買東西
         this.pay.scale = 1.15;
         this.pay.position = this.mapPic.position;
 	},
@@ -72,11 +72,11 @@ var Shop = Framework.Class(Framework.Level , {
 
     draw:function(parentCtx){
         this.rootScene.draw();
-        this.infoTxt.draw(parentCtx);
         this.itemlist.forEach(element => {
             element.drawPrice(parentCtx);
         });
         if(! this.waiNextlevel){
+            this.infoTxt.draw(parentCtx);
             this.moneyTxt.draw(parentCtx);
         }
         this.subBtn.draw(parentCtx);
@@ -160,7 +160,7 @@ var Shop = Framework.Class(Framework.Level , {
     },
 
     nextLevel: function(){
-        localStorage.setItem("myMoney", self.money);
+        localStorage.setItem("myMoney", this.money);
         this.waiNextlevel = true;
         this.defaultInfo = '';
         this.itemlist.splice(0, this.itemlist.length);
@@ -181,7 +181,7 @@ var Shop = Framework.Class(Framework.Level , {
                 console.log("catched")
                 Framework.Game.goToNextLevel();
             }
-        }, 2000);
+        }, 1000);
             
     }
     
