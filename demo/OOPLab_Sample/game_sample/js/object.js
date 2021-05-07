@@ -145,22 +145,25 @@ var Object = Framework.exClass({
             width: this.obj.lowerRight.x - this.obj.upperLeft.x + 100,
             height: this.obj.lowerRight.y - this.obj.upperLeft.y + 100
         }
-        remove = [];
 
-        list.forEach(element => {    
-            if(element.destory(this.boomRange)) 
-                remove.push(element); 
-        });
-        
-        remove.forEach(element => {
-            list.splice(list.indexOf(element), 1);
-        });
+        setTimeout(function(){
+            remove = [];
 
-        remove.forEach(element => {    
-            if(element.family == "TNT") { 
-                element.boom(list);
-            }
-        });
+            list.forEach(element => {    
+                if(element.destory(self.boomRange)) 
+                    remove.push(element); 
+            });
+            
+            remove.forEach(element => {
+                list.splice(list.indexOf(element), 1);
+            });
+
+            remove.forEach(element => {
+                    if(element.family == "TNT") { 
+                        element.boom(list);
+                    }
+            });
+        }, 200);
     },
     
     /**

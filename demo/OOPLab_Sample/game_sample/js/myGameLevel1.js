@@ -94,19 +94,16 @@
         this.objectScene.position = {x: 150, y:0};
 
         //objects
-        this.objs = []
+        this.objs = [];
         this.objs.push(new Object(Items.mouseWithDiamond, {x:10, y:200}, this.audio, this.objectScene,{start: 0, end:200}));
         this.objs.push(new Object(Items.mouseWithDiamond, {x:200, y:200}, this.audio, this.objectScene, {start: 200, end:400}));
         this.objs.push(new Object(Items.mouseWithDiamond, {x:400, y:200}, this.audio, this.objectScene, {start: 400, end:600}));
         this.objs.push(new Object(Items.mouse, {x:600, y:200}, this.audio, this.objectScene, {start: 600, end:900}));
         this.objs.push(new Object(Items.mouse, {x:800, y:200}, this.audio, this.objectScene, {start: 800, end:1000}));
-        this.objs.push(new Object(Items.boom, {x:300, y:100}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.boom, {x:300, y:200}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.boom, {x:300, y:300}, this.audio, this.objectScene));
         
         this.objs.push(new Object(Items.bigStone, {x:100, y:400}, this.audio, this.objectScene));
         this.objs.push(new Object(Items.bone, {x:200, y:400}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.boom, {x:300, y:400}, this.audio, this.objectScene));
+        //this.objs.push(new Object(Items.boom, {x:300, y:400}, this.audio, this.objectScene));
         this.objs.push(new Object(Items.smaStone, {x:400, y:400}, this.audio, this.objectScene));
         this.objs.push(new Object(Items.head, {x:500, y:400}, this.audio, this.objectScene));
         this.objs.push(new Object(Items.mysteryBag, {x:600, y:400}, this.audio, this.objectScene));
