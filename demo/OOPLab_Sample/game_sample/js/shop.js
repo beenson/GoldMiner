@@ -173,16 +173,8 @@ var Shop = Framework.Class(Framework.Level , {
             this.pay.start();
         }
         setTimeout(function(){
-            try{
-                Framework.Game.addNewLevel({level2: new MyGame2()});
-                Framework.Game.goToLevel('level2');
-            }
-            catch(e){
-                console.log("catched")
-                Framework.Game.goToNextLevel();
-            }
+            Framework.Game.goToLevel('level');
         }, 1000);
-            
     }
     
 });

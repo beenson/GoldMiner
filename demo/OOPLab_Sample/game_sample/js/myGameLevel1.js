@@ -1,6 +1,13 @@
 ﻿var MyGame = Framework.Class(Framework.Level , {
 	load: function(){
+        this.Level = parseInt(localStorage.getItem("currentLevel"));
         this.target = 650;
+        if(this.Level > 1){
+            let i;
+            for(i = 2;i<=this.Level;i++){
+                this.target += 270*i+5;
+            }
+        }
         this.time = 60;
         this.money = parseInt(localStorage.getItem("myMoney"));
         this.oldman_status = "default";
@@ -165,6 +172,7 @@
         this.audio.stopAll();
         if(this.money >= this.target){
             localStorage.setItem('myMoney', this.money);
+            localStorage.setItem('currentLevel', this.Level+1);
             Framework.Game.goToLevel('shop');
         }
         else{
