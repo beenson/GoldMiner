@@ -19,6 +19,10 @@ var Object = Framework.exClass({
 
         if(this.image) {
             this.obj = new Framework.Sprite(this.image);
+            if(this.family == "TNT") {
+                this.crack = new Framework.Sprite(define.itemPath + "Crack.png");
+                this.crack.scale = this.scale;
+            }
         } else {
             this.move.dir = 2;
             this.anima = type.anima;
@@ -191,12 +195,15 @@ var Object = Framework.exClass({
      */
     catch: function(catcher, scene, objList) {
         if(this.detectArea(catcher)) {
-            if(this.family == "TNT"){
+            if(this.family == "TNT") {
                 this.boom(objList);
             }
             this.grabbed();
             this.detach();
             this.scene = scene;
+            if(this.family == "TNT") {
+                this.obj = this.crack;
+            }
             this.attach();
             return true;
         }
