@@ -63,14 +63,6 @@
         this.gameMap.load();
         
 
-        /*this.oldman = new Framework.Sprite(define.imagePath + '/Oldman/normal.jpg');
-        this.oldman.position = {
-            x: Framework.Game.getCanvasWidth() / 2,
-            y: 65
-        }
-        this.oldman.scale = 1.15;
-        this.rootScene.attach(this.oldman);*/
-
         //爪子爪子
         this.catcherPos = { x:-1, y:-1};
         this.circle = new Framework.Scene();
@@ -88,21 +80,14 @@
         this.catcher.scale = 1.1;
 
         this.circleSpeed = 0.7;
-        
-        //WTF is this?
-        /*this.rectPosition = { 
-            x: Framework.Game.getCanvasWidth() / 2 - 130,
-            y: Framework.Game.getCanvasHeight() / 2 - 90
-        };
-		
-		this.position = {
-			x: 100,
-			y: 100
-		}
-        this.rotation = 0;*/
 
         //---------------------按鈕或文字物件---------------------
         var self = this;
+
+        this.bomb = new Framework.Sprite(shopItems.bomb.image);
+        this.bomb.scale = 0.6;
+        this.bomb.position = {x:0, y:0}
+        this.pressUp = false;
 
         //object area init
         this.objectScene = new Framework.Scene();
@@ -234,6 +219,17 @@
 
                 break;
             case "pulling":
+                if(this.pressUp == true){
+                    if(! this.isBombAttached){
+                        this.circle.attach(this.bomb);
+                        this.isBombAttached = true;
+                    }
+                    this.bomb.position.y += 20;
+                    if(this.bomb.position.y >= this.catcher.position.y){
+                        this.circle.detach(this.bomb);
+                        this.Oldman.useBomb();
+                    }
+                }
                 this.length -= this.Oldman.pullSpeed;
                 if(this.Oldman.grabbing) {
                     this.Oldman.grabbing.setPos(this.catcher.position, {x: 0, y: -14});
@@ -245,6 +241,7 @@
                 }
                 break;
             case "default":
+                this.pressUp = false;
                 this.circle.rotation += this.circleSpeed;
                 break;
             default:
@@ -306,14 +303,6 @@
             //debug
             //this.object.draw(parentCtx);
         }
-        //可支援畫各種單純的圖形和字
-        /*parentCtx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
-        parentCtx.fillRect(this.rectPosition.x , this.rectPosition.y, 260, 90);  
-        parentCtx.font = '65pt bold';
-        parentCtx.fillStyle = 'white';
-        parentCtx.textBaseline = 'top';
-        parentCtx.textAlign = 'center';
-        parentCtx.fillText('Click Me', this.rectPosition.x + 130, this.rectPosition.y, 260);*/
     },
 
     keydown:function(e, list){
@@ -353,7 +342,12 @@
         }
         
         if(e.key === 'Up'){
-            this.Oldman.useBomb();
+            if(this.Oldman.hasBomb){
+                this.pressUp = true;            //是否按上
+                this.isBombAttached = false;    //是否attach
+            }
+            console.log(this.Oldman.hasBomb);
+            //this.Oldman.useBomb();
         }
 
     },
@@ -381,33 +375,5 @@
         if(this.backBtn1.isHovered)
             return;
         this.backBtn2.click(e);
-        
-        //WTF??
-        /*if (!this.rectPosition) {
-            return;
-        } */
-        /*if(e.x >= this.rectPosition.x && e.x <= this.rectPosition.x + 260 && e.y >= this.rectPosition.y && e.y <= this.rectPosition.y + 90) {
-            if(!this.isStop) {
-                this.secondHandRotationRate = 0;
-                this.isStop = true;
-                //Audio可以一次暫停所有的音樂
-                //this.audio.pauseAll();
-                clearInterval(this.timer);
-                Framework.Game.goToNextLevel();
-            }
-            else {
-                this.isStop = false;
-                this.secondHandRotationRate = 0.3;
-                //Audio也可以針對一首歌進行操作(繼續播放)
-                //this.audio.resume('song2');
-            }
-        }*/
-        /*else if(e.x >= this.clock.upperLeft.x && e.x <= this.clock.lowerRight.x && e.y >= this.clock.upperLeft.y && e.y <= this.clock.lowerRight.y) {
-            //由於Click Me在太小的螢幕的情況下會蓋到Clock, 導致點擊Click Me時, 會回到前一個Level,
-            //故使用else if, 並優先選擇Click Me會觸發的條件
-            this.audio.stopAll();
-            Framework.Game.goToPreviousLevel();            
-            return;
-        }*/
     },
 });

@@ -46,17 +46,7 @@ var Shop = Framework.Class(Framework.Level , {
         this.notBuy.scale = 1.15;
         this.notBuy.position = this.mapPic.position;
 
-        var photoLink = [
-            define.backgroundPath + 'shop/deal/1.jpg',
-            define.backgroundPath + 'shop/deal/2.jpg',
-            define.backgroundPath + 'shop/deal/3.jpg',
-            define.backgroundPath + 'shop/deal/4.jpg',
-            define.backgroundPath + 'shop/deal/5.jpg',
-            define.backgroundPath + 'shop/deal/6.jpg',
-            define.backgroundPath + 'shop/deal/7.jpg',
-            define.backgroundPath + 'shop/deal/8.jpg'
-        ];
-        this.pay = new Framework.AnimationSprite({url: photoLink, loop: false,  speed: 12}); //有買東西
+        this.pay = new Framework.AnimationSprite({url: Anime.shopOwner, loop: false,  speed: 12}); //有買東西
         this.pay.scale = 1.15;
         this.pay.position = this.mapPic.position;
 	},

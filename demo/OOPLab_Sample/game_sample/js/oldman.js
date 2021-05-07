@@ -9,22 +9,7 @@ var Oldman = Framework.exClass({
         this.grabbing = undefined;
         this.pullSpeed = 15;
         
-        var photoLink = [
-            define.imagePath + 'OldMan/1.png',
-            define.imagePath + 'OldMan/2.png',
-            define.imagePath + 'OldMan/3.png',
-            define.imagePath + 'OldMan/4.png',
-            define.imagePath + 'OldMan/5.png',
-            define.imagePath + 'OldMan/6.png',
-            define.imagePath + 'OldMan/7.png',
-            define.imagePath + 'OldMan/8.png',
-            define.imagePath + 'OldMan/9.png',
-            define.imagePath + 'OldMan/10.png',
-            define.imagePath + 'OldMan/11.png',
-            define.imagePath + 'OldMan/12.png',
-            define.imagePath + 'OldMan/13.png',
-            define.imagePath + 'OldMan/14.png'
-        ];
+
         this.position = {
             x: Framework.Game.getCanvasWidth() / 2 + 10,
             y: 56
@@ -33,7 +18,7 @@ var Oldman = Framework.exClass({
 
         this.defaultSprite = new Framework.Sprite(define.imagePath + 'OldMan/align.png');
         this.shootSprite = new Framework.Sprite(define.imagePath + 'OldMan/shooting.png');
-        this.pullSprite = new Framework.AnimationSprite({url: photoLink, loop: true,  speed: 5});
+        this.pullSprite = new Framework.AnimationSprite({url: Anime.oldmanPull, loop: true,  speed: 5});
         
         this.defaultSprite.scale = this.scale;
         this.shootSprite.scale = this.scale;

@@ -150,6 +150,23 @@ var Items = {
 };
 
 var Anime = {
+    oldmanPull:[
+        define.imagePath + 'OldMan/1.png',
+        define.imagePath + 'OldMan/2.png',
+        define.imagePath + 'OldMan/3.png',
+        define.imagePath + 'OldMan/4.png',
+        define.imagePath + 'OldMan/5.png',
+        define.imagePath + 'OldMan/6.png',
+        define.imagePath + 'OldMan/7.png',
+        define.imagePath + 'OldMan/8.png',
+        define.imagePath + 'OldMan/9.png',
+        define.imagePath + 'OldMan/10.png',
+        define.imagePath + 'OldMan/11.png',
+        define.imagePath + 'OldMan/12.png',
+        define.imagePath + 'OldMan/13.png',
+        define.imagePath + 'OldMan/14.png'
+    ],
+
     explode: [
         define.itemPath + "explode/0.png",
         define.itemPath + "explode/1.png",
@@ -158,6 +175,17 @@ var Anime = {
         define.itemPath + "explode/4.png",
         define.itemPath + "explode/5.png",
         define.itemPath + "explode/6.png",
+    ],
+
+    shopOwner: [
+        define.backgroundPath + 'shop/deal/1.jpg',
+        define.backgroundPath + 'shop/deal/2.jpg',
+        define.backgroundPath + 'shop/deal/3.jpg',
+        define.backgroundPath + 'shop/deal/4.jpg',
+        define.backgroundPath + 'shop/deal/5.jpg',
+        define.backgroundPath + 'shop/deal/6.jpg',
+        define.backgroundPath + 'shop/deal/7.jpg',
+        define.backgroundPath + 'shop/deal/8.jpg'
     ]
 };
 
