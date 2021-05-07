@@ -25,6 +25,7 @@ var Shop = Framework.Class(Framework.Level , {
         this.itemlist.push(new shopItem(shopItems.bottle, this.rootScene));   //make diamond price higher
 
         //----------other setting----------
+        this.waiNextlevel = false;
         var self = this;
         this.defaultInfo = "點擊以購買物品";
         localStorage.setItem('buyItem', [])
@@ -36,18 +37,28 @@ var Shop = Framework.Class(Framework.Level , {
 
         this.btn = new Button(this, Framework.Game.getCanvasWidth() - 500, 100, 175, 65,
         {text: '下一關', font: 'bold 48px 標楷體', color: 'white', background: 'green', textOffset: 7, click: function(){
-            localStorage.setItem("myMoney", self.money);
-            try{
-                Framework.Game.addNewLevel({level2: new MyGame2()});
-                Framework.Game.goToLevel('level2');
-            }
-            catch(e){
-                console.log("catched")
-                Framework.Game.goToNextLevel();
-            }
+            self.nextLevel();
         }});
         this.subBtn = new Button(this, Framework.Game.getCanvasWidth() - 502, 98, 179, 69,
         {text: '', font: 'bold 48px 華康中圓體', color: 'white', background: 'lime', textOffset: 10});
+        //----------when goToNextlevel----------
+        this.notBuy = new Framework.Sprite(define.backgroundPath + 'shop/mad.jpg'); //沒買東西
+        this.notBuy.scale = 1.15;
+        this.notBuy.position = this.mapPic.position;
+
+        var photoLink = [
+            define.backgroundPath + 'shop/deal/1.jpg',
+            define.backgroundPath + 'shop/deal/2.jpg',
+            define.backgroundPath + 'shop/deal/3.jpg',
+            define.backgroundPath + 'shop/deal/4.jpg',
+            define.backgroundPath + 'shop/deal/5.jpg',
+            define.backgroundPath + 'shop/deal/6.jpg',
+            define.backgroundPath + 'shop/deal/7.jpg',
+            define.backgroundPath + 'shop/deal/8.jpg'
+        ];
+        this.pay = new Framework.AnimationSprite({url: photoLink, loop: false,  speed: 5}); //有買東西
+        this.pay.scale = 1.15;
+        this.pay.position = this.mapPic.position;
 	},
 
     initialize: function() {
@@ -65,7 +76,9 @@ var Shop = Framework.Class(Framework.Level , {
         this.itemlist.forEach(element => {
             element.drawPrice(parentCtx);
         });
-        this.moneyTxt.draw(parentCtx);
+        if(! this.waiNextlevel){
+            this.moneyTxt.draw(parentCtx);
+        }
         this.subBtn.draw(parentCtx);
         this.btn.draw(parentCtx);
         this.Ctx = parentCtx;
@@ -145,5 +158,31 @@ var Shop = Framework.Class(Framework.Level , {
         
         this.btn.click(e);
     },
+
+    nextLevel: function(){
+        localStorage.setItem("myMoney", self.money);
+        this.waiNextlevel = true;
+        this.defaultInfo = '';
+        this.itemlist.splice(0, this.itemlist.length);
+        this.rootScene.detach(this.mapPic);
+        if(this.buy.length == 0){
+            this.rootScene.attach(this.notBuy);
+        }
+        else{
+            this.rootScene.attach(this.pay);
+            this.pay.start();
+        }
+        setTimeout(function(){
+            try{
+                Framework.Game.addNewLevel({level2: new MyGame2()});
+                Framework.Game.goToLevel('level2');
+            }
+            catch(e){
+                console.log("catched")
+                Framework.Game.goToNextLevel();
+            }
+        }, 2000);
+            
+    }
     
 });
