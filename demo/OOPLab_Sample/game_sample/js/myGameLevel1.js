@@ -87,6 +87,7 @@
         this.bomb = new Framework.Sprite(shopItems.bomb.image);
         this.bomb.scale = 0.6;
         this.bomb.position = {x:0, y:0}
+        this.bombAnime = new Framework.AnimationSprite({url: Anime.explode, loop: false,  speed: 7});
         this.pressUp = false;
 
         //object area init
@@ -226,8 +227,17 @@
                     }
                     this.bomb.position.y += 20;
                     if(this.bomb.position.y >= this.catcher.position.y){
+                        let self = this;
+                        this.pressUp = false;
+                        this.isBombAttached = false;
                         this.circle.detach(this.bomb);
+                        this.bombAnime.position = this.catcher.position;
+                        this.circle.attach(this.bombAnime);
+                        this.bombAnime.start()
                         this.Oldman.useBomb();
+                        setTimeout(function(){
+                            self.circle.detach(self.bombAnime);
+                        }, 600);
                     }
                 }
                 this.length -= this.Oldman.pullSpeed;
@@ -241,7 +251,6 @@
                 }
                 break;
             case "default":
-                this.pressUp = false;
                 this.circle.rotation += this.circleSpeed;
                 break;
             default:
