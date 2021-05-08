@@ -1,17 +1,18 @@
 ﻿var MyGame = Framework.Class(Framework.Level , {
 	load: function(){
-        this.Level = parseInt(localStorage.getItem("currentLevel"));
+        this.debugFor = "";
+        this.level = parseInt(localStorage.getItem("currentLevel"));
         this.target = 650;
-        if(this.Level > 1){
+        if(this.level > 1){
             let i;
-            for(i = 2;i<=this.Level;i++){
+            for(i = 2;i<=this.level;i++){
                 this.target += 270*i+5;
             }
         }
         this.time = 60;
         this.money = parseInt(localStorage.getItem("myMoney"));
         this.oldman_status = "default";
-        
+        window.debug = this.debugFor;
         //load sound
         //載入要被播放的音樂清單
         //資料夾內只提供mp3檔案, 其餘的音樂檔案, 請自行轉檔測試
@@ -92,23 +93,16 @@
 
         //object area init
         this.objectScene = new Framework.Scene();
-        this.objectScene.position = {x: 150, y:0};
+        this.objectScene.position = {x: 151, y:136};
 
         //objects
         this.objs = [];
-        this.objs.push(new Object(Items.mouseWithDiamond, {x:10, y:200}, this.audio, this.objectScene,{start: 0, end:200}));
-        this.objs.push(new Object(Items.mouseWithDiamond, {x:200, y:200}, this.audio, this.objectScene, {start: 200, end:400}));
-        this.objs.push(new Object(Items.mouseWithDiamond, {x:400, y:200}, this.audio, this.objectScene, {start: 400, end:600}));
-        this.objs.push(new Object(Items.mouse, {x:600, y:200}, this.audio, this.objectScene, {start: 600, end:900}));
-        this.objs.push(new Object(Items.mouse, {x:800, y:200}, this.audio, this.objectScene, {start: 800, end:1000}));
-        
-        this.objs.push(new Object(Items.bigStone, {x:100, y:400}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.bone, {x:200, y:400}, this.audio, this.objectScene));
-        //this.objs.push(new Object(Items.boom, {x:300, y:400}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.smaStone, {x:400, y:400}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.head, {x:500, y:400}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.mysteryBag, {x:600, y:400}, this.audio, this.objectScene));
-        this.objs.push(new Object(Items.diamond, {x:700, y:400}, this.audio, this.objectScene));
+        map = LevelMap[this.level - 1];
+        if(map) {
+            map.forEach(info => {
+                this.objs.push(new Object(info, this.audio, this.objectScene));
+            });
+        }
 
         //button
         this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20, 70, 50,
@@ -132,7 +126,7 @@
         this.remainTime = new Text(this, Framework.Game.getCanvasWidth()-250, 20, 35, 40,
             {text: '60', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
         this.stageInfo = new Text(this, Framework.Game.getCanvasWidth()-275, 70, 30, 40,
-            {text: '第1關', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
+            {text: '第' + this.level + '關', font: 'bold 32px 標楷體', color: 'brown', textAlign: 'left'});
         //-----------loading完後再繪製物件--------------
         setTimeout(function(){
             self.rootScene.attach(self.gameMap);
@@ -144,7 +138,10 @@
             self.rootScene.attach(self.objectScene);
             
             self.timer = setInterval(function(){
-                self.time--;
+                if(self.debugFor == "obj")
+                    self.time++;
+                else
+                    self.time--;
             }, 1000);
             self.haveLoaded = 1;
         }, 2000);
@@ -155,7 +152,7 @@
         this.audio.stopAll();
         if(this.money >= this.target){
             localStorage.setItem('myMoney', this.money);
-            localStorage.setItem('currentLevel', this.Level+1);
+            localStorage.setItem('currentLevel', this.level + 1);
             Framework.Game.goToLevel('shop');
         }
         else{
@@ -306,6 +303,44 @@
             this.objs.forEach(element => {
                 element.draw(parentCtx);
             });
+            if(this.debugFor == "obj") {
+                for(i = this.objectScene.position.y; i < Framework.Game.getCanvasHeight(); i += 25) {
+                    parentCtx.strokeStyle = '#FFFF00'; 
+                    parentCtx.lineWidth = 3;
+                    parentCtx.beginPath();
+                    parentCtx.moveTo(this.objectScene.position.x, i);
+                    parentCtx.lineTo(Framework.Game.getCanvasWidth(), i);
+                    parentCtx.closePath();
+                    parentCtx.stroke();
+                }
+                for(i = this.objectScene.position.x; i < Framework.Game.getCanvasWidth(); i += 25) {
+                    parentCtx.strokeStyle = '#FFFF00'; 
+                    parentCtx.lineWidth = 3;
+                    parentCtx.beginPath();
+                    parentCtx.moveTo(i, this.objectScene.position.y);
+                    parentCtx.lineTo(i, Framework.Game.getCanvasHeight());
+                    parentCtx.closePath();
+                    parentCtx.stroke();
+                }
+                for(i = this.objectScene.position.y; i < Framework.Game.getCanvasHeight(); i += 100) {
+                    parentCtx.strokeStyle = '#FF0000'; 
+                    parentCtx.lineWidth = 3;
+                    parentCtx.beginPath();
+                    parentCtx.moveTo(this.objectScene.position.x, i);
+                    parentCtx.lineTo(Framework.Game.getCanvasWidth(), i);
+                    parentCtx.closePath();
+                    parentCtx.stroke();
+                }
+                for(i = this.objectScene.position.x; i < Framework.Game.getCanvasWidth(); i += 100) {
+                    parentCtx.strokeStyle = '#FF0000'; 
+                    parentCtx.lineWidth = 3;
+                    parentCtx.beginPath();
+                    parentCtx.moveTo(i, this.objectScene.position.y);
+                    parentCtx.lineTo(i, Framework.Game.getCanvasHeight());
+                    parentCtx.closePath();
+                    parentCtx.stroke();
+                }
+            }
             //debug
             //this.object.draw(parentCtx);
         }
@@ -370,11 +405,11 @@
     },
 
     click: function (e) {  
-        //console.log(e.x, e.y);
+        console.log(e.x, e.y);
         //console.log(this.circle.rotation);
-        this.objs.forEach(element => {
+        /*this.objs.forEach(element => {
             element.click(e);
-        });
+        });*/
         
         //button
         this.backBtn1.click(e);

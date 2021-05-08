@@ -28,7 +28,7 @@ var Items = {
     medGold: {
         family: "gold",
         image: define.itemPath + "Gold.png",
-        scale: 0.6,
+        scale: 0.5,
         value: 100,
         weight: 12
     },
@@ -36,7 +36,7 @@ var Items = {
     smaGold: {
         family: "gold",
         image: define.itemPath + "Gold.png",
-        scale: 0.3,
+        scale: 0.25,
         value: 50,
         weight: 8
     },
@@ -58,6 +58,7 @@ var Items = {
     head: {
         family: "other",
         image: define.itemPath + "HeadBone.png",
+        scale: 1.1,
         value: 20,
         weight: 6
     },
@@ -65,6 +66,7 @@ var Items = {
     bone: {
         family: "other",
         image: define.itemPath + "Bone.png",
+        scale: 1.1,
         value: 7,
         weight: 5
     },
@@ -80,6 +82,7 @@ var Items = {
     boom: {
         family: "TNT",
         image: define.itemPath + "Boom.png",
+        scale: 1.1,
         value: 1,
         weight: 8
     },

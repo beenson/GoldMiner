@@ -46,6 +46,7 @@ var loadGameEnd;
         { src: 'game_sample/js/button.js', lookFor: 'Button' },
         { src: 'game_sample/js/text.js', lookFor: 'Text' },
         { src: 'game_sample/js/data.js', lookFor: 'Items' },
+        { src: 'game_sample/js/map.js', lookFor: 'LevelMap' },
         { src: 'game_sample/js/object.js', lookFor: 'Object' },
         { src: 'game_sample/js/shopItem.js', lookFor: 'shopItem' },
         { src: 'game_sample/js/myMenu.js', lookFor: 'MyMenu' },

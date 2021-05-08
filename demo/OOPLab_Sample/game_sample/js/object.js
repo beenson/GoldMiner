@@ -1,21 +1,16 @@
 var Object = Framework.exClass({
-    __construct:function(type, position, audio, scene, move){
-        this.position = position || {x: 0, y: 0};
-        this.move = move || {};
-        this.value = type.value || 0;
-        this.weight = type.weight || 0;
-        this.family = type.family || "other";
-        this.isBigPrice = type.isBigPrice || false;
-        this.image = type.image || "";
-        this.scale = type.scale || 1;
-        this.grabbed = type.grabbed || function(){};
-        this.scene = scene;
+    __construct:function(info, audio, scene){
+        this.value = info.type.value || 0;
+        this.weight = info.type.weight || 0;
+        this.family = info.type.family || "other";
+        this.image = info.type.image || "";
+        this.anima = info.type.anima;
+        this.scale = info.type.scale || 1;
+        this.position = info.position || {x: 0, y: 0};
+        this.move = info.move;
 
+        this.scene = scene;
         this.audio = audio;
-        this.position = {
-            x: this.position.x + 73,
-            y: this.position.y + 202
-        };
 
         if(this.image) {
             this.obj = new Framework.Sprite(this.image);
@@ -25,7 +20,6 @@ var Object = Framework.exClass({
             }
         } else {
             this.move.dir = 2;
-            this.anima = type.anima;
             this.forward = new Framework.AnimationSprite({url:this.anima.animaForward, loop:true , speed:6});
             this.forward.start();
             this.backward = new Framework.AnimationSprite({url:this.anima.animaBackward, loop:true , speed:6});
@@ -140,10 +134,10 @@ var Object = Framework.exClass({
         }, 600);
         
         this.boomRange = {
-            x: this.obj.upperLeft.x - 50,
-            y: this.obj.upperLeft.y - 50,
-            width: this.obj.lowerRight.x - this.obj.upperLeft.x + 100,
-            height: this.obj.lowerRight.y - this.obj.upperLeft.y + 100
+            x: this.obj.upperLeft.x - 75,
+            y: this.obj.upperLeft.y - 75,
+            width: this.obj.lowerRight.x - this.obj.upperLeft.x + 150,
+            height: this.obj.lowerRight.y - this.obj.upperLeft.y + 150
         }
 
         setTimeout(function(){
@@ -201,7 +195,6 @@ var Object = Framework.exClass({
             if(this.family == "TNT") {
                 this.boom(objList);
             }
-            this.grabbed();
             this.detach();
             this.scene = scene;
             if(this.family == "TNT") {
