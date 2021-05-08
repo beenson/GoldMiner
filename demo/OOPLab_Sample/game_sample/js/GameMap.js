@@ -8,8 +8,8 @@ var GameMap = function(){
     this.load = function(){
         this.mapPic = new Framework.Sprite(define.backgroundPath + 'Game.jpg');
         this.mapPic.scale = 1.15;
-        this.blackPic = new Framework.Sprite(define.imagePath + 'black.png');
-        this.blackPic.scale = 10;
+        //this.blackPic = new Framework.Sprite(define.imagePath + 'black.png');
+        //this.blackPic.scale = 10;
     };
 
     this.initialize = function(){
@@ -21,10 +21,10 @@ var GameMap = function(){
     };
 
     this.draw = function(ctx){
-        this.blackPic.position = this.position2;
-        this.blackPic.draw(ctx);
-        this.blackPic.position = {x: 1413, y: 0};
-        this.blackPic.draw(ctx);
+        //this.blackPic.position = this.position2;
+        //this.blackPic.draw(ctx);
+        //this.blackPic.position = {x: 1413, y: 0};
+        //this.blackPic.draw(ctx);
         this.mapPic.position = this.position;
         this.mapPic.draw(ctx);
     }

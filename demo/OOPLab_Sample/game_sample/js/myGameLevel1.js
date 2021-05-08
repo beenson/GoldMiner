@@ -48,7 +48,7 @@
             y: 0
         };
         this.Oldman = new Oldman(this, this.oldmanScene, this.audio);
-        //----------------------------------------------
+        //-----------------------Loading-----------------------
 	    this.loadingPic = new Framework.Sprite(define.imagePath+'/background/Gold.jpg');
         this.loadingPic.position = {
             x: Framework.Game.getCanvasWidth() / 2,
@@ -58,6 +58,7 @@
         this.rootScene.attach(this.oldmanScene);
         this.Oldman.status_load();
         this.rootScene.attach(this.loadingPic);
+        this.blackAttach();
         this.haveLoaded = 0;
         //----------------------------------------------
         this.gameMap = new GameMap();
@@ -130,12 +131,14 @@
         //-----------loading完後再繪製物件--------------
         setTimeout(function(){
             self.rootScene.attach(self.gameMap);
+            self.blackdetach();
             self.oldmanScene.layer = 1;
             self.rootScene.detach(self.loadingPic);
             self.Oldman.default();
             self.rootScene.attach(self.circle);
             self.circle.attach(self.catcher);
             self.rootScene.attach(self.objectScene);
+            self.blackAttach();
             
             self.timer = setInterval(function(){
                 if(self.debugFor == "obj")
@@ -416,5 +419,25 @@
         if(this.backBtn1.isHovered)
             return;
         this.backBtn2.click(e);
+    },
+
+    blackAttach: function(){
+        //Right side black
+        this.blackPic1 = new Framework.Sprite(define.imagePath + 'black.png');
+        this.blackPic1.scale = 1;
+        this.blackPic1.position = {x: 0, y: 475};
+        this.rootScene.attach(this.blackPic1);
+        //Left side black
+        this.blackPic2 = new Framework.Sprite(define.imagePath + 'black.png');
+        this.blackPic2.scale = 1;
+        this.blackPic2.position = {x: Framework.Game.getCanvasWidth(), y: 475};
+        this.rootScene.attach(this.blackPic2);
+    },
+
+    blackdetach: function(){
+        //Right side black
+        this.rootScene.detach(this.blackPic1);
+        //Left side black
+        this.rootScene.detach(this.blackPic2);
     },
 });

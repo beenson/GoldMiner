@@ -68,9 +68,9 @@ var Shop = Framework.Class(Framework.Level , {
         if(! this.waiNextlevel){
             this.infoTxt.draw(parentCtx);
             this.moneyTxt.draw(parentCtx);
+            this.subBtn.draw(parentCtx);
+            this.btn.draw(parentCtx);
         }
-        this.subBtn.draw(parentCtx);
-        this.btn.draw(parentCtx);
         this.Ctx = parentCtx;
     },
 
