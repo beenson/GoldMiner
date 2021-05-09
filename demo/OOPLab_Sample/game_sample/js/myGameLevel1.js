@@ -1,6 +1,5 @@
 ﻿var MyGame = Framework.Class(Framework.Level , {
 	load: function(){
-        this.debugFor = "";
         this.level = parseInt(localStorage.getItem("currentLevel"));
         this.target = 650;
         if(this.level > 1){
@@ -87,7 +86,7 @@
         var self = this;
 
         this.bomb = new Framework.Sprite(shopItems.bomb.image);
-        this.bomb.scale = 0.6;
+        this.bomb.scale = 0.5;
         this.bomb.position = {x:0, y:0}
         this.bombAnime = new Framework.AnimationSprite({url: Anime.explode, loop: false,  speed: 7});
         this.pressUp = false;
@@ -141,10 +140,7 @@
             self.blackAttach();
             
             self.timer = setInterval(function(){
-                if(self.debugFor == "obj")
-                    self.time++;
-                else
-                    self.time--;
+                self.time--;
             }, 1000);
             self.haveLoaded = 1;
         }, 2000);
@@ -195,7 +191,9 @@
         switch(this.Oldman.status) {
             case "shooting":
                 this.length += 5;
-                if(this.catcher.position.y >= Framework.Game.getCanvasHeight()) {
+                if( this.catcher.upperLeft.x <= this.objectScene.position.x ||
+                    this.catcher.lowerRight.x >= this.objectScene.position.x + 1300 ||
+                    this.catcher.lowerRight.y >= Framework.Game.getCanvasHeight()) {
                     this.Oldman.pull(0);
                 }
 
@@ -228,12 +226,12 @@
                         this.pressUp = false;
                         this.isBombAttached = false;
                         this.circle.detach(this.bomb);
-                        this.bombAnime.position = this.catcher.position;
-                        this.circle.attach(this.bombAnime);
+                        this.bombAnime.position = this.catcher.upperLeft;
+                        this.rootScene.attach(this.bombAnime);
                         this.bombAnime.start()
                         this.Oldman.useBomb();
                         setTimeout(function(){
-                            self.circle.detach(self.bombAnime);
+                            self.rootScene.detach(self.bombAnime);
                         }, 600);
                     }
                 }
@@ -306,44 +304,45 @@
             this.objs.forEach(element => {
                 element.draw(parentCtx);
             });
-            if(this.debugFor == "obj") {
-                for(i = this.objectScene.position.y; i < Framework.Game.getCanvasHeight(); i += 25) {
-                    parentCtx.strokeStyle = '#FFFF00'; 
-                    parentCtx.lineWidth = 3;
-                    parentCtx.beginPath();
-                    parentCtx.moveTo(this.objectScene.position.x, i);
-                    parentCtx.lineTo(Framework.Game.getCanvasWidth(), i);
-                    parentCtx.closePath();
-                    parentCtx.stroke();
-                }
-                for(i = this.objectScene.position.x; i < Framework.Game.getCanvasWidth(); i += 25) {
-                    parentCtx.strokeStyle = '#FFFF00'; 
-                    parentCtx.lineWidth = 3;
-                    parentCtx.beginPath();
-                    parentCtx.moveTo(i, this.objectScene.position.y);
-                    parentCtx.lineTo(i, Framework.Game.getCanvasHeight());
-                    parentCtx.closePath();
-                    parentCtx.stroke();
-                }
-                for(i = this.objectScene.position.y; i < Framework.Game.getCanvasHeight(); i += 100) {
-                    parentCtx.strokeStyle = '#FF0000'; 
-                    parentCtx.lineWidth = 3;
-                    parentCtx.beginPath();
-                    parentCtx.moveTo(this.objectScene.position.x, i);
-                    parentCtx.lineTo(Framework.Game.getCanvasWidth(), i);
-                    parentCtx.closePath();
-                    parentCtx.stroke();
-                }
-                for(i = this.objectScene.position.x; i < Framework.Game.getCanvasWidth(); i += 100) {
-                    parentCtx.strokeStyle = '#FF0000'; 
-                    parentCtx.lineWidth = 3;
-                    parentCtx.beginPath();
-                    parentCtx.moveTo(i, this.objectScene.position.y);
-                    parentCtx.lineTo(i, Framework.Game.getCanvasHeight());
-                    parentCtx.closePath();
-                    parentCtx.stroke();
-                }
+            
+            /* 劃格線對其用
+            for(i = this.objectScene.position.y; i < Framework.Game.getCanvasHeight(); i += 25) {
+                parentCtx.strokeStyle = '#FFFF00'; 
+                parentCtx.lineWidth = 3;
+                parentCtx.beginPath();
+                parentCtx.moveTo(this.objectScene.position.x, i);
+                parentCtx.lineTo(Framework.Game.getCanvasWidth(), i);
+                parentCtx.closePath();
+                parentCtx.stroke();
             }
+            for(i = this.objectScene.position.x; i < Framework.Game.getCanvasWidth(); i += 25) {
+                parentCtx.strokeStyle = '#FFFF00'; 
+                parentCtx.lineWidth = 3;
+                parentCtx.beginPath();
+                parentCtx.moveTo(i, this.objectScene.position.y);
+                parentCtx.lineTo(i, Framework.Game.getCanvasHeight());
+                parentCtx.closePath();
+                parentCtx.stroke();
+            }
+            for(i = this.objectScene.position.y; i < Framework.Game.getCanvasHeight(); i += 100) {
+                parentCtx.strokeStyle = '#FF0000'; 
+                parentCtx.lineWidth = 3;
+                parentCtx.beginPath();
+                parentCtx.moveTo(this.objectScene.position.x, i);
+                parentCtx.lineTo(Framework.Game.getCanvasWidth(), i);
+                parentCtx.closePath();
+                parentCtx.stroke();
+            }
+            for(i = this.objectScene.position.x; i < Framework.Game.getCanvasWidth(); i += 100) {
+                parentCtx.strokeStyle = '#FF0000'; 
+                parentCtx.lineWidth = 3;
+                parentCtx.beginPath();
+                parentCtx.moveTo(i, this.objectScene.position.y);
+                parentCtx.lineTo(i, Framework.Game.getCanvasHeight());
+                parentCtx.closePath();
+                parentCtx.stroke();
+            }
+            */
             //debug
             //this.object.draw(parentCtx);
         }

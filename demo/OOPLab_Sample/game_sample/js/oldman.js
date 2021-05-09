@@ -44,7 +44,7 @@ var Oldman = Framework.exClass({
                 y: 100     
             }
             this.bomb.scale = 0.3;
-            this.baseScene.attach(this.bomb)
+            this.baseScene.attach(this.bomb);
         }
 
         this.hasBook = this.effect.indexOf("book") != -1;
@@ -75,7 +75,7 @@ var Oldman = Framework.exClass({
         this.baseScene.attach(this.defaultSprite);
         this.baseScene.detach(this.pullSprite);
         if(stop)
-            this.audio.stopAll();
+            this.audio.stop('pull');
         if(this.grabbing) {
             var value = this.grabbing.value;
             if(value == -1) {       //mystery bag
@@ -93,7 +93,7 @@ var Oldman = Framework.exClass({
                         this.baseScene.attach(this.bomb);
                     }
                 }else {                 //potion effect
-                        console.log("Potion-Mystery")
+                    console.log("Potion-Mystery")
                     this.powerAdd = 1.2;
                 }
                 this.grabbing = undefined;
