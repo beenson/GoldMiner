@@ -133,6 +133,8 @@ var Object = Framework.exClass({
             self.baseScene.detach(self.explode);
         }, 600);
         
+        this.audio.play({name: 'boom'});
+
         this.boomRange = {
             x: this.obj.upperLeft.x - 75,
             y: this.obj.upperLeft.y - 75,
@@ -192,8 +194,19 @@ var Object = Framework.exClass({
      */
     catch: function(catcher, scene, objList) {
         if(this.detectArea(catcher)) {
-            if(this.family == "TNT") {
-                this.boom(objList);
+            switch(this.family){
+                case "TNT":
+                    this.boom(objList);
+                    break;
+                default:
+                    let sound = '';
+                    if(this.value >= 250)
+                        sound = 'good';
+                    else if(this.value < 50 && this.value >= 0)
+                        sound = 'bad';
+                    else
+                        sound = 'normal';
+                    this.audio.play({name: sound});
             }
             this.detach();
             this.scene = scene;

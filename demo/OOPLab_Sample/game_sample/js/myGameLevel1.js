@@ -28,14 +28,17 @@
             boom: {
                 mp3: define.soundPath + 'Boom.mp3'
             },
-            stone: {
-                mp3: define.soundPath + 'GetStone.mp3'
+            earnMoney: {
+                mp3: define.soundPath + 'EarnMoney.mp3'
             },
-            bigPrice: {
-                mp3: define.soundPath + 'BigPrice.mp3'
+            bad: {
+                mp3: define.soundPath + 'Bad.mp3'
             },
-            mysteryBag: {
-                mp3: define.soundPath + 'MysteryBag.mp3'
+            normal: {
+                mp3: define.soundPath + 'Normal.mp3'
+            },
+            good: {
+                mp3: define.soundPath + 'Good.mp3'
             }
         });
         //播放時, 需要給name, 其餘參數可參考W3C
@@ -198,7 +201,8 @@
                 }
 
                 //object detect
-                this.objs.forEach(element => {
+                for(i = 0; i < this.objs.length; i++) {
+                    let element = this.objs[i];
                     if(element.catch(this.catcher, this.circle, this.objs)){
                         element.setPos(this.catcher.position, {x: 0, y: -14});
 
@@ -210,8 +214,9 @@
                         console.log(this.objs);
                         console.log(element.weight);
                         this.Oldman.pull(element.weight, element);
+                        break;
                     }
-                });
+                }
 
                 break;
             case "pulling":

@@ -92,11 +92,12 @@ var Oldman = Framework.exClass({
                         this.hasBomb = true;
                         this.baseScene.attach(this.bomb);
                     }
-                }else {                 //potion effect
+                } else {                 //potion effect
                     console.log("Potion-Mystery")
                     this.powerAdd = 1.2;
                 }
                 this.grabbing = undefined;
+                this.audio.play({name: 'good'});
             }else {
                 if((this.grabbing.family === "stone") && this.hasBook){
                     console.log(this.effect.indexOf("book"));
@@ -106,6 +107,7 @@ var Oldman = Framework.exClass({
                     value = value + 300;
                 }
                 this.grabbing = undefined;
+                this.audio.play({name: 'earnMoney'});
                 return value;
             }
         }
@@ -121,7 +123,7 @@ var Oldman = Framework.exClass({
 
     pull:function(weight, obj){
         this.status = "pulling";
-        this.audio.stopAll();
+        this.audio.stop('catch');
         this.audio.play({name: "pull", loop: true});
         this.baseScene.attach(this.pullSprite);
         this.pullSprite.start();
@@ -129,10 +131,9 @@ var Oldman = Framework.exClass({
         if(weight == -1) {
             weight = Math.floor(Math.random() * 13) + 2; //2 ~ 14
         }
-        if(obj){
+        if(obj) {
             this.pullSpeed = (15*this.powerAdd) - weight;
-        }
-        else{
+        } else {
             this.pullSpeed = 15;
         }
         this.grabbing = obj;

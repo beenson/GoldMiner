@@ -95,7 +95,7 @@ var Items = {
     },
 
     mouse: {
-        family: "other",
+        family: "mouse",
         anima: {
             animaForward: [
                 define.itemPath + "mouse/normal/forward/1.png",
