@@ -87,11 +87,11 @@ var Oldman = Framework.exClass({
             this.grabbing.detach();
             if(value > 800) {
                 if(Math.random() <= 0.5) {
-                    if(!this.hasBomb){  //firecracker
+                    /*if(!this.hasBomb){  //firecracker
                         console.log("Bomb-Mystery")
                         this.hasBomb = true;
                         this.baseScene.attach(this.bomb);
-                    }
+                    }*/
                 } else {                 //potion effect
                     console.log("Potion-Mystery")
                     this.powerAdd = 1.2;

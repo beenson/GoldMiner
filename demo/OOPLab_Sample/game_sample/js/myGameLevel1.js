@@ -105,6 +105,12 @@
             map.forEach(info => {
                 this.objs.push(new Object(info, this.audio, this.objectScene));
             });
+        }else {
+            for(i = 0; i < 13; i++) {
+                for(j = 0; j < 8; j++) {
+                    this.objs.push(new Object({type: Items.mysteryBag, position: { x: i * 100, y: j * 100}}, this.audio, this.objectScene));
+                }
+            }
         }
 
         //button
