@@ -36,15 +36,9 @@ var Oldman = Framework.exClass({
         else{
             this.powerAdd = 1;
         }
-        if(this.effect.indexOf("bomb") != -1){
-            this.hasBomb = true;
-            this.bomb = new Framework.Sprite(shopItems.bomb.image);
-            this.bomb.position = {
-                x: Framework.Game.getCanvasWidth() / 2 + 140,
-                y: 100     
-            }
-            this.bomb.scale = 0.3;
-            this.baseScene.attach(this.bomb);
+        this.bomb = [];
+        for(i = 0; i < parseInt(localStorage.getItem("bomb")); i++) {
+            this.addBomb();
         }
 
         this.hasBook = this.effect.indexOf("book") != -1;
@@ -87,11 +81,8 @@ var Oldman = Framework.exClass({
             this.grabbing.detach();
             if(value > 800) {
                 if(Math.random() <= 0.5) {
-                    /*if(!this.hasBomb){  //firecracker
-                        console.log("Bomb-Mystery")
-                        this.hasBomb = true;
-                        this.baseScene.attach(this.bomb);
-                    }*/
+                    console.log("Bomb-Mystery")
+                    this.addBomb();
                 } else {                 //potion effect
                     console.log("Potion-Mystery")
                     this.powerAdd = 1.2;
@@ -140,12 +131,23 @@ var Oldman = Framework.exClass({
     },
 
     useBomb: function(){
-        if(this.status === "pulling" && this.hasBomb && this.grabbing){
+        if(this.status === "pulling" && this.bomb.length > 0 && this.grabbing){
             this.grabbing.detach();
-            this.baseScene.detach(this.bomb)
+            this.audio.play({name: 'boom'});
+            this.baseScene.detach(this.bomb[this.bomb.length - 1]);
+            this.bomb.splice(this.bomb.length - 1, 1);
             this.pullSpeed = 15;
-            this.hasBomb = false;
             this.grabbing = undefined;
         }
     },
+
+    addBomb: function(){
+        this.bomb.push(new Framework.Sprite(shopItems.bomb.image));
+        this.bomb[this.bomb.length - 1].position = {
+            x: Framework.Game.getCanvasWidth() / 2 + 140 + (this.bomb.length - 1) * 10,
+            y: 100     
+        }
+        this.bomb[this.bomb.length - 1].scale = 0.3;
+        this.baseScene.attach(this.bomb[this.bomb.length - 1]);
+    }
 });

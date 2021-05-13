@@ -51,12 +51,12 @@
         };
         this.Oldman = new Oldman(this, this.oldmanScene, this.audio);
         //-----------------------Loading-----------------------
-	    this.loadingPic = new Framework.Sprite(define.imagePath+'/background/Gold.jpg');
+	    this.loadingPic = new Framework.Sprite(define.imagePath+'/background/Gold_.jpg');
         this.loadingPic.position = {
             x: Framework.Game.getCanvasWidth() / 2,
             y: Framework.Game.getCanvasHeight() / 2
         };
-        this.loadingPic.scale = 1.5;
+        this.loadingPic.scale = 1.15;
         this.rootScene.attach(this.oldmanScene);
         this.Oldman.status_load();
         this.rootScene.attach(this.loadingPic);
@@ -90,7 +90,6 @@
 
         this.bomb = new Framework.Sprite(shopItems.bomb.image);
         this.bomb.scale = 0.5;
-        this.bomb.position = {x:0, y:0}
         this.bombAnime = new Framework.AnimationSprite({url: Anime.explode, loop: false,  speed: 7});
         this.pressUp = false;
 
@@ -161,6 +160,7 @@
         if(this.money >= this.target){
             localStorage.setItem('myMoney', this.money);
             localStorage.setItem('currentLevel', this.level + 1);
+            localStorage.setItem('bomb', this.Oldman.bomb.length);
             Framework.Game.goToLevel('shop');
         }
         else{
@@ -228,6 +228,8 @@
             case "pulling":
                 if(this.pressUp == true){
                     if(! this.isBombAttached){
+                        this.bomb.position = {x:0, y:0};
+                        this.bomb.layer = 100;
                         this.circle.attach(this.bomb);
                         this.isBombAttached = true;
                     }
@@ -396,11 +398,10 @@
         }
         
         if(e.key === 'Up'){
-            if(this.Oldman.hasBomb && this.Oldman.status === "pulling"){
+            if(this.Oldman.bomb.length > 0 && this.Oldman.grabbing && !this.pressUp){
                 this.pressUp = true;            //是否按上
                 this.isBombAttached = false;    //是否attach
             }
-            console.log(this.Oldman.hasBomb);
             //this.Oldman.useBomb();
         }
 

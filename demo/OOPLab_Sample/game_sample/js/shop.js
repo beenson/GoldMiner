@@ -24,23 +24,23 @@ var Shop = Framework.Class(Framework.Level , {
         this.itemlist.push(new shopItem(shopItems.book, this.rootScene));
         this.itemlist.push(new shopItem(shopItems.bottle, this.rootScene));   //make diamond price higher
 
-        //----------other setting----------
+        //----------other setting---------- 
         this.waiNextlevel = false;
         var self = this;
         this.defaultInfo = "點擊以購買物品";
         localStorage.setItem('buyItem', [])
         this.money = parseInt(localStorage.getItem("myMoney"));
         this.moneyTxt = new Text(this, Framework.Game.getCanvasWidth() - 700, (Framework.Game.getCanvasHeight() / 2) - 125, 100, 40,
-            {text: "持有金錢: " + this.money, font: 'bold 32px 華康中圓體', color: 'black', textAlign: 'center'});
+            {text: "持有金錢: " + this.money, font: 'bold 32px 標楷體', color: 'black', textAlign: 'center'});
         this.infoTxt = new Text(this, 225, (Framework.Game.getCanvasHeight() / 2) - 170, 100, 40,
-            {text: this.defaultInfo, font: 'bold 32px 華康中圓體', color: 'black', textAlign: 'left'});
+            {text: this.defaultInfo, font: 'bold 32px 標楷體', color: 'black', textAlign: 'left'});
 
         this.btn = new Button(this, Framework.Game.getCanvasWidth() - 500, 100, 175, 65,
         {text: '下一關', font: 'bold 48px 標楷體', color: 'white', background: 'green', textOffset: 7, click: function(){
             self.nextLevel();
         }});
         this.subBtn = new Button(this, Framework.Game.getCanvasWidth() - 502, 98, 179, 69,
-        {text: '', font: 'bold 48px 華康中圓體', color: 'white', background: 'lime', textOffset: 10});
+        {text: '', font: 'bold 48px 標楷體', color: 'white', background: 'lime', textOffset: 10});
         //----------when goToNextlevel----------
         this.notBuy = new Framework.Sprite(define.backgroundPath + 'shop/mad.jpg'); //沒買東西
         this.notBuy.scale = 1.15;
@@ -134,7 +134,11 @@ var Shop = Framework.Class(Framework.Level , {
         this.itemlist.forEach(element => {
             if(element.detect(e)){
                 if(this.buy.indexOf(element.getName() === -1) && this.money >= element.getValue()){
-                    this.buy.push(element.getName());
+                    if(element.getName() == 'bomb') {
+                        localStorage.setItem('bomb', parseInt(localStorage.getItem('bomb')) + 1);
+                    } else {
+                        this.buy.push(element.getName());
+                    }
                     this.money -= element.getValue();
                     element.detach();
                     this.pos = this.itemlist.indexOf(element);
