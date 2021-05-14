@@ -25,7 +25,8 @@ var Shop = Framework.Class(Framework.Level , {
         this.itemlist.push(new shopItem(shopItems.bottle, this.rootScene));   //make diamond price higher
 
         //----------other setting---------- 
-        this.waiNextlevel = false;
+        this.waitNextlevel = false;
+        this.bombOriginal = parseInt(localStorage.getItem('bomb')); //原本持有的炸彈數量
         var self = this;
         this.defaultInfo = "點擊以購買物品";
         localStorage.setItem('buyItem', [])
@@ -65,7 +66,7 @@ var Shop = Framework.Class(Framework.Level , {
         this.itemlist.forEach(element => {
             element.drawPrice(parentCtx);
         });
-        if(! this.waiNextlevel){
+        if(! this.waitNextlevel){
             this.infoTxt.draw(parentCtx);
             this.moneyTxt.draw(parentCtx);
             this.subBtn.draw(parentCtx);
@@ -155,11 +156,11 @@ var Shop = Framework.Class(Framework.Level , {
 
     nextLevel: function(){
         localStorage.setItem("myMoney", this.money);
-        this.waiNextlevel = true;
+        this.waitNextlevel = true;
         this.defaultInfo = '';
         this.itemlist.splice(0, this.itemlist.length);
         this.rootScene.detach(this.mapPic);
-        if(this.buy.length == 0){
+        if(this.buy.length == 0 && (this.bombOriginal === parseInt(localStorage.getItem('bomb')))){
             this.rootScene.attach(this.notBuy);
         }
         else{
