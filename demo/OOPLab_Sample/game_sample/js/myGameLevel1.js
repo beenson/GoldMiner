@@ -72,7 +72,9 @@
         this.rootScene.attach(this.goal);
         this.blackAttach();
         this.haveLoaded = 0;    //1:Loading done
-                                //2:Game over
+                                //2:Game clear
+                                //3:Game fail
+                                //4:Final result
         //----------------------------------------------
         this.gameMap = new GameMap();
         this.gameMap.load();
@@ -165,6 +167,10 @@
             self.haveLoaded = 1; 
         }, 2000);
         //-----------結算畫面--------------
+        this.goalClear = new Framework.Sprite(define.imagePath+'/background/goal_clear.png');
+        this.goalFail = new Framework.Sprite(define.imagePath+'/background/goal_fail.png');
+        this.goalAttached = false;
+        //-----------Game Over畫面--------------
         this.resultBackground = new Framework.Sprite(define.backgroundPath + 'Gold_result.png');
         this.resultBackground.scale = 1.15;
         this.resultBackground.position = {
@@ -183,18 +189,33 @@
         clearInterval(this.timer);
         this.audio.stopAll();
         if(this.money >= this.target){
+            this.goalAttached = false;
+            this.haveLoaded = 2;
             localStorage.setItem('myMoney', this.money);
             localStorage.setItem('currentLevel', this.level + 1);
             localStorage.setItem('bomb', this.Oldman.bomb.length);
-            Framework.Game.goToLevel('shop');
+            this.goalClear.position = {x: Framework.Game.getCanvasWidth() / 2, y: (Framework.Game.getCanvasHeight()/2)-100};
+            this.goalClear.scale = 0.1;
+            setTimeout(function(){
+                Framework.Game.goToLevel('shop');
+            },3000)
         }
         else{
-            this.playResult();
+            this.goalAttached = false;
+            this.haveLoaded = 3;
+            this.goalFail.position = {x: Framework.Game.getCanvasWidth() / 2, y: 0};
+            this.goalFail.scale = 1.2;
             this.resultTxt = new Text(this, (Framework.Game.getCanvasWidth()/2)-400, (Framework.Game.getCanvasHeight()/2)-50, 100, 40,
                 {text: '你共獲得'+this.money+"金錢!", font: 'italic bold 32px 標楷體', color: 'red', textAlign: 'left'});
+            
+            var self = this;
+            setTimeout(function(){
+                self.goalAttached = false;
+                self.haveLoaded = 4;
+            },2000)
             setTimeout(function(){
                 Framework.Game.goToLevel('menu');   //return to menu
-            },3000)
+            },5000)
         }
     },
 
@@ -203,10 +224,16 @@
     },
 
     update: function() {
-        if(this.goal.position.y <= (Framework.Game.getCanvasHeight()/2)-100){
+        if((this.haveLoaded === 0) && (this.goal.position.y <= (Framework.Game.getCanvasHeight()/2)-100)){
             this.goal.position.y += 10;
             this.goalTxt.position.y += 10;
             this.goalMoneyTxt.position.y += 10;
+        }
+        else if((this.haveLoaded === 2) && (this.goalClear.scale <= 1.2)){
+            this.goalClear.scale += 0.05
+        }
+        else if((this.haveLoaded === 3) && (this.goalFail.position.y <= (Framework.Game.getCanvasHeight()/2)-100)){
+            this.goalFail.position.y += 10;
         }
 
         //update
@@ -397,7 +424,23 @@
             //debug
             //this.object.draw(parentCtx);
         }
-        else if(this.haveLoaded === 2){
+        else if(this.haveLoaded === 2 && (!this.goalAttached)){
+            this.rootScene.attach(this.loadingPic);
+            this.rootScene.attach(this.goalClear);
+            this.goalAttached = true;
+        }
+        else if(this.haveLoaded === 3 && (!this.goalAttached)){
+            this.rootScene.attach(this.loadingPic);
+            this.rootScene.attach(this.goalFail);
+            this.goalAttached = true;
+        }
+        else if(this.haveLoaded === 4){
+            if(!this.goalAttached){
+                this.rootScene.attach(this.resultBackground);
+                this.rootScene.attach(this.result);
+                this.rootScene.detach(this.loadingPic);
+                this.rootScene.detach(this.goalFail);
+            } 
             this.resultTxt.draw(parentCtx)
         }
     },
@@ -491,15 +534,5 @@
         this.rootScene.detach(this.blackPic1);
         //Left side black
         this.rootScene.detach(this.blackPic2);
-    },
-
-    playGoal: function(){
-
-    },
-
-    playResult: function(){
-        this.haveLoaded = 2;
-        this.rootScene.attach(this.resultBackground);
-        this.rootScene.attach(this.result);
     },
 });
