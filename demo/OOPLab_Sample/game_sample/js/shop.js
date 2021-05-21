@@ -14,6 +14,15 @@ var Shop = Framework.Class(Framework.Level , {
         this.mapPic.scale = 1.15;
         this.mapPic.position = {x: Framework.Game.getCanvasWidth() / 2 , y: Framework.Game.getCanvasHeight() / 2};
         this.rootScene.attach(this.mapPic);
+        //----------sound----------
+        this.audio = new Framework.Audio({
+            deal: {
+                mp3: define.soundPath + 'Shopping.mp3'
+            },
+            angry: {
+                mp3: define.soundPath + 'Bad.mp3'
+            },
+        });
         //----------items----------
         this.buy = [];
 
@@ -134,6 +143,7 @@ var Shop = Framework.Class(Framework.Level , {
 
         this.itemlist.forEach(element => {
             if(element.detect(e)){
+                this.audio.play({name: 'deal'});
                 if(this.buy.indexOf(element.getName() === -1) && this.money >= element.getValue()){
                     if(element.getName() == 'bomb') {
                         localStorage.setItem('bomb', parseInt(localStorage.getItem('bomb')) + 1);
@@ -161,9 +171,11 @@ var Shop = Framework.Class(Framework.Level , {
         this.itemlist.splice(0, this.itemlist.length);
         this.rootScene.detach(this.mapPic);
         if(this.buy.length == 0 && (this.bombOriginal === parseInt(localStorage.getItem('bomb')))){
+            this.audio.play({name: 'angry'});
             this.rootScene.attach(this.notBuy);
         }
         else{
+            this.audio.play({name: 'deal'});
             this.rootScene.attach(this.pay);
             this.pay.start();
         }
