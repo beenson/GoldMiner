@@ -251,6 +251,7 @@
 
         //timeout
         if(this.time <= 0){
+            this.time = 999;
             this.toNextLevel();
         }
 
