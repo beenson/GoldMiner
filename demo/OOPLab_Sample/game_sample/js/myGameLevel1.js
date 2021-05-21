@@ -57,11 +57,22 @@
             y: Framework.Game.getCanvasHeight() / 2
         };
         this.loadingPic.scale = 1.15;
+
+        this.goal = new Framework.Sprite(define.imagePath+'/background/goal.png');
+        this.goal.position = {x: Framework.Game.getCanvasWidth() / 2, y:0};
+        this.goal.scale = 1.2;
+        this.goalTxt = new Text(this, (Framework.Game.getCanvasWidth()/2)-350, -100, 100, 40,
+            {text: '本關目標金錢:', font: 'bold 64px 標楷體', color: 'yellow', textAlign: 'left'});
+        this.goalMoneyTxt = new Text(this, (Framework.Game.getCanvasWidth()/2)-350, 0, 100, 40,
+            {text: '$'+this.target, font: 'bold 64px 標楷體', color: 'lime', textAlign: 'left'});
+
         this.rootScene.attach(this.oldmanScene);
         this.Oldman.status_load();
         this.rootScene.attach(this.loadingPic);
+        this.rootScene.attach(this.goal);
         this.blackAttach();
-        this.haveLoaded = 0;
+        this.haveLoaded = 0;    //1:Loading done
+                                //2:Game over
         //----------------------------------------------
         this.gameMap = new GameMap();
         this.gameMap.load();
@@ -141,6 +152,7 @@
             self.blackdetach();
             self.oldmanScene.layer = 1;
             self.rootScene.detach(self.loadingPic);
+            self.rootScene.detach(self.goal);
             self.Oldman.default();
             self.rootScene.attach(self.circle);
             self.circle.attach(self.catcher);
@@ -150,8 +162,21 @@
             self.timer = setInterval(function(){
                 self.time--;
             }, 1000);
-            self.haveLoaded = 1;
+            self.haveLoaded = 1; 
         }, 2000);
+        //-----------結算畫面--------------
+        this.resultBackground = new Framework.Sprite(define.backgroundPath + 'Gold_result.png');
+        this.resultBackground.scale = 1.15;
+        this.resultBackground.position = {
+            x: Framework.Game.getCanvasWidth() / 2,
+            y: Framework.Game.getCanvasHeight() / 2
+        };
+        this.result = new Framework.Sprite(define.backgroundPath + 'result.png');
+        this.result.scale = 0.8;
+        this.result.position = {
+            x: Framework.Game.getCanvasWidth()/2,
+            y:Framework.Game.getCanvasHeight()/2
+        };
 	},
 
     toNextLevel: function(){
@@ -164,7 +189,12 @@
             Framework.Game.goToLevel('shop');
         }
         else{
-            Framework.Game.goToLevel('menu');   //return to menu
+            this.playResult();
+            this.resultTxt = new Text(this, (Framework.Game.getCanvasWidth()/2)-400, (Framework.Game.getCanvasHeight()/2)-50, 100, 40,
+                {text: '你共獲得'+this.money+"金錢!", font: 'italic bold 32px 標楷體', color: 'red', textAlign: 'left'});
+            setTimeout(function(){
+                Framework.Game.goToLevel('menu');   //return to menu
+            },3000)
         }
     },
 
@@ -173,6 +203,12 @@
     },
 
     update: function() {
+        if(this.goal.position.y <= (Framework.Game.getCanvasHeight()/2)-100){
+            this.goal.position.y += 10;
+            this.goalTxt.position.y += 10;
+            this.goalMoneyTxt.position.y += 10;
+        }
+
         //update
         this.backBtn1.update();
         this.backBtn2.update();
@@ -274,8 +310,11 @@
 
     draw:function(parentCtx){
         this.rootScene.draw();
-
-        if(this.haveLoaded === 1){
+        if(this.haveLoaded === 0){
+            this.goalTxt.draw(parentCtx);
+            this.goalMoneyTxt.draw(parentCtx);
+        }
+        else if(this.haveLoaded === 1){
             //buttons
             this.backBtn1.draw(parentCtx);
             this.backBtn2.draw(parentCtx);
@@ -358,6 +397,9 @@
             */
             //debug
             //this.object.draw(parentCtx);
+        }
+        else if(this.haveLoaded === 2){
+            this.resultTxt.draw(parentCtx)
         }
     },
 
@@ -450,5 +492,15 @@
         this.rootScene.detach(this.blackPic1);
         //Left side black
         this.rootScene.detach(this.blackPic2);
+    },
+
+    playGoal: function(){
+
+    },
+
+    playResult: function(){
+        this.haveLoaded = 2;
+        this.rootScene.attach(this.resultBackground);
+        this.rootScene.attach(this.result);
     },
 });
