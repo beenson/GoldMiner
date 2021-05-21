@@ -113,11 +113,11 @@
         }
 
         //button
-        this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20, 70, 50,
+        this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20, 70, 45,
         {text: '略過', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
             self.toNextLevel();
         }});
-        this.backBtn2 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20+50, 70, 50,
+        this.backBtn2 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20+45, 70, 45,
         {text: '關卡', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
             self.toNextLevel();
         }});
@@ -217,7 +217,6 @@
                         if(index >= 0)
                             this.objs.splice(index, 1);
 
-                        console.log(this.objs);
                         console.log(element.weight);
                         this.Oldman.pull(element.weight, element);
                         break;
