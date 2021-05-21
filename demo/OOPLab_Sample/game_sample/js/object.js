@@ -171,14 +171,22 @@ var Object = Framework.exClass({
             return;
 
         if((this.move.dir > 0 && this.position.x >= this.move.end) || (this.move.dir < 0 && this.position.x <= this.move.start)) {
-            this.move.dir *= -1;
             this.detach();
-            if(this.move.dir > 0){
+            if(this.move.dir < 0){
                 this.obj = this.forward;
             } else {
                 this.obj = this.backward;
             }
+            this.obj.stop();
             this.attach();
+            
+            let move = this.move.dir * -1;
+            this.move.dir = 0;
+            let self = this;
+            setTimeout(function() {
+                self.move.dir = move;
+                self.obj.start();
+            }, 700);
         }
 
         this.position.x += this.move.dir;

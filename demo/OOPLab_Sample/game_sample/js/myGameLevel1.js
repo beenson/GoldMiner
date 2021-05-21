@@ -1,5 +1,6 @@
 ﻿var MyGame = Framework.Class(Framework.Level , {
 	load: function(){
+        this.startTime = new Date();
         this.level = parseInt(localStorage.getItem("currentLevel"));
         this.target = 650;
         if(this.level > 1){
@@ -88,15 +89,14 @@
             y: 80
         };
 
-        this.length = 50;
+        this.initLen = 35;
+        this.length = this.initLen;
         this.catcher = new Framework.Sprite(define.imagePath + 'Catcher2.png');
         this.catcher.position = {
             x: 0,
             y: this.length
         };
         this.catcher.scale = 1.1;
-
-        this.circleSpeed = 0.7;
 
         //---------------------按鈕或文字物件---------------------
         var self = this;
@@ -254,11 +254,6 @@
             this.toNextLevel();
         }
 
-        //rotate direction
-        if(Math.abs(this.circle.rotation) >= 70) {
-            this.circleSpeed *= -1;
-        }
-
         //Oldman status
         switch(this.Oldman.status) {
             case "shooting":
@@ -315,13 +310,13 @@
                     this.Oldman.grabbing.setPos(this.catcher.position, {x: 0, y: -14});
                 }
 
-                if(this.length <= 50) {
-                    this.length = 50;
+                if(this.length <= this.initLen) {
+                    this.length = this.initLen;
                     this.money += this.Oldman.default(true);
                 }
                 break;
             case "default":
-                this.circle.rotation += this.circleSpeed;
+                this.circle.rotation = Math.sin(((new Date() - this.startTime) / 3000) * Math.PI) * 65;
                 break;
             default:
                 console.log("unknown status " + this.Oldman.status);
@@ -371,7 +366,7 @@
                 y: this.circle.position.y + (this.length - this.catcher.height / 2) * Math.sin((this.circle.rotation + 90) / 180 * Math.PI)
             }
             parentCtx.strokeStyle = 'black'; 
-            parentCtx.lineWidth = 5;
+            parentCtx.lineWidth = 3;
             parentCtx.beginPath();
             parentCtx.moveTo(this.circle.position.x, this.circle.position.y);
             parentCtx.lineTo(this.catcherPos.x, this.catcherPos.y);
@@ -448,13 +443,6 @@
     keydown:function(e, list){
         Framework.DebugInfo.Log.warning(e.key);
         console.log(e.key);
-        if(e.key === 'Numpad +' || e.key === '=') {
-            this.circleSpeed += 0.05;
-        }
-
-        if(e.key === 'Numpad -' || e.key === '-') {
-            this.circleSpeed -= 0.05;
-        }
 
         if(e.key === 'Space') {
             if(this.Oldman.status === "default"){
