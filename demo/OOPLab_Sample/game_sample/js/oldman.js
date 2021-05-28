@@ -19,7 +19,7 @@ var Oldman = Framework.exClass({
         this.defaultSprite = new Framework.Sprite(define.imagePath + 'OldMan/align.png');
         this.shootSprite = new Framework.Sprite(define.imagePath + 'OldMan/shooting.png');
         this.pullSprite = new Framework.AnimationSprite({url: Anime.oldmanPull, loop: true,  speed: 5});
-        this.throwBombSprite = new Framework.AnimationSprite({url: Anime.oldmanThrowBomb, loop: false,  speed: 5});
+        this.throwBombSprite = new Framework.AnimationSprite({url: Anime.oldmanThrowBomb, loop: false,  speed: 15});
         
         this.defaultSprite.scale = this.scale;
         this.shootSprite.scale = this.scale;

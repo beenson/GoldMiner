@@ -213,9 +213,6 @@
                 self.goalAttached = false;
                 self.haveLoaded = 4;
             },2000)
-            setTimeout(function(){
-                Framework.Game.goToLevel('menu');   //return to menu
-            },5000)
         }
     },
 
@@ -286,17 +283,18 @@
             case "pulling":
                 if(this.pressUp == true){
                     if(! this.isBombAttached){
-                        this.bomb.position = {x:0, y:0};
+                        this.bomb.position = {x:0, y:-9999};
                         this.bomb.layer = 100;
                         this.circle.attach(this.bomb);
                         this.isBombAttached = true;
                         //丟炸彈動畫
                         this.oldmanScene.attach(this.Oldman.throwBombSprite);
                         this.Oldman.throwBombSprite.start();
-                        var self = this;
+                        let self = this;
                         setTimeout(function(){
                             self.oldmanScene.detach(self.Oldman.throwBombSprite);
-                        },250)
+                            self.bomb.position = {x:0, y:0};
+                        },100)
                     }
                     this.bomb.position.y += 20;
                     if(this.bomb.position.y >= this.catcher.position.y){
@@ -510,6 +508,11 @@
         if(this.backBtn1.isHovered)
             return;
         this.backBtn2.click(e);
+
+        //最後的結算畫面
+        if(this.haveLoaded === 4 && (e.x >= 1020 && e.x <= 1205) && (e.y >= 735 && e.y <= 790)){
+            Framework.Game.goToLevel('menu');
+        }
     },
 
     blackAttach: function(){
