@@ -11,8 +11,6 @@
         }
         this.time = 60;
         this.money = parseInt(localStorage.getItem("myMoney"));
-        this.oldman_status = "default";
-        window.debug = this.debugFor;
         //load sound
         //載入要被播放的音樂清單
         //資料夾內只提供mp3檔案, 其餘的音樂檔案, 請自行轉檔測試
@@ -32,6 +30,9 @@
             earnMoney: {
                 mp3: define.soundPath + 'EarnMoney.mp3'
             },
+            earnMoney2: {
+                mp3: define.soundPath + 'Shopping.mp3'
+            },
             bad: {
                 mp3: define.soundPath + 'Bad.mp3'
             },
@@ -40,7 +41,10 @@
             },
             good: {
                 mp3: define.soundPath + 'Good.mp3'
-            }
+            },
+            end: {
+                mp3: define.soundPath + 'EndGame.mp3'
+            },
         });
         //播放時, 需要給name, 其餘參數可參考W3C
         this.audio.play({name: 'start'});
@@ -112,18 +116,19 @@
 
         //objects
         this.objs = [];
-        map = LevelMap[this.level - 1];
-        if(map) {
-            map.forEach(info => {
-                this.objs.push(new Object(info, this.audio, this.objectScene));
-            });
-        }else {
-            for(i = 0; i < 13; i++) {
-                for(j = 0; j < 8; j++) {
-                    this.objs.push(new Object({type: Items.mysteryBag, position: { x: i * 100, y: j * 100}}, this.audio, this.objectScene));
-                }
+        let random = Math.random();
+        let levelInfo = LevelMap[this.level > 10 ? (this.level - 4) % 7 + 3 : this.level - 1];
+        for(let i = 0; i < levelInfo.length; i++){
+            let level = levelInfo[i];
+            if(random <= level.chance || i == levelInfo.length - 1) {
+                level.objs.forEach(info => {
+                    this.objs.push(new Object(info, this.audio, this.objectScene));
+                });
+                break;
             }
+            random -= level.chance;
         }
+        
 
         //button
         this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20, 70, 45,
@@ -188,6 +193,7 @@
     toNextLevel: function(){
         clearInterval(this.timer);
         this.audio.stopAll();
+        this.Oldman.default();
         if(this.money >= this.target){
             this.goalAttached = false;
             this.haveLoaded = 2;
@@ -196,11 +202,11 @@
             localStorage.setItem('bomb', this.Oldman.bomb.length);
             this.goalClear.position = {x: Framework.Game.getCanvasWidth() / 2, y: (Framework.Game.getCanvasHeight()/2)-100};
             this.goalClear.scale = 0.1;
+            this.audio.play({name: 'end'});
             setTimeout(function(){
                 Framework.Game.goToLevel('shop');
             },3000)
-        }
-        else{
+        } else {
             this.goalAttached = false;
             this.haveLoaded = 3;
             this.goalFail.position = {x: Framework.Game.getCanvasWidth() / 2, y: 0};
@@ -383,59 +389,15 @@
             this.objs.forEach(element => {
                 element.draw(parentCtx);
             });
-            
-            /* 劃格線對其用
-            for(i = this.objectScene.position.y; i < Framework.Game.getCanvasHeight(); i += 25) {
-                parentCtx.strokeStyle = '#FFFF00'; 
-                parentCtx.lineWidth = 3;
-                parentCtx.beginPath();
-                parentCtx.moveTo(this.objectScene.position.x, i);
-                parentCtx.lineTo(Framework.Game.getCanvasWidth(), i);
-                parentCtx.closePath();
-                parentCtx.stroke();
-            }
-            for(i = this.objectScene.position.x; i < Framework.Game.getCanvasWidth(); i += 25) {
-                parentCtx.strokeStyle = '#FFFF00'; 
-                parentCtx.lineWidth = 3;
-                parentCtx.beginPath();
-                parentCtx.moveTo(i, this.objectScene.position.y);
-                parentCtx.lineTo(i, Framework.Game.getCanvasHeight());
-                parentCtx.closePath();
-                parentCtx.stroke();
-            }
-            for(i = this.objectScene.position.y; i < Framework.Game.getCanvasHeight(); i += 100) {
-                parentCtx.strokeStyle = '#FF0000'; 
-                parentCtx.lineWidth = 3;
-                parentCtx.beginPath();
-                parentCtx.moveTo(this.objectScene.position.x, i);
-                parentCtx.lineTo(Framework.Game.getCanvasWidth(), i);
-                parentCtx.closePath();
-                parentCtx.stroke();
-            }
-            for(i = this.objectScene.position.x; i < Framework.Game.getCanvasWidth(); i += 100) {
-                parentCtx.strokeStyle = '#FF0000'; 
-                parentCtx.lineWidth = 3;
-                parentCtx.beginPath();
-                parentCtx.moveTo(i, this.objectScene.position.y);
-                parentCtx.lineTo(i, Framework.Game.getCanvasHeight());
-                parentCtx.closePath();
-                parentCtx.stroke();
-            }
-            */
-            //debug
-            //this.object.draw(parentCtx);
-        }
-        else if(this.haveLoaded === 2 && (!this.goalAttached)){
+        } else if(this.haveLoaded === 2 && (!this.goalAttached)){
             this.rootScene.attach(this.loadingPic);
             this.rootScene.attach(this.goalClear);
             this.goalAttached = true;
-        }
-        else if(this.haveLoaded === 3 && (!this.goalAttached)){
+        } else if(this.haveLoaded === 3 && (!this.goalAttached)){
             this.rootScene.attach(this.loadingPic);
             this.rootScene.attach(this.goalFail);
             this.goalAttached = true;
-        }
-        else if(this.haveLoaded === 4){
+        } else if(this.haveLoaded === 4){
             if(!this.goalAttached){
                 this.rootScene.attach(this.resultBackground);
                 this.rootScene.attach(this.result);
@@ -449,40 +411,37 @@
     keydown:function(e, list){
         Framework.DebugInfo.Log.warning(e.key);
         console.log(e.key);
-
-        if(e.key === 'Space') {
-            if(this.Oldman.status === "default"){
-                this.Oldman.shoot();
-            }
+        switch(e.key) {
+            case 'M':
+                this.money += 3000;
+                break;
+            case 'Q':
+                if(this.Oldman.status == 'pulling') {
+                    this.length = this.initLen;
+                }
+                break;
+            case 'Space':
+                if(this.Oldman.status === "default"){
+                    this.Oldman.shoot();
+                }
+                break;
+            case 'Up':
+                if(this.Oldman.bomb.length > 0 && this.Oldman.grabbing && !this.pressUp){
+                    this.pressUp = true;            //是否按上
+                    this.isBombAttached = false;    //是否attach
+                }
+                //this.Oldman.useBomb();
+                break;
+            case 'Enter':
+                if(!this.isFullScreen) {
+                    Framework.Game.fullScreen();
+                    this.isFullScreen = true;
+                } else {
+                    Framework.Game.exitFullScreen();
+                    this.isFullScreen = false;
+                }
+                break;
         }
-
-        if(e.key === 'Pause/Break') {
-            //AnimationSprite支援停止正在播放的圖片
-        }
-
-        if(e.key === 'F5') {
-            //AnimationSprite可以恢復暫停正在播放的圖片
-        }
-
-        if(e.key === 'Enter') {
-            if(!this.isFullScreen) {
-                Framework.Game.fullScreen();
-                this.isFullScreen = true;
-            } else {
-                Framework.Game.exitFullScreen();
-                this.isFullScreen = false;
-            }
-            
-        }
-        
-        if(e.key === 'Up'){
-            if(this.Oldman.bomb.length > 0 && this.Oldman.grabbing && !this.pressUp){
-                this.pressUp = true;            //是否按上
-                this.isBombAttached = false;    //是否attach
-            }
-            //this.Oldman.useBomb();
-        }
-
     },
 
     
