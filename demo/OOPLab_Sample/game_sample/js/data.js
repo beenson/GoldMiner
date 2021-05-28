@@ -200,7 +200,7 @@ var Anime = {
 var shopItems = {
     bomb: {
         image: define.imagePath + "shop/firecracker.png",
-        value: 50,
+        value: 100,
         name: "bomb",
         info: "拉到你不要的東西按↑鍵，就可以炸掉那個東西",
         position: {x:(Framework.Game.getCanvasWidth() / 2) - 550, y:(Framework.Game.getCanvasHeight() / 2) + 150},
@@ -214,7 +214,7 @@ var shopItems = {
     },
     clover: {
         image: define.imagePath + "shop/luckyFlower.png",
-        value: 100,
+        value: 50,
         name: "clover",
         info: "使幸運度提高",
         position: {x:(Framework.Game.getCanvasWidth() / 2) - 200, y:(Framework.Game.getCanvasHeight() / 2) + 150},
@@ -228,7 +228,7 @@ var shopItems = {
     },
     bottle: {
         image: define.imagePath + "shop/IDK.png",
-        value: 600,
+        value: 400,
         name: "bottle",
         info: "鑽石的價值增加，從600提升為900",
         position: {x:(Framework.Game.getCanvasWidth() / 2) + 150, y:(Framework.Game.getCanvasHeight() / 2) + 150},

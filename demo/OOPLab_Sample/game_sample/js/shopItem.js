@@ -7,8 +7,16 @@ var shopItem = Framework.exClass({
         this.scale = 1;
         this.scene = scene;
 
+        this.level = parseInt(localStorage.getItem("currentLevel"))-1;
+        if(this.level > 1){
+            let i;
+            for(i = 2;i<=this.level;i++){
+                this.value += 68*i;
+            }
+        }
+
         this.priceTxt = new Text(this, (this.obj.position.x) - 30, (this.obj.position.y) + 80, 100, 40,
-            {text: '$' + this.obj.value, font: 'bold 32px 華康中圓體', color: 'green', textAlign: 'center'})
+            {text: '$' + this.value, font: 'bold 32px 華康中圓體', color: 'green', textAlign: 'center'})
 
         this.img = new Framework.Sprite(this.path);
         this.img.scale = this.scale;
