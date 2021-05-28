@@ -22,7 +22,7 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
         localStorage.setItem('currentLevel', 1);
         localStorage.setItem('myMoney', 500);
         localStorage.setItem('buyItem', []);
-        localStorage.setItem('bomb', 0);
+        localStorage.setItem('bomb', 2);
         this.menu = new Framework.Sprite(define.backgroundPath + 'Menu.jpg');
 
         this.start = {

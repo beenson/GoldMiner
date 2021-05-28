@@ -170,6 +170,11 @@ var Anime = {
         define.imagePath + 'OldMan/14.png'
     ],
 
+    oldmanThrowBomb:[
+        define.imagePath + 'OldMan/throwBomb/1.png',
+        define.imagePath + 'OldMan/throwBomb/2.png'
+    ],
+
     explode: [
         define.itemPath + "explode/0.png",
         define.itemPath + "explode/1.png",

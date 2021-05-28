@@ -290,6 +290,13 @@
                         this.bomb.layer = 100;
                         this.circle.attach(this.bomb);
                         this.isBombAttached = true;
+                        //丟炸彈動畫
+                        this.oldmanScene.attach(this.Oldman.throwBombSprite);
+                        this.Oldman.throwBombSprite.start();
+                        var self = this;
+                        setTimeout(function(){
+                            self.oldmanScene.detach(self.Oldman.throwBombSprite);
+                        },250)
                     }
                     this.bomb.position.y += 20;
                     if(this.bomb.position.y >= this.catcher.position.y){
