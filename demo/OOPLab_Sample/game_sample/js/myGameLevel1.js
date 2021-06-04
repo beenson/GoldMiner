@@ -436,9 +436,11 @@
                 if(!this.isFullScreen) {
                     Framework.Game.fullScreen();
                     this.isFullScreen = true;
+                    localStorage.setItem("fullScreen",true);
                 } else {
                     Framework.Game.exitFullScreen();
                     this.isFullScreen = false;
+                    localStorage.setItem("fullScreen",false);
                 }
                 break;
         }

@@ -33,6 +33,9 @@ var Shop = Framework.Class(Framework.Level , {
         this.itemlist.push(new shopItem(shopItems.book, this.rootScene));
         this.itemlist.push(new shopItem(shopItems.bottle, this.rootScene));   //make diamond price higher
 
+        //----------full screen check----------
+        this.isFullScreenTmp = localStorage.getItem("fullScreen");
+        this.isFullScreen = false;
         //----------other setting---------- 
         this.waitNextlevel = false;
         this.bombOriginal = parseInt(localStorage.getItem('bomb')); //原本持有的炸彈數量
@@ -66,6 +69,10 @@ var Shop = Framework.Class(Framework.Level , {
     },
 
     update: function() {
+        if(this.isFullScreenTmp === "true" && !this.isFullScreen){
+            Framework.Game.fullScreen();
+            this.isFullScreen = true;
+        }
         this.moneyTxt.text = "持有金錢: " + this.money;
         this.draw(this.Ctx);
     },
@@ -84,8 +91,8 @@ var Shop = Framework.Class(Framework.Level , {
         this.Ctx = parentCtx;
     },
 
-    /*keydown:function(e, list){
-        Framework.DebugInfo.Log.warning(e.key);
+    keydown:function(e, list){
+        /*Framework.DebugInfo.Log.warning(e.key);
         console.log(e.key);
         if(e.key === 'Numpad +' || e.key === '=') {
             this.circleSpeed += 0.05;
@@ -107,17 +114,18 @@ var Shop = Framework.Class(Framework.Level , {
 
         if(e.key === 'F5') {
             //AnimationSprite可以恢復暫停正在播放的圖片
-        }
+        },*/
 
         if(e.key === 'Enter') {
             if(!this.isFullScreen) {
                 Framework.Game.fullScreen();
                 this.isFullScreen = true;
+                localStorage.setItem("fullScreen",true);
             } else {
                 Framework.Game.exitFullScreen();
                 this.isFullScreen = false;
+                localStorage.setItem("fullScreen",false);
             }
-            
         }
 
     },
@@ -127,7 +135,7 @@ var Shop = Framework.Class(Framework.Level , {
         //為了要讓Mouse和Touch都有一樣的事件
         //又要減少Duplicated code, 故在Touch事件被觸發時, 去Trigger Mouse事件
         this.click({ x: e.touches[0].clientX, y: e.touches[0].clientY });
-    },*/
+    },
     
     mousemove: function(e) {
         this.infoTxt.text = this.defaultInfo;

@@ -6,15 +6,14 @@ var shopItem = Framework.exClass({
         this.position = type.position || {x: 0, y: 0};
         this.scale = 1;
         this.scene = scene;
-
         this.level = parseInt(localStorage.getItem("currentLevel"))-1;
         if(this.level > 1){
+            //this.value = this.computeRandom(type.value);
             let i;
             for(i = 2;i<=this.level;i++){
-                this.value += 68*i;
+                this.value += this.computeRandom(68);
             }
         }
-
         this.priceTxt = new Text(this, (this.obj.position.x) - 30, (this.obj.position.y) + 80, 100, 40,
             {text: '$' + this.value, font: 'bold 32px 華康中圓體', color: 'green', textAlign: 'center'})
 
@@ -22,6 +21,8 @@ var shopItem = Framework.exClass({
         this.img.scale = this.scale;
         this.img.position = this.position;
         this.attach();
+
+
     },
 
     attach: function(){
@@ -59,6 +60,11 @@ var shopItem = Framework.exClass({
 
     getValue: function(){
         return this.value;
+    },
+
+    computeRandom: function(x){
+        var result = Math.floor(Math.random()*x)+1;
+        return result;
     },
 
     //draw is just for testing range of detect
