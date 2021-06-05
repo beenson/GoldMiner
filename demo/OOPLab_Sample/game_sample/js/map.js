@@ -158,7 +158,7 @@ LevelMap = [
         }
     ],
     [//level 4
-        {   chance: 1,
+        {   chance: 0.75,
             objs: [
                 {type: Items.smaGold, position: { x: 80, y: 270}},
                 {type: Items.smaGold, position: { x: 385, y: 525}},
@@ -192,13 +192,43 @@ LevelMap = [
                 },
             ]
         },
-        {   chance: 0,
+        {   chance: 0.25,
             objs: [
+                {type: Items.smaGold, position: { x: 268, y: 160}},
+                {type: Items.smaGold, position: { x: 869, y: 218}},
+                {type: Items.smaGold, position: { x: 902, y: 252}},
+                {type: Items.smaGold, position: { x: 922, y: 310}},
+                {type: Items.medGold, position: { x: 772, y: 317}},
+                {type: Items.bigGold, position: { x: 402, y: 575}},
+                {type: Items.bigGold, position: { x: 778, y: 597}},
+                {type: Items.smaStone, position: { x: 800, y: 431}},
+                {type: Items.bigStone, position: { x: 272, y: 645}},
+                {type: Items.bigStone, position: { x: 345, y: 222}},
+                {type: Items.bigStone, position: { x: 1105, y: 267}},
+                {type: Items.mysteryBag, position: { x: 355, y: 400}},
+                {type: Items.mysteryBag, position: { x: 595, y: 587}},
+                {type: Items.mysteryBag, position: { x: 904, y: 436}},
+                {type: Items.mysteryBag, position: { x: 1013, y: 308}},
+                {
+                    type: Items.mouse,
+                    position: { x: -50, y: 316},
+                    move: { start: -50, end: 500}
+                },
+                {
+                    type: Items.mouse,
+                    position: { x: 425, y: 487},
+                    move: { start: 425, end: 975}
+                },
+                {
+                    type: Items.mouse,
+                    position: { x: 1345, y: 464},
+                    move: { start: 795, end: 1345}
+                },
             ]
         }
     ],
     [//level 5
-        {   chance: 1,
+        {   chance: 0.4,
             objs: [
                 {type: Items.smaGold, position: { x: 185, y: 135}},
                 {type: Items.smaGold, position: { x: 280, y: 565}},
@@ -235,10 +265,49 @@ LevelMap = [
                     move: { start: -110, end: 390}
                 },
             ]
+        },
+        {
+            chance: 0.6,
+            objs: [
+                {type: Items.smaGold, position: { x: 234, y: 132}},
+                {type: Items.smaGold, position: { x: 278, y: 547}},
+                {type: Items.smaGold, position: { x: 337, y: 157}},
+                {type: Items.smaGold, position: { x: 819, y: 424}},
+                {type: Items.medGold, position: { x: 158, y: 389}},
+                {type: Items.medGold, position: { x: 488, y: 368}},
+                {type: Items.medGold, position: { x: 1083, y: 243}},
+                {type: Items.bigGold, position: { x: 437, y: 665}},
+                {type: Items.bigGold, position: { x: 773, y: 607}},
+                {type: Items.larGold, position: { x: 0, y: 610}},
+                {type: Items.larGold, position: { x: 1320, y: 556}},
+                {type: Items.diamond, position: { x: 164, y: 600}},
+                {type: Items.diamond, position: { x: 1052, y: 650}},
+                {type: Items.diamond, position: { x: 1177, y: 550}},
+                {type: Items.smaStone, position: { x: 736, y: 425}},
+                {type: Items.bigStone, position: { x: 275, y: 215}},
+                {type: Items.bigStone, position: { x: 423, y: 466}},
+                {type: Items.bigStone, position: { x: 1009, y: 308}},
+                {type: Items.mysteryBag, position: { x: 923, y: 623}},
+                {
+                    type: Items.mouse,
+                    position: { x: 315, y: 305},
+                    move: { start: 315, end: 865}
+                },
+                {
+                    type: Items.mouse,
+                    position: { x: 1075, y: 493},
+                    move: { start: 525, end: 1075}
+                },
+                {
+                    type: Items.mouse,
+                    position: { x: -190, y: 540},
+                    move: { start: -190, end: 360}
+                },
+            ] 
         }
     ],
     [//level 6
-        {   chance: 1,
+        {   chance: 0.5,
             objs: [
                 {type: Items.smaGold, position: { x: 165, y: 170}},
                 {type: Items.smaGold, position: { x: 230, y: 375}},
@@ -279,10 +348,53 @@ LevelMap = [
                     move: { start: 410, end: 955}
                 },
             ]
+        },
+        {
+            chance: 0.5,
+            objs: [
+                {type: Items.smaGold, position: { x: 290, y: 505}},
+                {type: Items.smaGold, position: { x: 461, y: 642}},
+                {type: Items.smaGold, position: { x: 809, y: 491}},
+                {type: Items.smaGold, position: { x: 1007, y: 523}},
+                {type: Items.smaGold, position: { x: 1036, y: 651}},
+                {type: Items.smaGold, position: { x: 1054, y: 496}},
+                {type: Items.smaGold, position: { x: 1161, y: 565}},
+                {type: Items.medGold, position: { x: 53, y: 575}},
+                {type: Items.medGold, position: { x: 192, y: 670}},
+                {type: Items.medGold, position: { x: 889, y: 708}},
+                {type: Items.larGold, position: { x: 584, y: 695}},
+                {type: Items.smaStone, position: { x: 227, y: 470}},
+                {type: Items.smaStone, position: { x: 500, y: 236}},
+                {type: Items.smaStone, position: { x: 977, y: 221}},
+                {type: Items.bigStone, position: { x: 128, y: 229}},
+                {type: Items.bigStone, position: { x: 724, y: 463}},
+                {type: Items.bigStone, position: { x: 1253, y: 471}},
+                {type: Items.mysteryBag, position: { x: 1065, y: 577}},
+                {
+                    type: Items.mouseWithDiamond,
+                    position: { x: 110, y: 303},
+                    move: { start: 110, end: 660}
+                },
+                {
+                    type: Items.mouseWithDiamond,
+                    position: { x: 505, y: 381},
+                    move: { start: 505, end: 1055}
+                },
+                {
+                    type: Items.mouseWithDiamond,
+                    position: { x: 965, y: 565},
+                    move: { start: 410, end: 965}
+                },
+                {
+                    type: Items.mouseWithDiamond,
+                    position: { x: 1250, y: 302},
+                    move: { start: 700, end: 1250}
+                },
+            ]
         }
     ],
     [ //level 7
-        {   chance: 1,
+        {   chance: 0.5,
             objs: [
                 {type: Items.smaGold, position: { x: 30, y: 400}},
                 {type: Items.smaGold, position: { x: 695, y: 480}},
@@ -329,10 +441,59 @@ LevelMap = [
                     move: { start: 725, end: 1125}
                 },
             ]
+        },
+        {
+            chance: 0.5,
+            objs: [
+                {type: Items.smaGold, position: { x: 258, y: 242}},
+                {type: Items.smaGold, position: { x: 697, y: 240}},
+                {type: Items.bigGold, position: { x: 445, y: 553}},
+                {type: Items.bigGold, position: { x: 1250, y: 238}},
+                {type: Items.larGold, position: { x: 56, y: 658}},
+                {type: Items.larGold, position: { x: 496, y: 744}},
+                {type: Items.larGold, position: { x: 1054, y: 606}},
+                {type: Items.mysteryBag, position: { x: 988, y: 417}},
+                {type: Items.bone, position: { x: 168, y: 425}},
+                {type: Items.bone, position: { x: 971, y: 277}},
+                {type: Items.head, position: { x: 393, y: 369}},
+                {type: Items.head, position: { x: 930, y: 305}},
+                {type: Items.boom, position: { x: 330, y: 492}},
+                {type: Items.boom, position: { x: 1055, y: 247}},
+                {
+                    type: Items.mouse,
+                    position: { x: 65, y: 393},
+                    move: { start: 65, end: 615}
+                },
+                {
+                    type: Items.mouse,
+                    position: { x: 220, y: 590},
+                    move: { start: 220, end: 770}
+                },
+                {
+                    type: Items.mouse,
+                    position: { x: 630, y: 442},
+                    move: { start: 80, end: 630}
+                },
+                {
+                    type: Items.mouse,
+                    position: { x: 790, y: 122},
+                    move: { start: 790, end: 1340}
+                },
+                {
+                    type: Items.mouse,
+                    position: { x: 1160, y: 352},
+                    move: { start: 610, end: 1160}
+                },
+                {
+                    type: Items.mouse,
+                    position: { x: 1255, y: 170},
+                    move: { start: 705, end: 1255}
+                },
+            ]
         }
     ],
     [//level 8
-        {   chance: 1,
+        {   chance: 0.78,
             objs: [
                 {type: Items.diamond, position: { x: 165, y: 520}},
                 {type: Items.diamond, position: { x: 250, y: 190}},
@@ -364,6 +525,38 @@ LevelMap = [
                     position: { x: 1335, y: 220},
                     move: { start: 785, end: 1335}
                 },
+            ]
+        },
+        {
+            chance: 0.22,
+            objs: [
+                {type: Items.larGold, position: { x: 81, y: 560}},
+                {type: Items.larGold, position: { x: 326, y: 710}},
+                {type: Items.larGold, position: { x: 636, y: 611}},
+                {type: Items.larGold, position: { x: 970, y: 562}},
+                {type: Items.larGold, position: { x: 1250, y: 705}},
+                {type: Items.diamond, position: { x: 128, y: 678}},
+                {type: Items.diamond, position: { x: 185, y: 652}},
+                {type: Items.diamond, position: { x: 334, y: 254}},
+                {type: Items.diamond, position: { x: 1258, y: 525}},
+                {type: Items.smaStone, position: { x: 76, y: 409}},
+                {type: Items.smaStone, position: { x: 88, y: 161}},
+                {type: Items.smaStone, position: { x: 331, y: 301}},
+                {type: Items.smaStone, position: { x: 575, y: 475}},
+                {type: Items.smaStone, position: { x: 730, y: 210}},
+                {type: Items.smaStone, position: { x: 1021, y: 308}},
+                {type: Items.smaStone, position: { x: 1118, y: 424}},
+                {type: Items.bigStone, position: { x: 253, y: 449}},
+                {type: Items.bigStone, position: { x: 285, y: 205}},
+                {type: Items.bigStone, position: { x: 341, y: 376}},
+                {type: Items.bigStone, position: { x: 523, y: 343}},
+                {type: Items.bigStone, position: { x: 781, y: 509}},
+                {type: Items.bigStone, position: { x: 955, y: 394}},
+                {type: Items.bigStone, position: { x: 998, y: 209}},
+                {type: Items.bigStone, position: { x: 1212, y: 147}},
+                {type: Items.bigStone, position: { x: 1290, y: 391}},
+                {type: Items.boom, position: { x: 145, y: 316}},
+                {type: Items.boom, position: { x: 1164, y: 308}},
             ]
         }
     ],
