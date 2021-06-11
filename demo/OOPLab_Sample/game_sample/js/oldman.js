@@ -1,5 +1,5 @@
 var Oldman = Framework.exClass({
-    __construct:function(parent, scene, audio){
+    __construct:function(parent, scene, audio, money){
         this.load(parent);
         
         this.baseScene = scene;
@@ -9,6 +9,7 @@ var Oldman = Framework.exClass({
         this.grabbing = undefined;
         this.pullSpeed = 15;
         
+        this.money = money;
 
         this.position = {
             x: Framework.Game.getCanvasWidth() / 2 + 10,
@@ -62,19 +63,49 @@ var Oldman = Framework.exClass({
         
     },
 
-	status_load:function(){
+	status_load: function(){
         this.baseScene.attach(this.pullSprite);
         this.pullSprite.start();
     },
 
-    default:function(stop){
+    default: function(){
         this.status = "default";
         this.baseScene.attach(this.defaultSprite);
         this.baseScene.detach(this.pullSprite);
-        if(stop)
-            this.audio.stop('pull');
+        return 0;
+    },
+
+    shoot: function(){
+        this.status = "shooting";
+        this.audio.play({name: "catch"});
+        this.baseScene.attach(this.shootSprite);
+        this.baseScene.detach(this.defaultSprite);
+    },
+
+    pull: function(weight, obj){
+        this.status = "pulling";
+        this.audio.stop('catch');
+        this.audio.play({name: "pull", loop: true});
+        this.baseScene.attach(this.pullSprite);
+        this.pullSprite.start();
+        this.baseScene.detach(this.shootSprite);
+        if(weight == -1) {
+            weight = Math.floor(Math.random() * 13) + 2; //2 ~ 14
+        }
+        if(obj) {
+            this.pullSpeed = (15*this.powerAdd) - weight;
+        } else {
+            this.pullSpeed = 15;
+        }
+        this.grabbing = obj;
+    },
+
+    waiting: function(){
+        this.status = "waiting";
+        this.audio.stop('pull');
+        let value;
         if(this.grabbing) {
-            var value = this.grabbing.value;
+            value = this.grabbing.value;
             if(value == -1) {       //mystery bag
                 value = Math.floor(Math.random() * 900) + 1;
                 if(this.hasClover){ //clover lucky boost
@@ -102,35 +133,15 @@ var Oldman = Framework.exClass({
                 }
                 this.grabbing = undefined;
                 this.audio.play({name: 'earnMoney'});
-                return value;
             }
-        }
-        return 0;
-    },
-
-    shoot:function(){
-        this.status = "shooting";
-        this.audio.play({name: "catch"});
-        this.baseScene.attach(this.shootSprite);
-        this.baseScene.detach(this.defaultSprite);
-    },
-
-    pull:function(weight, obj){
-        this.status = "pulling";
-        this.audio.stop('catch');
-        this.audio.play({name: "pull", loop: true});
-        this.baseScene.attach(this.pullSprite);
-        this.pullSprite.start();
-        this.baseScene.detach(this.shootSprite);
-        if(weight == -1) {
-            weight = Math.floor(Math.random() * 13) + 2; //2 ~ 14
-        }
-        if(obj) {
-            this.pullSpeed = (15*this.powerAdd) - weight;
         } else {
-            this.pullSpeed = 15;
+            this.default();
         }
-        this.grabbing = obj;
+        let self = this;
+        setTimeout(function(){
+            self.money += value;
+            self.default();
+        }, 1000);
     },
 
     useBomb: function(){

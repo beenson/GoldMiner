@@ -54,7 +54,7 @@
             x: 0,
             y: 0
         };
-        this.Oldman = new Oldman(this, this.oldmanScene, this.audio);
+        this.Oldman = new Oldman(this, this.oldmanScene, this.audio, this.money);
         //-----------------------Loading-----------------------
 	    this.loadingPic = new Framework.Sprite(define.imagePath+'/background/Gold_.jpg');
         this.loadingPic.position = {
@@ -194,10 +194,10 @@
         clearInterval(this.timer);
         this.audio.stopAll();
         this.Oldman.default();
-        if(this.money >= this.target){
+        if(this.Oldman.money >= this.target){
             this.goalAttached = false;
             this.haveLoaded = 2;
-            localStorage.setItem('myMoney', this.money);
+            localStorage.setItem('myMoney', this.Oldman.money);
             localStorage.setItem('currentLevel', this.level + 1);
             localStorage.setItem('bomb', this.Oldman.bomb.length);
             this.goalClear.position = {x: Framework.Game.getCanvasWidth() / 2, y: (Framework.Game.getCanvasHeight()/2)-100};
@@ -212,7 +212,7 @@
             this.goalFail.position = {x: Framework.Game.getCanvasWidth() / 2, y: 0};
             this.goalFail.scale = 1.2;
             this.resultTxt = new Text(this, (Framework.Game.getCanvasWidth()/2)-400, (Framework.Game.getCanvasHeight()/2)-50, 100, 40,
-                {text: '你共獲得'+this.money+"金錢!", font: 'italic bold 32px 標楷體', color: 'red', textAlign: 'left'});
+                {text: '你共獲得'+this.Oldman.money+"金錢!", font: 'italic bold 32px 標楷體', color: 'red', textAlign: 'left'});
             
             var self = this;
             setTimeout(function(){
@@ -249,7 +249,7 @@
         });
 
         //text update
-        this.moneyTxt.text = this.money;
+        this.moneyTxt.text = this.Oldman.money;
         this.remainTime.text = this.time;
 
         //timeout
@@ -324,11 +324,13 @@
 
                 if(this.length <= this.initLen) {
                     this.length = this.initLen;
-                    this.money += this.Oldman.default(true);
+                    this.Oldman.waiting();
                 }
                 break;
             case "default":
                 this.circle.rotation = Math.sin(((new Date() - this.startTime) / 3000) * Math.PI) * 65;
+                break;
+            case "waiting":
                 break;
             default:
                 console.log("unknown status " + this.Oldman.status);
@@ -413,7 +415,7 @@
         console.log(e.key);
         switch(e.key) {
             case 'M':
-                this.money += 3000;
+                this.Oldman.money += 3000;
                 break;
             case 'Q':
                 if(this.Oldman.status == 'pulling') {
