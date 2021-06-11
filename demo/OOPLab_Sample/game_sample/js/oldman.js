@@ -48,7 +48,9 @@ var Oldman = Framework.exClass({
         this.hasBook = this.effect.indexOf("book") != -1;
         this.hasBottle = this.effect.indexOf("bottle") != -1;
         this.hasClover = this.effect.indexOf("clover") != -1;
-        //----------item effect end----------
+        //----------賺錢動畫----------
+        this.AnimationTxt = new Text(this, (Framework.Game.getCanvasWidth()/2)-350, -100, 100, 40,
+            {text: '本關目標金錢:', font: 'bold 64px 標楷體', color: 'yellow', textAlign: 'left'});
     },
 
 	load: function(parent){
@@ -134,6 +136,7 @@ var Oldman = Framework.exClass({
                 this.grabbing = undefined;
                 this.audio.play({name: 'earnMoney'});
             }
+            this.earnMoneyAnime(value);
         } else {
             this.default();
         }
@@ -163,5 +166,9 @@ var Oldman = Framework.exClass({
         }
         this.bomb[this.bomb.length - 1].scale = 0.3;
         this.baseScene.attach(this.bomb[this.bomb.length - 1]);
+    },
+
+    earnMoneyAnime: function(){
+
     }
 });
