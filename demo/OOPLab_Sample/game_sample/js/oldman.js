@@ -51,7 +51,6 @@ var Oldman = Framework.exClass({
         //----------賺錢動畫----------
         this.AnimationTxt = new Text(this, (this.position.x)-170, (this.position.y), 100, 40,
             {text: '', font: 'bold 32px 標楷體', color: 'green', textAlign: 'left'});
-        this.earning = false;
     },
 
 	load: function(parent){
@@ -105,7 +104,7 @@ var Oldman = Framework.exClass({
     waiting: function(){
         this.status = "waiting";
         this.audio.stop('pull');
-        //this.pullSprite.stop();
+        this.pullSprite.stop();
         let value, kind;
         if(this.grabbing) {
             value = this.grabbing.value;
@@ -149,7 +148,6 @@ var Oldman = Framework.exClass({
         setTimeout(function(){
             self.money += value;
             self.AnimationTxt.remove();
-            this.earning = false;
             self.audio.play({name: 'earnMoney2'});
             self.default();
         }, 1000);
@@ -193,6 +191,5 @@ var Oldman = Framework.exClass({
             this.AnimationTxt.setColor('green');
             this.AnimationTxt.text = '$' + value;
         }
-        this.earning = true;
     }
 });

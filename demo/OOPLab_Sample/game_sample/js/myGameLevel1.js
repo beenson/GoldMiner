@@ -239,11 +239,6 @@
             this.goalFail.position.y += 10;
         }
 
-        //Earn money animation
-        if(this.Oldman.AnimationTxt.position.y > 0){
-            this.Oldman.AnimationTxt.position.y -= 1;
-        }
-
         //update
         this.backBtn1.update();
         this.backBtn2.update();
@@ -337,6 +332,8 @@
                 this.circle.rotation = Math.sin(((new Date() - this.startTime) / 3000) * Math.PI) * 65;
                 break;
             case "waiting":
+                this.Oldman.AnimationTxt.position.y -= 2;
+                this.draw(Framework.Game._context);
                 break;
             default:
                 console.log("unknown status " + this.Oldman.status);
@@ -351,9 +348,6 @@
 
     draw:function(parentCtx){
         this.rootScene.draw();
-        if(this.Oldman.earning){
-            this.Oldman.AnimationTxt.draw(parentCtx);
-        }
         if(this.haveLoaded === 0){
             this.goalTxt.draw(parentCtx);
             this.goalMoneyTxt.draw(parentCtx);
@@ -396,6 +390,9 @@
             parentCtx.stroke();
             this.circle.draw();
             
+            if(this.Oldman.status === 'waiting'){
+                this.Oldman.AnimationTxt.draw(parentCtx);
+            }
             
             this.objs.forEach(element => {
                 element.draw(parentCtx);
