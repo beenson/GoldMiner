@@ -239,9 +239,15 @@
             this.goalFail.position.y += 10;
         }
 
+        //Earn money animation
+        if(this.Oldman.AnimationTxt.position.y > 0){
+            this.Oldman.AnimationTxt.position.y -= 1;
+        }
+
         //update
         this.backBtn1.update();
         this.backBtn2.update();
+        this.Oldman.update();
 
         //object update
         this.objs.forEach(element => {
@@ -345,6 +351,9 @@
 
     draw:function(parentCtx){
         this.rootScene.draw();
+        if(this.Oldman.earning){
+            this.Oldman.AnimationTxt.draw(parentCtx);
+        }
         if(this.haveLoaded === 0){
             this.goalTxt.draw(parentCtx);
             this.goalMoneyTxt.draw(parentCtx);

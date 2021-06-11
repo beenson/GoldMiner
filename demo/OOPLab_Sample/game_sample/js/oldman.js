@@ -49,8 +49,9 @@ var Oldman = Framework.exClass({
         this.hasBottle = this.effect.indexOf("bottle") != -1;
         this.hasClover = this.effect.indexOf("clover") != -1;
         //----------賺錢動畫----------
-        this.AnimationTxt = new Text(this, (Framework.Game.getCanvasWidth()/2)-350, -100, 100, 40,
-            {text: '本關目標金錢:', font: 'bold 64px 標楷體', color: 'yellow', textAlign: 'left'});
+        this.AnimationTxt = new Text(this, (this.position.x)-170, (this.position.y), 100, 40,
+            {text: '', font: 'bold 32px 標楷體', color: 'green', textAlign: 'left'});
+        this.earning = false;
     },
 
 	load: function(parent){
@@ -58,11 +59,10 @@ var Oldman = Framework.exClass({
 	},
 
 	update: function() {
-        
     },
     
     draw: function(parentCtx) {
-        
+        this.ctx = parentCtx;
     },
 
 	status_load: function(){
@@ -105,7 +105,8 @@ var Oldman = Framework.exClass({
     waiting: function(){
         this.status = "waiting";
         this.audio.stop('pull');
-        let value;
+        //this.pullSprite.stop();
+        let value, kind;
         if(this.grabbing) {
             value = this.grabbing.value;
             if(value == -1) {       //mystery bag
@@ -119,9 +120,11 @@ var Oldman = Framework.exClass({
                 if(Math.random() <= 0.5) {
                     console.log("Bomb-Mystery")
                     this.addBomb();
+                    kind = 'bomb';
                 } else {                 //potion effect
                     console.log("Potion-Mystery")
                     this.powerAdd = 1.2;
+                    kind = 'power';
                 }
                 this.grabbing = undefined;
                 this.audio.play({name: 'good'});
@@ -135,8 +138,9 @@ var Oldman = Framework.exClass({
                 }
                 this.grabbing = undefined;
                 this.audio.play({name: 'earnMoney'});
+                kind = 'money';
             }
-            this.earnMoneyAnime(value);
+            this.earnMoneyAnime(value, kind);
         } else {
             this.default();
             return;
@@ -144,6 +148,8 @@ var Oldman = Framework.exClass({
         let self = this;
         setTimeout(function(){
             self.money += value;
+            self.AnimationTxt.remove();
+            this.earning = false;
             self.audio.play({name: 'earnMoney2'});
             self.default();
         }, 1000);
@@ -170,7 +176,23 @@ var Oldman = Framework.exClass({
         this.baseScene.attach(this.bomb[this.bomb.length - 1]);
     },
 
-    earnMoneyAnime: function(){
-
+    earnMoneyAnime: function(value, kind){
+        this.AnimationTxt.position = {x: (this.position.x)-170, y: (this.position.y)};
+        if(value > 800){
+            this.AnimationTxt.setColor('yellow');
+            if(kind === 'bomb')
+            {
+                this.AnimationTxt.text = 'Bomb ++';
+            }
+            else
+            {
+                this.AnimationTxt.text = 'Power ++';
+            }
+        }
+        else{
+            this.AnimationTxt.setColor('green');
+            this.AnimationTxt.text = '$' + value;
+        }
+        this.earning = true;
     }
 });

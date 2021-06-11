@@ -54,4 +54,8 @@ var Text = Framework.exClass({
     remove: function() {
         this.text = '';
     },
+    
+    setColor: function(newColor){
+        this.color = newColor;
+    }
 });
