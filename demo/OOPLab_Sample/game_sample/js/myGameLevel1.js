@@ -267,7 +267,7 @@
                     this.catcher.lowerRight.y >= Framework.Game.getCanvasHeight()) {
                     this.Oldman.pull(0);
                 }
-
+                
                 //object detect
                 for(i = 0; i < this.objs.length; i++) {
                     let element = this.objs[i];
