@@ -430,17 +430,16 @@
                     this.pressUp = true;            //是否按上
                     this.isBombAttached = false;    //是否attach
                 }
-                //this.Oldman.useBomb();
                 break;
             case 'Enter':
                 if(!this.isFullScreen) {
-                    Framework.Game.fullScreen();
+                    //Framework.Game.fullScreen();
+                    document.documentElement.requestFullscreen()
                     this.isFullScreen = true;
-                    localStorage.setItem("fullScreen",true);
                 } else {
-                    Framework.Game.exitFullScreen();
+                    //Framework.Game.exitFullScreen();
+                    document.exitFullscreen()
                     this.isFullScreen = false;
-                    localStorage.setItem("fullScreen",false);
                 }
                 break;
         }

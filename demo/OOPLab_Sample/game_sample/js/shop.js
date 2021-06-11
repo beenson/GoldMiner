@@ -33,9 +33,6 @@ var Shop = Framework.Class(Framework.Level , {
         this.itemlist.push(new shopItem(shopItems.book, this.rootScene));
         this.itemlist.push(new shopItem(shopItems.bottle, this.rootScene));   //make diamond price higher
 
-        //----------full screen check----------
-        this.isFullScreenTmp = localStorage.getItem("fullScreen");
-        this.isFullScreen = false;
         //----------other setting---------- 
         this.waitNextlevel = false;
         this.bombOriginal = parseInt(localStorage.getItem('bomb')); //原本持有的炸彈數量
@@ -118,13 +115,13 @@ var Shop = Framework.Class(Framework.Level , {
 
         if(e.key === 'Enter') {
             if(!this.isFullScreen) {
-                Framework.Game.fullScreen();
+                //Framework.Game.fullScreen();
+                document.documentElement.requestFullscreen()
                 this.isFullScreen = true;
-                localStorage.setItem("fullScreen",true);
             } else {
-                Framework.Game.exitFullScreen();
+                //Framework.Game.exitFullScreen();
+                document.exitFullscreen()
                 this.isFullScreen = false;
-                localStorage.setItem("fullScreen",false);
             }
         }
 
