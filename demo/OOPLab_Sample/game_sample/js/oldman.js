@@ -146,10 +146,12 @@ var Oldman = Framework.exClass({
         }
         let self = this;
         setTimeout(function(){
-            self.money += value;
-            self.AnimationTxt.remove();
-            self.audio.play({name: 'earnMoney2'});
-            self.default();
+            if(self.status !== "default") {
+                self.money += value;
+                self.AnimationTxt.remove();
+                self.audio.play({name: 'earnMoney2'});
+                self.default();
+            }
         }, 1000);
     },
 

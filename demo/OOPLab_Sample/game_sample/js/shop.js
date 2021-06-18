@@ -65,6 +65,10 @@ var Shop = Framework.Class(Framework.Level , {
         
     },
 
+    loadingProgress: function(ctx, requestInfo) {
+        
+    },
+
     update: function() {
         if(this.isFullScreenTmp === "true" && !this.isFullScreen){
             Framework.Game.fullScreen();
