@@ -40,8 +40,13 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
         this.hint_4 = new Text(this, 145, 820, 0, 0,
             {text: 'Q　立即收回抓取物品', font: 'bold 36px Arial', color: 'white', textAlign: 'left'});
 
-        this.button = new Button(this, 430, 345, 230, 85, { text: 'Start', font: 'bold 85px sans-serif', color: 'brown', click: function() {
+        this.startBtn = new Button(this, 430, 345, 230, 85, { text: 'Start', font: 'bold 85px sans-serif', color: 'brown', click: function() {
             Framework.Game.goToNextLevel();
+        }});
+
+        this.aboutBtn = new Button(this, (Framework.Game.getCanvasWidth() / 2)-200, Framework.Game.getCanvasHeight()-150, 230, 85,
+        { text: 'About us', font: 'bold 48px sans-serif', color: 'white', background: 'gray', textOffset: 20, click: function() {
+            Framework.Game.goToLevel('about');
         }});
 
         //為了讓之後的位置較好操控, new出一個位於中心點且可以黏貼任何東西的容器
@@ -72,7 +77,8 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
 
     update:function(){     
         this.rootScene.update();
-        this.button.update();
+        this.startBtn.update();
+        this.aboutBtn.update();
         //this.rootScene.update(); 
 
         //目前的Framework, 當任何一個GameObject不做attach時, 則必須要自行update
@@ -82,7 +88,8 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
 
     draw:function(parentCtx){
         this.rootScene.draw();
-        this.button.draw(parentCtx);
+        this.startBtn.draw(parentCtx);
+        this.aboutBtn.draw(parentCtx);
         this.hint_0.draw(parentCtx);
         this.hint_1.draw(parentCtx);
         this.hint_2.draw(parentCtx);
@@ -91,13 +98,15 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
     },
 
     mousemove: function(e) {      
-        this.button.mousemove(e);
+        this.startBtn.mousemove(e);
+        this.aboutBtn.mousemove(e);
     },
 
     click: function(e) {
         console.log(e);
 
-        this.button.click(e);
+        this.startBtn.click(e);
+        this.aboutBtn.click(e);
     },
 
     touchstart: function (e) {
