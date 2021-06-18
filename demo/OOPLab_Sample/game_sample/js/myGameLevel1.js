@@ -56,7 +56,7 @@
         };
         this.Oldman = new Oldman(this, this.oldmanScene, this.audio, this.money);
         //-----------------------Loading-----------------------
-	    this.loadingPic = new Framework.Sprite(define.imagePath+'/background/Gold_.jpg');
+	    this.loadingPic = new Framework.Sprite(define.imagePath+'/background/Gold.jpg');
         this.loadingPic.position = {
             x: Framework.Game.getCanvasWidth() / 2,
             y: Framework.Game.getCanvasHeight() / 2
@@ -95,7 +95,7 @@
 
         this.initLen = 35;
         this.length = this.initLen;
-        this.catcher = new Framework.Sprite(define.imagePath + 'Catcher2.png');
+        this.catcher = new Framework.Sprite(define.imagePath + 'Catcher.png');
         this.catcher.position = {
             x: 0,
             y: this.length
