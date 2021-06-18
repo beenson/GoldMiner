@@ -194,7 +194,6 @@
         clearInterval(this.timer);
         this.audio.stopAll();
         this.Oldman.default();
-        this.Oldman.AnimationTxt = null;
         if(this.Oldman.money >= this.target){
             this.goalAttached = false;
             this.haveLoaded = 2;
@@ -334,8 +333,7 @@
                 break;
             case "waiting":
                 this.Oldman.AnimationTxt.position.y -= 2;
-                if(this.Oldman.AnimationTxt.position.y >= 0)
-                    this.draw(Framework.Game._context);
+                this.draw(Framework.Game._context);
                 break;
             default:
                 console.log("unknown status " + this.Oldman.status);
