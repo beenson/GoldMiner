@@ -11,6 +11,7 @@
         }
         this.time = 60;
         this.money = parseInt(localStorage.getItem("myMoney"));
+        this.earnPlaying = 0;
         //load sound
         //載入要被播放的音樂清單
         //資料夾內只提供mp3檔案, 其餘的音樂檔案, 請自行轉檔測試
@@ -31,6 +32,15 @@
                 mp3: define.soundPath + 'EarnMoney.mp3'
             },
             earnMoney2: {
+                mp3: define.soundPath + 'Shopping.mp3'
+            },
+            earnMoney2_0: {
+                mp3: define.soundPath + 'Shopping.mp3'
+            },
+            earnMoney2_1: {
+                mp3: define.soundPath + 'Shopping.mp3'
+            },
+            earnMoney2_2: {
                 mp3: define.soundPath + 'Shopping.mp3'
             },
             bad: {
@@ -357,6 +367,11 @@
         }
     },
 
+    playEarn:function() {
+        this.earnPlaying = (this.earnPlaying + 1) % 3;
+        this.audio.play({name: 'earnMoney2_' + this.earnPlaying});
+    },
+
     draw:function(parentCtx){
         this.rootScene.draw();
         if(this.haveLoaded === 0){
@@ -435,6 +450,7 @@
                 this.Oldman.money += 3000;
                 this.Oldman.earnMoneyAnime(3000, 'money');
                 this.m_pressed = true;
+                this.playEarn();
                 break;
             case 'Q':
                 if(this.Oldman.status == 'pulling') {

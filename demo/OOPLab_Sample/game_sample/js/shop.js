@@ -27,11 +27,16 @@ var Shop = Framework.Class(Framework.Level , {
         this.buy = [];
 
         this.itemlist = [];
-        this.itemlist.push(new shopItem(shopItems.bomb, this.rootScene));
-        this.itemlist.push(new shopItem(shopItems.potion, this.rootScene));
-        this.itemlist.push(new shopItem(shopItems.clover, this.rootScene));
-        this.itemlist.push(new shopItem(shopItems.book, this.rootScene));
-        this.itemlist.push(new shopItem(shopItems.bottle, this.rootScene));   //make diamond price higher
+        if(Math.random() <= 0.75)
+            this.itemlist.push(new shopItem(shopItems.bomb, this.rootScene));
+        if(Math.random() <= 0.5)
+            this.itemlist.push(new shopItem(shopItems.potion, this.rootScene));
+        if(Math.random() <= 0.9)
+            this.itemlist.push(new shopItem(shopItems.clover, this.rootScene));
+        if(Math.random() <= 0.8)
+            this.itemlist.push(new shopItem(shopItems.book, this.rootScene));
+        if(Math.random() <= 0.5)
+            this.itemlist.push(new shopItem(shopItems.bottle, this.rootScene));   //make diamond price higher
 
         //----------other setting---------- 
         this.waitNextlevel = false;
@@ -66,7 +71,7 @@ var Shop = Framework.Class(Framework.Level , {
     },
 
     loadingProgress: function(ctx, requestInfo) {
-        
+
     },
 
     update: function() {
