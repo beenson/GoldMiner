@@ -35,6 +35,10 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
             {text: 'Space　射出爪子', font: 'bold 36px Arial', color: 'white', textAlign: 'left'});
         this.hint_2 = new Text(this, 145, 720, 0, 0,
             {text: '↑　使用炸藥', font: 'bold 36px Arial', color: 'white', textAlign: 'left'});
+        this.hint_3 = new Text(this, 145, 770, 0, 0,
+            {text: 'M　立即獲得3000金幣', font: 'bold 36px Arial', color: 'white', textAlign: 'left'});
+        this.hint_4 = new Text(this, 145, 820, 0, 0,
+            {text: 'Q　立即收回抓取物品', font: 'bold 36px Arial', color: 'white', textAlign: 'left'});
 
         this.button = new Button(this, 430, 345, 230, 85, { text: 'Start', font: 'bold 85px sans-serif', color: 'brown', click: function() {
             Framework.Game.goToNextLevel();
@@ -82,6 +86,8 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
         this.hint_0.draw(parentCtx);
         this.hint_1.draw(parentCtx);
         this.hint_2.draw(parentCtx);
+        this.hint_3.draw(parentCtx);
+        this.hint_4.draw(parentCtx);
     },
 
     mousemove: function(e) {      

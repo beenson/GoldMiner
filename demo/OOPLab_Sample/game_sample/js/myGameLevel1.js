@@ -131,11 +131,11 @@
         
 
         //button
-        this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20, 70, 45,
+        this.backBtn1 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 350, 20, 70, 45,
         {text: '略過', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
             self.toNextLevel();
         }});
-        this.backBtn2 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 250, 20+45, 70, 45,
+        this.backBtn2 = new Button(this, (Framework.Game.getCanvasWidth() / 2) - 350, 20+45, 70, 45,
         {text: '關卡', font: 'bold 32px 標楷體', color: 'white', background: 'brown', textOffset: 8, click: function(){
             self.toNextLevel();
         }});
@@ -332,7 +332,9 @@
                 this.circle.rotation = Math.sin(((new Date() - this.startTime) / 3000) * Math.PI) * 65;
                 break;
             case "waiting":
-                this.Oldman.AnimationTxt.position.y -= 2;
+                if(this.Oldman.AnimationTxt.position.y > 10){
+                    this.Oldman.AnimationTxt.position.y -= 2;
+                }
                 this.draw(Framework.Game._context);
                 break;
             default:
@@ -344,6 +346,15 @@
             x: 0,
             y: this.length
         };
+
+        if(this.m_pressed){
+            if(this.Oldman.AnimationTxt.position.y > 10){
+                this.Oldman.AnimationTxt.position.y -= 2;
+            }
+            else{
+                this.m_pressed = false;
+            }
+        }
     },
 
     draw:function(parentCtx){
@@ -390,7 +401,7 @@
             parentCtx.stroke();
             this.circle.draw();
             
-            if(this.Oldman.status === 'waiting'){
+            if(this.Oldman.status === 'waiting' || this.m_pressed){
                 this.Oldman.AnimationTxt.draw(parentCtx);
             }
             
@@ -422,6 +433,8 @@
         switch(e.key) {
             case 'M':
                 this.Oldman.money += 3000;
+                this.Oldman.earnMoneyAnime(3000, 'money');
+                this.m_pressed = true;
                 break;
             case 'Q':
                 if(this.Oldman.status == 'pulling') {

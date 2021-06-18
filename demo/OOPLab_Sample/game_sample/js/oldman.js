@@ -177,8 +177,8 @@ var Oldman = Framework.exClass({
     },
 
     earnMoneyAnime: function(value, kind){
-        this.AnimationTxt.position = {x: (this.position.x)-170, y: (this.position.y)};
-        if(value > 800){
+        this.AnimationTxt.position = {x: (this.position.x)-200, y: (this.position.y)+20};
+        if(value > 800 && kind != 'money'){
             this.AnimationTxt.setColor('yellow');
             if(kind === 'bomb')
             {
