@@ -29,10 +29,17 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
             x:430,
             y:345
         };
+        this.hint_0 = new Text(this, 110, 620, 0, 0,
+            {text: '玩法說明:', font: 'bold 36px Arial', color: 'white', textAlign: 'left'});
+        this.hint_1 = new Text(this, 145, 670, 0, 0,
+            {text: 'Space　射出爪子', font: 'bold 36px Arial', color: 'white', textAlign: 'left'});
+        this.hint_2 = new Text(this, 145, 720, 0, 0,
+            {text: '↑　使用炸藥', font: 'bold 36px Arial', color: 'white', textAlign: 'left'});
+
         this.button = new Button(this, 430, 345, 230, 85, { text: 'Start', font: 'bold 85px sans-serif', color: 'brown', click: function() {
             Framework.Game.goToNextLevel();
         }});
-        
+
         //為了讓之後的位置較好操控, new出一個位於中心點且可以黏貼任何東西的容器
         //注意, Position都是用中心點
         this.center = new Framework.Scene();
@@ -72,6 +79,9 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
     draw:function(parentCtx){
         this.rootScene.draw();
         this.button.draw(parentCtx);
+        this.hint_0.draw(parentCtx);
+        this.hint_1.draw(parentCtx);
+        this.hint_2.draw(parentCtx);
     },
 
     mousemove: function(e) {      
