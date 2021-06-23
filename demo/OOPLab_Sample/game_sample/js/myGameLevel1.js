@@ -12,6 +12,7 @@
         this.time = 60;
         this.money = parseInt(localStorage.getItem("myMoney"));
         this.earnPlaying = 0;
+        this.isFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) || (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) || (document.mozFullScreenElement && document.mozFullScreenElement !== null) || (document.msFullscreenElement && document.msFullscreenElement !== null);
         //load sound
         //載入要被播放的音樂清單
         //資料夾內只提供mp3檔案, 其餘的音樂檔案, 請自行轉檔測試
@@ -437,8 +438,11 @@
                 this.rootScene.attach(this.result);
                 this.rootScene.detach(this.loadingPic);
                 this.rootScene.detach(this.goalFail);
+                this.goalAttached = true;
+            }
+            else{
+                this.resultTxt.draw(parentCtx)
             } 
-            this.resultTxt.draw(parentCtx)
         }
     },
 

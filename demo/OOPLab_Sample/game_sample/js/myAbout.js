@@ -1,15 +1,16 @@
 var MyAbout = Framework.Class(Framework.Level , {
 	load: function(){
-        this.backBtn = new Button(this, 100, 100, 410, 85,
-        { text: 'Go back to menu', font: 'bold 48px sans-serif', color: 'white', background: 'gray', textOffset: 20, click: function() {
-            Framework.Game.goToLevel('menu');
-        }});
-
         this.background = new Framework.Sprite(define.imagePath + 'black_big.png');
         this.background.scale = 1;
         this.background.position = {x: Framework.Game.getCanvasWidth() / 2, y: Framework.Game.getCanvasHeight() / 2};
         this.rootScene.attach(this.background);
+        this.isFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) || (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) || (document.mozFullScreenElement && document.mozFullScreenElement !== null) || (document.msFullscreenElement && document.msFullscreenElement !== null);
+
         //製作名單等文字
+        this.backBtn = new Button(this, 100, 100, 410, 85,
+        { text: 'Go back to menu', font: 'bold 48px sans-serif', color: 'white', background: 'gray', textOffset: 20, click: function() {
+            Framework.Game.goToLevel('menu');
+        }});
         this.texts = []
         this.texts.push(new Text(this, 100, 350, 0, 0,{text: '作者:', font: 'bold 36px 標楷體', color: 'white', textAlign: 'left'}));
         this.texts.push(new Text(this, 255+72, 400, 0, 0,{text: '第13組', font: 'bold 36px 標楷體', color: 'white', textAlign: 'left'}));
@@ -37,7 +38,15 @@ var MyAbout = Framework.Class(Framework.Level , {
     },
 
     keydown:function(e, list){
-        
+        if(e.key === 'Enter') {
+            if(!this.isFullScreen) {
+                document.documentElement.requestFullscreen()
+                this.isFullScreen = true;
+            } else {
+                document.exitFullscreen()
+                this.isFullScreen = false;
+            }
+        }
     },
 
     touchstart: function (e) {

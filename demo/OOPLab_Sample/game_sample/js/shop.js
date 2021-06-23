@@ -1,5 +1,6 @@
 var Shop = Framework.Class(Framework.Level , {
 	load: function(){
+        this.isFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) || (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) || (document.mozFullScreenElement && document.mozFullScreenElement !== null) || (document.msFullscreenElement && document.msFullscreenElement !== null);
         //----------background----------
         this.blackPic1 = new Framework.Sprite(define.imagePath + 'black.png');
         this.blackPic1.scale = 5;
@@ -25,7 +26,6 @@ var Shop = Framework.Class(Framework.Level , {
         });
         //----------items----------
         this.buy = [];
-
         this.itemlist = [];
         if(Math.random() <= 0.75)
             this.itemlist.push(new shopItem(shopItems.bomb, this.rootScene));
@@ -37,7 +37,6 @@ var Shop = Framework.Class(Framework.Level , {
             this.itemlist.push(new shopItem(shopItems.book, this.rootScene));
         if(Math.random() <= 0.5)
             this.itemlist.push(new shopItem(shopItems.bottle, this.rootScene));   //make diamond price higher
-
         //----------other setting---------- 
         this.waitNextlevel = false;
         this.bombOriginal = parseInt(localStorage.getItem('bomb')); //原本持有的炸彈數量
@@ -98,42 +97,15 @@ var Shop = Framework.Class(Framework.Level , {
     },
 
     keydown:function(e, list){
-        /*Framework.DebugInfo.Log.warning(e.key);
-        console.log(e.key);
-        if(e.key === 'Numpad +' || e.key === '=') {
-            this.circleSpeed += 0.05;
-        }
-
-        if(e.key === 'Numpad -' || e.key === '-') {
-            this.circleSpeed -= 0.05;
-        }
-
-        if(e.key === 'Space') {
-            if(this.Oldman.status === "default"){
-                this.Oldman.shoot();
-            }
-        }
-
-        if(e.key === 'Pause/Break') {
-            //AnimationSprite支援停止正在播放的圖片
-        }
-
-        if(e.key === 'F5') {
-            //AnimationSprite可以恢復暫停正在播放的圖片
-        },*/
-
         if(e.key === 'Enter') {
             if(!this.isFullScreen) {
-                //Framework.Game.fullScreen();
                 document.documentElement.requestFullscreen()
                 this.isFullScreen = true;
             } else {
-                //Framework.Game.exitFullScreen();
                 document.exitFullscreen()
                 this.isFullScreen = false;
             }
         }
-
     },
 
     
@@ -154,7 +126,6 @@ var Shop = Framework.Class(Framework.Level , {
 
     click: function (e) {  
         //console.log(e.x, e.y);
-
         this.itemlist.forEach(element => {
             if(element.detect(e)){
                 this.audio.play({name: 'deal'});
@@ -173,8 +144,7 @@ var Shop = Framework.Class(Framework.Level , {
             }
         });
 
-        localStorage.setItem('buyItem', this.buy)
-        
+        localStorage.setItem('buyItem', this.buy)       
         this.btn.click(e);
     },
 

@@ -29,16 +29,13 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
             x:430,
             y:345
         };
-        this.hint_0 = new Text(this, 110, 620, 0, 0,
-            {text: '玩法說明:', font: 'bold 36px Arial', color: 'white', textAlign: 'left'});
-        this.hint_1 = new Text(this, 145, 670, 0, 0,
-            {text: 'Space　射出爪子', font: 'bold 36px Arial', color: 'white', textAlign: 'left'});
-        this.hint_2 = new Text(this, 145, 720, 0, 0,
-            {text: '↑　使用炸藥', font: 'bold 36px Arial', color: 'white', textAlign: 'left'});
-        this.hint_3 = new Text(this, 145, 770, 0, 0,
-            {text: 'M　立即獲得3000金幣', font: 'bold 36px Arial', color: 'white', textAlign: 'left'});
-        this.hint_4 = new Text(this, 145, 820, 0, 0,
-            {text: 'Q　立即收回抓取物品', font: 'bold 36px Arial', color: 'white', textAlign: 'left'});
+
+        this.hint = []
+        this.hint.push(new Text(this, 110, 620, 0, 0,{text: '玩法說明:', font: 'bold 36px Arial', color: 'white', textAlign: 'left'}));
+        this.hint.push(new Text(this, 145, 670, 0, 0,{text: 'Space　射出爪子', font: 'bold 36px Arial', color: 'white', textAlign: 'left'}));
+        this.hint.push(new Text(this, 145, 720, 0, 0,{text: '↑　使用炸藥', font: 'bold 36px Arial', color: 'white', textAlign: 'left'}));
+        this.hint.push(new Text(this, 145, 770, 0, 0,{text: 'M　立即獲得3000金幣', font: 'bold 36px Arial', color: 'white', textAlign: 'left'}));
+        this.hint.push(new Text(this, 145, 820, 0, 0,{text: 'Q　立即收回抓取物品', font: 'bold 36px Arial', color: 'white', textAlign: 'left'}));
 
         this.startBtn = new Button(this, 430, 345, 230, 85, { text: 'Start', font: 'bold 85px sans-serif', color: 'brown', click: function() {
             Framework.Game.goToLevel('level');
@@ -79,8 +76,6 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
         this.rootScene.update();
         this.startBtn.update();
         this.aboutBtn.update();
-        //this.rootScene.update(); 
-
         //目前的Framework, 當任何一個GameObject不做attach時, 則必須要自行update
         // this.center.update();        
         //this.scrollBar.update();
@@ -90,11 +85,9 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
         this.rootScene.draw();
         this.startBtn.draw(parentCtx);
         this.aboutBtn.draw(parentCtx);
-        this.hint_0.draw(parentCtx);
-        this.hint_1.draw(parentCtx);
-        this.hint_2.draw(parentCtx);
-        this.hint_3.draw(parentCtx);
-        this.hint_4.draw(parentCtx);
+        this.hint.forEach(element => {
+            element.draw(parentCtx);
+        });
     },
 
     mousemove: function(e) {      
@@ -121,5 +114,17 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
     
     touchmove: function (e) {
         this.mousemove({ x: e.touches[0].clientX, y: e.touches[0].clientY });
-    }
+    },
+
+    keydown:function(e, list){
+        if(e.key === 'Enter') {
+            if(!this.isFullScreen) {
+                document.documentElement.requestFullscreen()
+                this.isFullScreen = true;
+            } else {
+                document.exitFullscreen()
+                this.isFullScreen = false;
+            }
+        }
+    },
 });
