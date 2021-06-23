@@ -9,7 +9,14 @@ var MyAbout = Framework.Class(Framework.Level , {
         this.background.scale = 1;
         this.background.position = {x: Framework.Game.getCanvasWidth() / 2, y: Framework.Game.getCanvasHeight() / 2};
         this.rootScene.attach(this.background);
-        //製作名單
+        //製作名單等文字
+        this.texts = []
+        this.texts.push(new Text(this, 100, 350, 0, 0,{text: '作者:', font: 'bold 36px 標楷體', color: 'white', textAlign: 'left'}));
+        this.texts.push(new Text(this, 255+72, 400, 0, 0,{text: '第13組', font: 'bold 36px 標楷體', color: 'white', textAlign: 'left'}));
+        this.texts.push(new Text(this, 172, 450, 0, 0,{text: '資工二 108590005 何秉育', font: 'bold 36px 標楷體', color: 'white', textAlign: 'left'}));
+        this.texts.push(new Text(this, 172, 500, 0, 0,{text: '資工二 108590027 劉程耀', font: 'bold 36px 標楷體', color: 'white', textAlign: 'left'}));
+        this.texts.push(new Text(this, Framework.Game.getCanvasWidth() / 2, 350, 0, 0,{text: '指導教授:', font: 'bold 36px 標楷體', color: 'white', textAlign: 'left'}));
+        this.texts.push(new Text(this, (Framework.Game.getCanvasWidth() / 2)+72, 400, 0, 0,{text: '陳碩漢 教授', font: 'bold 36px 標楷體', color: 'white', textAlign: 'left'}));
 	},
 
     initialize: function() {
@@ -24,17 +31,9 @@ var MyAbout = Framework.Class(Framework.Level , {
     draw:function(parentCtx){
         this.rootScene.draw();
         this.backBtn.draw(parentCtx);
-        console.log('draw');
-        //可支援畫各種單純的圖形和字
-        /*parentCtx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
-        parentCtx.fillRect(this.rectPosition.x , this.rectPosition.y, 260, 90);  
-        parentCtx.font = '65pt bold';
-        parentCtx.fillStyle = 'white';
-        parentCtx.textBaseline = 'top';
-        parentCtx.textAlign = 'center';
-        parentCtx.fillText('Click Me', this.rectPosition.x + 130, this.rectPosition.y, 260);*/
-         
-        
+        this.texts.forEach(element => {
+            element.draw(parentCtx)
+        });
     },
 
     keydown:function(e, list){

@@ -41,7 +41,7 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
             {text: 'Q　立即收回抓取物品', font: 'bold 36px Arial', color: 'white', textAlign: 'left'});
 
         this.startBtn = new Button(this, 430, 345, 230, 85, { text: 'Start', font: 'bold 85px sans-serif', color: 'brown', click: function() {
-            Framework.Game.goToNextLevel();
+            Framework.Game.goToLevel('level');
         }});
 
         this.aboutBtn = new Button(this, (Framework.Game.getCanvasWidth() / 2)-200, Framework.Game.getCanvasHeight()-150, 230, 85,
