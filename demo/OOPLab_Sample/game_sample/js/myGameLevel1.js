@@ -449,41 +449,43 @@
     keydown:function(e, list){
         Framework.DebugInfo.Log.warning(e.key);
         console.log(e.key);
-        switch(e.key) {
-            case 'M':
-                this.Oldman.money += 3000;
-                this.Oldman.earnMoneyAnime(3000, 'money');
-                this.m_pressed = true;
-                this.playEarn();
-                break;
-            case 'Q':
-                if(this.Oldman.status == 'pulling') {
-                    this.length = this.initLen;
-                }
-                break;
-            case 'Space':
-                if(this.Oldman.status === "default"){
-                    this.Oldman.shoot();
-                }
-                break;
-            case 'Up':
-                if(this.Oldman.bomb.length > 0 && this.Oldman.grabbing && !this.pressUp){
-                    this.pressUp = true;            //是否按上
-                    this.isBombAttached = false;    //是否attach
-                }
-                break;
-            case 'Enter':
-                if(!this.isFullScreen) {
-                    //Framework.Game.fullScreen();
-                    document.documentElement.requestFullscreen()
-                    this.isFullScreen = true;
-                } else {
-                    //Framework.Game.exitFullScreen();
-                    document.exitFullscreen()
-                    this.isFullScreen = false;
-                }
-                break;
+        if(this.haveLoaded === 1){
+            switch(e.key) {
+                case 'M':
+                    this.Oldman.money += 3000;
+                    this.Oldman.earnMoneyAnime(3000, 'money');
+                    this.m_pressed = true;
+                    this.playEarn();
+                    break;
+                case 'Q':
+                    if(this.Oldman.status == 'pulling') {
+                        this.length = this.initLen;
+                    }
+                    break;
+                case 'Space':
+                    if(this.Oldman.status === "default"){
+                        this.Oldman.shoot();
+                    }
+                    break;
+                case 'Up':
+                    if(this.Oldman.bomb.length > 0 && this.Oldman.grabbing && !this.pressUp){
+                        this.pressUp = true;            //是否按上
+                        this.isBombAttached = false;    //是否attach
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
+        if(e.key == 'Enter'){
+            if(!this.isFullScreen) {
+                document.documentElement.requestFullscreen()
+                this.isFullScreen = true;
+            } else {
+                document.exitFullscreen()
+                this.isFullScreen = false;
+            }
+        }        
     },
 
     

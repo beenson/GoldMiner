@@ -41,10 +41,8 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
             Framework.Game.goToLevel('level');
         }});
 
-        this.aboutBtn = new Button(this, (Framework.Game.getCanvasWidth() / 2)-200, Framework.Game.getCanvasHeight()-150, 230, 85,
-        { text: 'About us', font: 'bold 48px sans-serif', color: 'white', background: 'gray', textOffset: 20, click: function() {
-            Framework.Game.goToLevel('about');
-        }});
+        this.aboutBtn = new Framework.Sprite(define.imagePath + 'button.png');
+        this.aboutBtn.position = {x:(Framework.Game.getCanvasWidth() / 2)-100, y: Framework.Game.getCanvasHeight()-125};
 
         //為了讓之後的位置較好操控, new出一個位於中心點且可以黏貼任何東西的容器
         //注意, Position都是用中心點
@@ -66,6 +64,7 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
         //rootScene為系統預設的容器, 由於其他東西都被attach到center上
         //將物件attach到center上, 順序是會影響繪製出來的效果的
         this.rootScene.attach(this.center);
+        this.rootScene.attach(this.aboutBtn);
 	},
 	
     initialize: function() {
@@ -75,7 +74,6 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
     update:function(){     
         this.rootScene.update();
         this.startBtn.update();
-        this.aboutBtn.update();
         //目前的Framework, 當任何一個GameObject不做attach時, 則必須要自行update
         // this.center.update();        
         //this.scrollBar.update();
@@ -84,7 +82,6 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
     draw:function(parentCtx){
         this.rootScene.draw();
         this.startBtn.draw(parentCtx);
-        this.aboutBtn.draw(parentCtx);
         this.hint.forEach(element => {
             element.draw(parentCtx);
         });
@@ -92,14 +89,14 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
 
     mousemove: function(e) {      
         this.startBtn.mousemove(e);
-        this.aboutBtn.mousemove(e);
     },
 
     click: function(e) {
-        console.log(e);
-
+        console.log(e.x, e.y);
         this.startBtn.click(e);
-        this.aboutBtn.click(e);
+        if(e.x>=this.aboutBtn.upperLeft.x && e.x<=this.aboutBtn.lowerRight.x && e.y>=this.aboutBtn.upperLeft.y &&  e.y<=this.aboutBtn.lowerRight.y){
+            Framework.Game.goToLevel('about');
+        }
     },
 
     touchstart: function (e) {

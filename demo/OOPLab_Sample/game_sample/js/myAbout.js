@@ -7,17 +7,18 @@ var MyAbout = Framework.Class(Framework.Level , {
         this.isFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) || (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) || (document.mozFullScreenElement && document.mozFullScreenElement !== null) || (document.msFullscreenElement && document.msFullscreenElement !== null);
 
         //製作名單等文字
-        this.backBtn = new Button(this, 100, 100, 410, 85,
-        { text: 'Go back to menu', font: 'bold 48px sans-serif', color: 'white', background: 'gray', textOffset: 20, click: function() {
-            Framework.Game.goToLevel('menu');
-        }});
+        this.backBtn = new Framework.Sprite(define.imagePath + 'arrow.png');
+        this.backBtn.position = {x: 150, y: 200};
+        
         this.texts = []
+        this.texts.push(new Text(this, 90, 185, 0, 0,{text: 'Go back', font: 'bold 36px Arial', color: 'white', textAlign: 'left'}));
         this.texts.push(new Text(this, 100, 350, 0, 0,{text: '作者:', font: 'bold 36px 標楷體', color: 'white', textAlign: 'left'}));
         this.texts.push(new Text(this, 255+72, 400, 0, 0,{text: '第13組', font: 'bold 36px 標楷體', color: 'white', textAlign: 'left'}));
         this.texts.push(new Text(this, 172, 450, 0, 0,{text: '資工二 108590005 何秉育', font: 'bold 36px 標楷體', color: 'white', textAlign: 'left'}));
         this.texts.push(new Text(this, 172, 500, 0, 0,{text: '資工二 108590027 劉程耀', font: 'bold 36px 標楷體', color: 'white', textAlign: 'left'}));
         this.texts.push(new Text(this, Framework.Game.getCanvasWidth() / 2, 350, 0, 0,{text: '指導教授:', font: 'bold 36px 標楷體', color: 'white', textAlign: 'left'}));
         this.texts.push(new Text(this, (Framework.Game.getCanvasWidth() / 2)+72, 400, 0, 0,{text: '陳碩漢 教授', font: 'bold 36px 標楷體', color: 'white', textAlign: 'left'}));
+        this.rootScene.attach(this.backBtn);
 	},
 
     initialize: function() {
@@ -25,15 +26,13 @@ var MyAbout = Framework.Class(Framework.Level , {
     },
 
     update: function() {
-        this.rootScene.update();
-        this.backBtn.update();                             
+        this.rootScene.update();                        
     },
 
     draw:function(parentCtx){
         this.rootScene.draw();
-        this.backBtn.draw(parentCtx);
         this.texts.forEach(element => {
-            element.draw(parentCtx)
+            element.draw(parentCtx);
         });
     },
 
@@ -54,12 +53,14 @@ var MyAbout = Framework.Class(Framework.Level , {
         //又要減少Duplicated code, 故在Touch事件被觸發時, 去Trigger Mouse事件
         this.click({ x: e.touches[0].clientX, y: e.touches[0].clientY });
     },
-
-    mousemove: function(e) {   
-        this.backBtn.mousemove(e);
-    },
     
     click: function (e) {  
-        this.backBtn.click(e);
+        if(e.x>=this.backBtn.upperLeft.x && e.x<=this.backBtn.lowerRight.x && e.y>=this.backBtn.upperLeft.y &&  e.y<=this.backBtn.lowerRight.y){
+            Framework.Game.goToLevel('menu');
+        }
+    },
+
+    mousemove: function(e) {
+        
     },
 });
