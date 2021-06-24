@@ -20,9 +20,9 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
 	load: function(){
         localStorage.clear();
         localStorage.setItem('currentLevel', 1);
-        localStorage.setItem('myMoney', 500);
+        localStorage.setItem('myMoney', 0);
         localStorage.setItem('buyItem', []);
-        localStorage.setItem('bomb', 2);
+        localStorage.setItem('bomb', 0);
         this.menu = new Framework.Sprite(define.backgroundPath + 'Menu.jpg');
 
         this.start = {
@@ -31,11 +31,12 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
         };
 
         this.hint = []
-        this.hint.push(new Text(this, 110, 620, 0, 0,{text: '玩法說明:', font: 'bold 36px Arial', color: 'white', textAlign: 'left'}));
-        this.hint.push(new Text(this, 145, 670, 0, 0,{text: 'Space　射出爪子', font: 'bold 36px Arial', color: 'white', textAlign: 'left'}));
-        this.hint.push(new Text(this, 145, 720, 0, 0,{text: '↑　使用炸藥', font: 'bold 36px Arial', color: 'white', textAlign: 'left'}));
-        this.hint.push(new Text(this, 145, 770, 0, 0,{text: 'M　立即獲得3000金幣', font: 'bold 36px Arial', color: 'white', textAlign: 'left'}));
-        this.hint.push(new Text(this, 145, 820, 0, 0,{text: 'Q　立即收回抓取物品', font: 'bold 36px Arial', color: 'white', textAlign: 'left'}));
+        this.hint.push(new Text(this, 110, 600, 0, 0,{text: '玩法說明:', font: 'bold 36px Arial', color: 'white', textAlign: 'left'}));
+        this.hint.push(new Text(this, 145, 650, 0, 0,{text: 'Space 射出爪子', font: 'bold 36px Arial', color: 'white', textAlign: 'left'}));
+        this.hint.push(new Text(this, 145, 700, 0, 0,{text: '↑ 使用炸藥', font: 'bold 36px Arial', color: 'white', textAlign: 'left'}));
+        this.hint.push(new Text(this, 145, 750, 0, 0,{text: 'M 立即獲得3000金幣', font: 'bold 36px Arial', color: 'white', textAlign: 'left'}));
+        this.hint.push(new Text(this, 145, 800, 0, 0,{text: 'Q 立即收回抓取物品', font: 'bold 36px Arial', color: 'white', textAlign: 'left'}));
+        this.hint.push(new Text(this, 145, 850, 0, 0,{text: 'B 增加一個炸藥', font: 'bold 36px Arial', color: 'white', textAlign: 'left'}));
 
         this.startBtn = new Button(this, 430, 345, 230, 85, { text: 'Start', font: 'bold 85px sans-serif', color: 'brown', click: function() {
             Framework.Game.goToLevel('level');

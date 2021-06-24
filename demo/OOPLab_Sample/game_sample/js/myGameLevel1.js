@@ -462,6 +462,9 @@
                         this.length = this.initLen;
                     }
                     break;
+                case 'B':
+                    this.Oldman.addBomb();
+                    break;
                 case 'Space':
                     if(this.Oldman.status === "default"){
                         this.Oldman.shoot();
